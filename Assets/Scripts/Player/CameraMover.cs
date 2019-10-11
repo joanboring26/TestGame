@@ -13,6 +13,7 @@ public class CameraMover : MonoBehaviour
     */
     public Transform cameraShakeHolder;
     public Transform player;
+    public Transform playerLook;
 
 
     float cLerp = 0.5f;

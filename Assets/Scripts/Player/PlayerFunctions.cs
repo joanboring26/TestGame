@@ -4,15 +4,36 @@ using UnityEngine;
 
 public class PlayerFunctions : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    Rigidbody pRig;
+
+    [Header("Movement vars")]
+    public float speed;
+    public float dashSpd;
+
+    public static float movHorizontal;
+    public static float movVertical;
+
+    public void playerMove()
     {
-        
+        movHorizontal = Input.GetAxis("Horizontal") * -speed;
+        movVertical = Input.GetAxis("Vertical") * -speed;
+        movHorizontal *= Time.deltaTime;
+        movVertical *= Time.deltaTime;
+        transform.Translate(movHorizontal, pRig.velocity.y * Time.deltaTime, movVertical);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void initDash()
     {
-        
+        pRig.AddForce(new Vector3(movHorizontal * dashSpd, 0, movVertical * dashSpd));
+    }
+
+    public void initRoll()
+    {
+
+    }
+
+    public void startDefend()
+    {
+
     }
 }

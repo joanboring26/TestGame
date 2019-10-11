@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MovPlayer : MonoBehaviour
 {
+    [Header("Movement vars")]
     public float speed;
 
     public static float movHorizontal;
@@ -18,7 +19,7 @@ public class MovPlayer : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void playerMove()
     {
         if ((Input.GetAxis("Horizontal") != 0) || (Input.GetAxis("Vertical") != 0))
         {

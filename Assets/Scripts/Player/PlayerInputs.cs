@@ -11,6 +11,19 @@ public class PlayerInputs : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if ((Input.GetAxis("Horizontal") != 0) || (Input.GetAxis("Vertical") != 0))
+        {
+            pFunc.playerMove();
+        }
+
+        if(Input.GetButtonDown("shift"))
+        {
+            pFunc.initDash();
+        }
+
+        if(Input.GetMouseButtonDown(0))
+        {
+            pFunc.startDefend();
+        }
     }
 }
