@@ -13,6 +13,10 @@ public class EnemyMov : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+<<<<<<< Updated upstream
+=======
+       
+>>>>>>> Stashed changes
         nav = GetComponent<NavMeshAgent>();
     }
 
