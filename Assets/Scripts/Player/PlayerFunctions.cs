@@ -4,35 +4,48 @@ using UnityEngine;
 
 public class PlayerFunctions : MonoBehaviour
 {
-    Rigidbody pRig;
+    public Rigidbody pRig;
 
     [Header("Movement vars")]
     public float speed;
     public float dashSpd;
+    public bool isRolling;
+    public float rollSpeed;
+    public int rollLayer;
 
     public static float movHorizontal;
     public static float movVertical;
 
-    public void playerMove()
+    public void PlayerMove()
     {
-        movHorizontal = Input.GetAxis("Horizontal") * -speed;
-        movVertical = Input.GetAxis("Vertical") * -speed;
-        movHorizontal *= Time.deltaTime;
-        movVertical *= Time.deltaTime;
-        transform.Translate(movHorizontal, pRig.velocity.y * Time.deltaTime, movVertical);
+        if(isRolling)
+        {
+            movHorizontal = Input.GetAxis("Horizontal") * -rollSpeed;
+            movVertical = Input.GetAxis("Vertical") * -rollSpeed;
+            movHorizontal *= Time.deltaTime;
+            movVertical *= Time.deltaTime;
+            transform.Translate(movHorizontal, pRig.velocity.y * Time.deltaTime, movVertical);
+        }
+        {
+            movHorizontal = Input.GetAxis("Horizontal") * -speed;
+            movVertical = Input.GetAxis("Vertical") * -speed;
+            movHorizontal *= Time.deltaTime;
+            movVertical *= Time.deltaTime;
+            transform.Translate(movHorizontal, pRig.velocity.y * Time.deltaTime, movVertical);
+        }
     }
 
-    public void initDash()
+    public void InitDash()
     {
         pRig.AddForce(new Vector3(movHorizontal * dashSpd, 0, movVertical * dashSpd));
     }
 
-    public void initRoll()
+    public void InitRoll()
     {
 
     }
 
-    public void startDefend()
+    public void StartDefend()
     {
 
     }

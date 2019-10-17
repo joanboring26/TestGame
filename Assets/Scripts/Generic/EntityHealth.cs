@@ -5,6 +5,7 @@ using UnityEngine;
 public class EntityHealth : MonoBehaviour
 {
     public float hp;
+    public GameObject deadSprite;
 
     //Script will broadcast this message to the thing it is attached to when it dies
     public string deathMessage;
@@ -18,7 +19,9 @@ public class EntityHealth : MonoBehaviour
 
         if(hp <= 0)
         {
-            BroadcastMessage(deathMessage, hp);
+            Instantiate(deadSprite, transform.position, transform.rotation);
+            SendMessageUpwards(deathMessage, hp);
         }
     }
+
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerInputs : MonoBehaviour
 {
 
-    PlayerFunctions pFunc;
+    public PlayerFunctions pFunc;
     // Start is called before the first frame update
 
     // Update is called once per frame
@@ -13,17 +13,22 @@ public class PlayerInputs : MonoBehaviour
     {
         if ((Input.GetAxis("Horizontal") != 0) || (Input.GetAxis("Vertical") != 0))
         {
-            pFunc.playerMove();
+            pFunc.PlayerMove();
         }
 
-        if(Input.GetButtonDown("shift"))
+        if(Input.GetButtonDown("Dash"))
         {
-            pFunc.initDash();
+            pFunc.InitDash();
         }
 
         if(Input.GetMouseButtonDown(0))
         {
-            pFunc.startDefend();
+            pFunc.StartDefend();
+        }
+
+        if(Input.GetButtonDown("Roll"))
+        {
+            pFunc.InitRoll();
         }
     }
 }
