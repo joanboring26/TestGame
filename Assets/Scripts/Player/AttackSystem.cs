@@ -10,6 +10,10 @@ public class AttackSystem : MonoBehaviour
 
     public AttackScript attackBox;
 
+    public bool camShakeEnabled;
+    public float attackShake;
+    public CameraMover cam;
+
     float nextAttack = 0;
 
     public void Start()
@@ -21,13 +25,14 @@ public class AttackSystem : MonoBehaviour
     {
         if(Time.time > nextAttack)
         {
-            Debug.Log("Attacking!");
+            //Debug.Log("Attacking!");
             nextAttack = Time.time + attackRate;
+            cam.camShake(attackShake);
             StartCoroutine(attackBox.attack());
         }
         else
         {
-            Debug.Log("Didnt attack");
+            //Debug.Log("Didnt attack");
         }
     }
 }
