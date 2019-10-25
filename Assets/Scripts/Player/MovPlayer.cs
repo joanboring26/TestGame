@@ -37,7 +37,11 @@ public class MovPlayer : MonoBehaviour
 
     public void InitDash()
     {
-        pRig.AddForce(new Vector3(movHorizontal * dashSpd, 0, movVertical * dashSpd), ForceMode.VelocityChange);
+        Vector2 tempVec;
+        tempVec.x = movHorizontal * Time.deltaTime;
+        tempVec.y = movVertical * Time.deltaTime;
+        tempVec.Normalize();
+        pRig.velocity = new Vector3(tempVec.x * dashSpd, 0, tempVec.y * dashSpd);
     }
 
     public void InitRoll()
@@ -48,14 +52,20 @@ public class MovPlayer : MonoBehaviour
     IEnumerator rollMove()
     {
         isRolling = true;
+        Vector2 tempVec;
+        tempVec.x = 0;
+        tempVec.y = 0;
         float nextRoll = Time.time + rollTime;
         while (nextRoll > Time.time)
         {
-            movHorizontal = movHorizontal * Time.deltaTime * -rollSpeed;
-            movVertical = movVertical * Time.deltaTime * -rollSpeed;
-            transform.Translate(movHorizontal, pRig.velocity.y * Time.deltaTime, movVertical);
+            tempVec.x = movHorizontal * Time.deltaTime;
+            tempVec.y = movVertical * Time.deltaTime;
+            tempVec.Normalize();
+            tempVec *= rollSpeed;
+            pRig.velocity = new Vector3(tempVec.x * -rollSpeed, 0, tempVec.y * -rollSpeed);
             yield return new WaitForEndOfFrame();
         }
         isRolling = false;
+        pRig.velocity = new Vector3(tempVec.x, 0, tempVec.y);
     }
 }
