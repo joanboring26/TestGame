@@ -10,14 +10,11 @@ public class AttackSystem : MonoBehaviour
 
     public AttackScript attackBox;
 
-    private bool canAttack;
-
     float nextAttack = 0;
 
     public void Start()
     {
         attackBox.GetComponent<AttackScript>().attackDmg = damage;
-        canAttack = true;
     }
 
     public void initAttack()
