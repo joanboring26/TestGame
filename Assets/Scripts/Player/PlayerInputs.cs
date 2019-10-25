@@ -6,6 +6,7 @@ using TMPro;
 public class PlayerInputs : MonoBehaviour
 {
     public MovPlayer pFunc;
+    public AttackSystem pAttack;
     // Start is called before the first frame update
     [SerializeField]
     private TextMeshProUGUI text;
@@ -25,7 +26,7 @@ public class PlayerInputs : MonoBehaviour
 
         if(Input.GetMouseButtonDown(0))
         {
-            StartCoroutine(WriteText());
+            pAttack.initAttack();
         }
 
         if(Input.GetButtonDown("Roll"))
