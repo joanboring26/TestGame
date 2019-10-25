@@ -8,30 +8,29 @@ public class AttackSystem : MonoBehaviour
 
     public float attackRate;
 
-    public GameObject attackBox;
+    public AttackScript attackBox;
 
     private bool canAttack;
+
+    float nextAttack = 0;
 
     public void Start()
     {
         attackBox.GetComponent<AttackScript>().attackDmg = damage;
+        canAttack = true;
     }
 
     public void initAttack()
     {
-        if(canAttack)
+        if(Time.time > nextAttack)
         {
-            StartCoroutine(attack());
+            Debug.Log("Attacking!");
+            nextAttack = Time.time + attackRate;
+            StartCoroutine(attackBox.attack());
+        }
+        else
+        {
+            Debug.Log("Didnt attack");
         }
     }
-
-    IEnumerator attack()
-    {
-        canAttack = false;
-        attackBox.GetComponent<BoxCollider>().enabled = true;
-        yield return new WaitForSeconds(attackRate);
-        canAttack = true;
-        attackBox.GetComponent<BoxCollider>().enabled = false;
-    }
-
 }
