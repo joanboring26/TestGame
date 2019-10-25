@@ -4,29 +4,58 @@ using UnityEngine;
 
 public class MovPlayer : MonoBehaviour
 {
+    public Rigidbody pRig;
+
+    [Header("Movement vars")]
     public float speed;
+    public float dashSpd;
+
+    public bool isRolling;
+    public int rollLayer;
+    public float rollSpeed;
+    public float rollTime;
 
     public static float movHorizontal;
     public static float movVertical;
 
-    Rigidbody rig;
-
-    // Start is called before the first frame update
-    void Start()
+    public void PlayerMove()
     {
-        rig = GetComponent<Rigidbody>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if ((Input.GetAxis("Horizontal") != 0) || (Input.GetAxis("Vertical") != 0))
+        if (!isRolling)
         {
             movHorizontal = Input.GetAxis("Horizontal") * -speed;
             movVertical = Input.GetAxis("Vertical") * -speed;
             movHorizontal *= Time.deltaTime;
             movVertical *= Time.deltaTime;
-            transform.Translate(movHorizontal, rig.velocity.y * Time.deltaTime, movVertical);
+            transform.Translate(movHorizontal, pRig.velocity.y * Time.deltaTime, movVertical);
         }
+        else
+        {
+            movHorizontal = Input.GetAxis("Horizontal");
+            movVertical = Input.GetAxis("Vertical");
+        }
+    }
+
+    public void InitDash()
+    {
+        pRig.AddForce(new Vector3(movHorizontal * dashSpd, 0, movVertical * dashSpd), ForceMode.VelocityChange);
+    }
+
+    public void InitRoll()
+    {
+        StartCoroutine(rollMove());
+    }
+
+    IEnumerator rollMove()
+    {
+        isRolling = true;
+        float nextRoll = Time.time + rollTime;
+        while (nextRoll > Time.time)
+        {
+            movHorizontal = movHorizontal * Time.deltaTime * -rollSpeed;
+            movVertical = movVertical * Time.deltaTime * -rollSpeed;
+            transform.Translate(movHorizontal, pRig.velocity.y * Time.deltaTime, movVertical);
+            yield return new WaitForEndOfFrame();
+        }
+        isRolling = false;
     }
 }

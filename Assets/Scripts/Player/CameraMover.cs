@@ -31,7 +31,7 @@ public class CameraMover : MonoBehaviour
         cLerp = Mathf.Lerp(cLerp, 0.5f, recoveryRate);
         transform.position = Vector3.Lerp(MousePointer.MousePos, player.position, cLerp);
 
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, player.position.x - mouseRange, player.position.x + mouseRange), transform.position.y, Mathf.Clamp(transform.position.z, player.position.z - mouseRange, player.position.z + mouseRange));
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, player.position.x - mouseRange, player.position.x + mouseRange), transform.position.y + 10, Mathf.Clamp(transform.position.z, player.position.z - mouseRange, player.position.z + mouseRange));
 
     }
 
