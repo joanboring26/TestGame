@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerInputs : MonoBehaviour
 {
-
-    public PlayerFunctions pFunc;
+    public MovPlayer pFunc;
     // Start is called before the first frame update
-
+    [SerializeField]
+    private TextMeshProUGUI text;
+    
     // Update is called once per frame
     void Update()
     {
@@ -23,12 +25,21 @@ public class PlayerInputs : MonoBehaviour
 
         if(Input.GetMouseButtonDown(0))
         {
-            pFunc.StartDefend();
+            StartCoroutine(WriteText());
         }
 
         if(Input.GetButtonDown("Roll"))
         {
             pFunc.InitRoll();
+        }
+    }
+
+    IEnumerator WriteText()
+    {
+        while(true)
+        {
+            Debug.Log(text.text);
+            yield return new WaitForSeconds(1f);
         }
     }
 }
