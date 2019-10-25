@@ -149,11 +149,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pRig: {fileID: 44971322}
   speed: 7
-  dashSpd: 50
+  dashSpd: 8.2
   isRolling: 0
   rollLayer: 2
-  rollSpeed: 15
-  rollTime: 2
+  rollSpeed: 3
+  rollTime: 1.12
 --- !u!54 &44971322
 Rigidbody:
   m_ObjectHideFlags: 0
