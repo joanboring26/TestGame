@@ -4,9 +4,24 @@ using UnityEngine;
 
 public class AttackScript : MonoBehaviour
 {
+
+    public float activeAttackTime;
     public float attackDmg;
+
+    private void Start()
+    {
+        GetComponent<BoxCollider>().enabled = false;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         other.SendMessage("ModHealth", attackDmg);
+    }
+
+    public IEnumerator attack()
+    {
+        GetComponent<BoxCollider>().enabled = true;
+        yield return new WaitForSeconds(activeAttackTime);
+        GetComponent<BoxCollider>().enabled = false;
     }
 }
