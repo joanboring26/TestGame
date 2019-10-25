@@ -32,14 +32,13 @@ public class CameraMover : MonoBehaviour
         transform.position = Vector3.Lerp(MousePointer.MousePos, player.position, cLerp);
 
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, player.position.x - mouseRange, player.position.x + mouseRange), transform.position.y + 10, Mathf.Clamp(transform.position.z, player.position.z - mouseRange, player.position.z + mouseRange));
-
     }
 
     public void camShake(float recoil)
     {
         shakeAmt = recoil;
-        InvokeRepeating("DoShake", 0, 0.01f);
-        Invoke("StopShake", recoilDuration);
+        //InvokeRepeating("DoShake", 0, 0.01f);
+        //Invoke("StopShake", recoilDuration);
 
     }
 
@@ -63,6 +62,19 @@ public class CameraMover : MonoBehaviour
     {
         CancelInvoke("DoShake");
         cameraShakeHolder.localPosition = Vector3.zero;
+    }
+
+
+    IEnumerator cameraHit(Vector3 hitDir)
+    {
+        bool beingHit = true;
+        while(beingHit)
+        {
+            transform.position = Vector3.Lerp(this.transform.position, new Vector3(shakeAmt, this.transform.position.y, this.transform.position.z), Time.deltaTime * 10f);
+            shakeAmt = Mathf.Lerp(shakeAmt, 0, Time.deltaTime * 15f);
+
+            yield return new WaitForEndOfFrame();
+        }
     }
 }
 
