@@ -18,25 +18,34 @@ public class CameraMover : MonoBehaviour
     float cLerp = 0.5f;
 
     float shakeAmt;
+    Vector3 hitDir = new Vector3();
+    Vector3 firstDir = new Vector3();
 
     public float recoveryRate;
     public float maxRecoil;
     public float recoilDuration;
+
+    public float xRecoilTest;
+    public float yRecoilTest;
+    public float zRecoilTest;
 
 
     public float mouseRange;
 
     private void FixedUpdate()
     {
+        //Debug.Log(Quaternion.LookRotation((player.position - MousePointer.MousePos), player.up).eulerAngles);
         cLerp = Mathf.Lerp(cLerp, 0.5f, recoveryRate);
         transform.position = Vector3.Lerp(MousePointer.MousePos, player.position, cLerp);
-
+        
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, player.position.x - mouseRange, player.position.x + mouseRange), transform.position.y + 10, Mathf.Clamp(transform.position.z, player.position.z - mouseRange, player.position.z + mouseRange));
+        transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x + hitDir.x, transform.position.y + hitDir.y, transform.position.z + hitDir.z), Time.deltaTime * 10f);
     }
 
-    public void camShake(float recoil)
+    public void camShake(float recoil, Vector3 givHitDir)
     {
         shakeAmt = recoil;
+        StartCoroutine(cameraHit(givHitDir));
         //InvokeRepeating("DoShake", 0, 0.01f);
         //Invoke("StopShake", recoilDuration);
 
@@ -65,16 +74,38 @@ public class CameraMover : MonoBehaviour
     }
 
 
-    IEnumerator cameraHit(Vector3 hitDir)
+    IEnumerator cameraHit(Vector3 givHitDir)
     {
+        hitDir = givHitDir;
         bool beingHit = true;
+        bool hitP1 = true;
         while(beingHit)
         {
-            transform.position = Vector3.Lerp(this.transform.position, new Vector3(shakeAmt, this.transform.position.y, this.transform.position.z), Time.deltaTime * 10f);
-            shakeAmt = Mathf.Lerp(shakeAmt, 0, Time.deltaTime * 15f);
-
+            /*
+            if(hitP1)
+            {
+                
+                firstDir.x = Mathf.Lerp(firstDir.x, hitDir.x, Time.deltaTime * 15f);
+                firstDir.y = Mathf.Lerp(hitDir.y, 0, Time.deltaTime * 15f);
+                hitDir.z = Mathf.Lerp(hitDir.z, 0, Time.deltaTime * 15f);
+                if ((hitDir.x < 0.2f && hitDir.x > -0.2f) && (hitDir.y < 0.2f && hitDir.y > -0.2f) && (hitDir.z < 0.2f && hitDir.z > -0.2f))
+                {
+                    beingHit = false;
+                };
+                
+            }
+            */
+            hitDir.x = Mathf.Lerp(hitDir.x, 0, Time.deltaTime * xRecoilTest);
+            hitDir.y = Mathf.Lerp(hitDir.y, 0, Time.deltaTime * yRecoilTest);
+            hitDir.z = Mathf.Lerp(hitDir.z, 0, Time.deltaTime * zRecoilTest);
+            if ((hitDir.x < 0.2f && hitDir.x > -0.2f) && (hitDir.y < 0.2f && hitDir.y > -0.2f) && (hitDir.z < 0.2f && hitDir.z > -0.2f))
+            {
+                beingHit = false;
+            };
             yield return new WaitForEndOfFrame();
         }
+        firstDir = Vector3.zero;
+        hitDir = Vector3.zero;
     }
 }
 

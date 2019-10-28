@@ -23,11 +23,12 @@ public class AttackSystem : MonoBehaviour
 
     public void initAttack()
     {
+        Vector3 atkVector = Quaternion.Euler(0, Quaternion.LookRotation((transform.position - MousePointer.MousePos), transform.up).eulerAngles.y, 0) * new Vector3(5, 0, 0);
         if(Time.time > nextAttack)
         {
             //Debug.Log("Attacking!");
             nextAttack = Time.time + attackRate;
-            cam.camShake(attackShake);
+            cam.camShake(attackShake, atkVector);
             StartCoroutine(attackBox.attack());
         }
         else
