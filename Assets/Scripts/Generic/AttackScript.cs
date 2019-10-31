@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AttackScript : MonoBehaviour
 {
-
+    public GameObject attackBase;
     public float activeAttackTime;
     public float attackDmg;
 
@@ -16,6 +16,7 @@ public class AttackScript : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         other.SendMessage("ModHealth", attackDmg);
+        attackBase.BroadcastMessage("targetHit");
     }
 
     public IEnumerator attack()
