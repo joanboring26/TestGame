@@ -591,6 +591,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff4b465fb20859d448e2a6478a1dfe9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackBase: {fileID: 0}
+  attackBase: {fileID: 6686538957937425657}
   activeAttackTime: 0.08
   attackDmg: 0

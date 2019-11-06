@@ -15,7 +15,7 @@ public class AttackScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        other.SendMessage("ModHealth", attackDmg);
+        other.gameObject.SendMessage("ModHealth", attackDmg);
         attackBase.BroadcastMessage("targetHit");
     }
 
