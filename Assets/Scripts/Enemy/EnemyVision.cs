@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyVision : MonoBehaviour
 {
+
     public EnemyMov movScript;
 
 

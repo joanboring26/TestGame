@@ -23,7 +23,6 @@ public class EnemyMov : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        nav.SetDestination(player.position);
     }
 
     public void MoveToDestination( Vector3 givDest)
