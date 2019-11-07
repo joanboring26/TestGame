@@ -35,7 +35,10 @@ public class AttackSystem : MonoBehaviour
         {
             //Debug.Log("Attacking!");
             nextAttack = Time.time + attackRate;
-            cam.camShake(attackShake, Vector3.zero);
+            if(camShakeEnabled)
+            {
+                cam.camShake(attackShake, Vector3.zero);
+            }
             StartCoroutine(attackBox.attack());
         }
         else
