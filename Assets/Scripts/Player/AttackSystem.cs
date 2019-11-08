@@ -25,7 +25,7 @@ public class AttackSystem : MonoBehaviour
 
     public void targetHit()
     {
-        cam.camShake(giveHitShake, Vector3.zero);
+        cam.camShake(giveHitShake);
     }
 
     public void initAttack()
@@ -37,7 +37,7 @@ public class AttackSystem : MonoBehaviour
             nextAttack = Time.time + attackRate;
             if(camShakeEnabled)
             {
-                cam.camShake(attackShake, Vector3.zero);
+                cam.camShake(attackShake);
             }
             StartCoroutine(attackBox.attack());
         }

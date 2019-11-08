@@ -42,7 +42,7 @@ public class CameraMover : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x + hitDir.x + firstDir.x, transform.position.y + hitDir.y + firstDir.y, transform.position.z + hitDir.z + firstDir.z), Time.deltaTime * 10f);
     }
 
-    public void camShake(float recoil, Vector3 givHitDir)
+    public void camShake(float recoil)
     {
         shakeAmt = recoil;
         //StartCoroutine(cameraHit(givHitDir));
