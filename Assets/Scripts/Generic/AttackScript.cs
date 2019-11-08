@@ -7,6 +7,14 @@ public class AttackScript : MonoBehaviour
     public GameObject attackBase;
     public float activeAttackColliderTime;
     public float attackDmg;
+    public float hitPushForce;
+
+    private static int maxHits = 5;
+
+    private int[] hitEnts = new int[maxHits];
+    private int cHits = 0;
+    private bool dontCheck = false;
+    
 
     private void Start()
     {
@@ -15,11 +23,30 @@ public class AttackScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        other.gameObject.SendMessage("ModHealth", attackDmg);
-        if(attackBase!= null)
+        hitEnts[cHits] = other.GetInstanceID();
+
+        for(int i = cHits; i > 0; i--)
         {
-            attackBase.BroadcastMessage("targetHit");
+            if(hitEnts[i] == hitEnts[cHits] && i != cHits)
+            {
+                dontCheck = true;
+            }
         }
+        if (!dontCheck)
+        {
+            other.GetComponent<Rigidbody>().AddForce( Vector3.Normalize(new Vector3(transform.position.x - other.transform.position.x,0, transform.position.z - other.transform.position.z)) * hitPushForce,ForceMode.Impulse);
+            Debug.Log("HITSOMETHING");
+            other.gameObject.SendMessage("ModHealth", attackDmg);
+            if (attackBase != null)
+            {
+                attackBase.BroadcastMessage("targetHit");
+            }
+        }
+        else
+        {
+            dontCheck = false;
+        }
+        cHits = (cHits + 1) % maxHits;
     }
 
     public IEnumerator attack()
@@ -27,5 +54,9 @@ public class AttackScript : MonoBehaviour
         GetComponent<BoxCollider>().enabled = true;
         yield return new WaitForSeconds(activeAttackColliderTime);
         GetComponent<BoxCollider>().enabled = false;
+        for(int i = 0; i < maxHits; i++)
+        {
+            hitEnts[i] = 0;
+        }
     }
 }

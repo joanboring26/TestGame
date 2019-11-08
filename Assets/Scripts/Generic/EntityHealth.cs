@@ -34,7 +34,7 @@ public class EntityHealth : MonoBehaviour
             if (hp <= 0)
             {
                 Instantiate(deadSprite, transform.position, transform.rotation);
-                SendMessage(deathMessage, hp);
+                gameObject.SendMessage(deathMessage, hp);
             }
         }
     }

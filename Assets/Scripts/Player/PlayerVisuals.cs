@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class PlayerVisuals : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public GameObject attackSprite;
+
+    public void attackUpdate(AttackScript givAtkScript)
     {
-        
+        attackSprite.SetActive(true);
+        StartCoroutine(attackUpdateVisuals(givAtkScript));
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator attackUpdateVisuals(AttackScript givAtkScript)
     {
-        
+        yield return new WaitForSeconds(givAtkScript.activeAttackColliderTime);
+        attackSprite.SetActive(false);
     }
+
+
 }
