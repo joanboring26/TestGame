@@ -29,7 +29,7 @@ public class PlayerInputs : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             pAttack.initAttack();
-            pVisuals.attackUpdate(pAttack.attackBox);
+            pVisuals.attackUpdate(pAttack.attackBox, pAttack);
         }
         /*
         if(Input.GetButtonDown("Roll"))

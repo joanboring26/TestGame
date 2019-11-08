@@ -7,10 +7,16 @@ public class PlayerVisuals : MonoBehaviour
 
     public GameObject attackSprite;
 
-    public void attackUpdate(AttackScript givAtkScript)
+    private float nextAttack = 0;
+
+    public void attackUpdate(AttackScript givAtkScript, AttackSystem givAttackSystem)
     {
-        attackSprite.SetActive(true);
-        StartCoroutine(attackUpdateVisuals(givAtkScript));
+        if (Time.time > nextAttack)
+        {
+            nextAttack = Time.time + givAttackSystem.attackRate;
+            attackSprite.SetActive(true);
+            StartCoroutine(attackUpdateVisuals(givAtkScript));
+        }
     }
 
     IEnumerator attackUpdateVisuals(AttackScript givAtkScript)

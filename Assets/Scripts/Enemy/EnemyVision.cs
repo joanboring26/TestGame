@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyVision : MonoBehaviour
 {
+    public LayerMask enemyVisionLayers;
 
     public EnemyMov movScript;
 
@@ -49,8 +50,8 @@ public class EnemyVision : MonoBehaviour
     bool CheckRay()
     {
         RaycastHit hitInfo;
-        Physics.Raycast(transform.position, detectedTransform.position - transform.position, out hitInfo, Mathf.Infinity, LayerMask.GetMask("Player"));
-        Debug.DrawRay(transform.position, detectedTransform.position - transform.position, Color.red, LayerMask.GetMask("Player"));
+        Physics.Raycast(transform.position, detectedTransform.position - transform.position, out hitInfo, Mathf.Infinity, enemyVisionLayers);
+        //Debug.DrawRay(transform.position, detectedTransform.position - transform.position, Color.red, LayerMask.GetMask("Player"));
         if (hitInfo.collider.tag == "Player")
         {
             return true;
