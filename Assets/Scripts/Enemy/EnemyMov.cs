@@ -5,6 +5,9 @@ using UnityEngine.AI;
 
 public class EnemyMov : MonoBehaviour
 {
+    Vector3 currentDest;
+    Vector3 lastSeenEnemyPos;
+
     public Transform player;
     NavMeshAgent nav;
     
@@ -20,6 +23,11 @@ public class EnemyMov : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        nav.SetDestination(player.position);
+    }
+
+    public void MoveToDestination( Vector3 givDest)
+    {
+        currentDest = givDest;
+        nav.SetDestination(givDest);
     }
 }

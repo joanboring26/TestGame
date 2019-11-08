@@ -10,6 +10,12 @@ public class AttackSystem : MonoBehaviour
 
     public AttackScript attackBox;
 
+    public bool camShakeEnabled;
+    public float attackShake;
+    public float giveHitShake;
+    public float takeHitShake;
+    public CameraMover cam;
+
     float nextAttack = 0;
 
     public void Start()
@@ -17,17 +23,27 @@ public class AttackSystem : MonoBehaviour
         attackBox.GetComponent<AttackScript>().attackDmg = damage;
     }
 
+    public void targetHit()
+    {
+        cam.camShake(giveHitShake, Vector3.zero);
+    }
+
     public void initAttack()
     {
+        //Vector3 atkVector = Quaternion.Euler(0, Quaternion.LookRotation((transform.position - MousePointer.MousePos), transform.up).eulerAngles.y, 0) * new Vector3(5, 0, 0);
         if(Time.time > nextAttack)
         {
-            Debug.Log("Attacking!");
+            //Debug.Log("Attacking!");
             nextAttack = Time.time + attackRate;
+            if(camShakeEnabled)
+            {
+                cam.camShake(attackShake, Vector3.zero);
+            }
             StartCoroutine(attackBox.attack());
         }
         else
         {
-            Debug.Log("Didnt attack");
+            //Debug.Log("Didnt attack");
         }
     }
 }

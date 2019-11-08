@@ -7,6 +7,7 @@ public class PlayerInputs : MonoBehaviour
 {
     public MovPlayer pFunc;
     public AttackSystem pAttack;
+    
     // Start is called before the first frame update
     [SerializeField]
     private TextMeshProUGUI text;
