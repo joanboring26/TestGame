@@ -9,7 +9,7 @@ public class EnemyMov : MonoBehaviour
     Vector3 lastSeenEnemyPos;
 
     public Transform player;
-    NavMeshAgent nav;
+    
     
     public float speed = 4;
     private NavMeshAgent nav;
