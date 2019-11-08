@@ -29,6 +29,7 @@ public class SoldierAttacks : MonoBehaviour
     void preAttackStarted()
     {
         attackPos = givVision.detectedTransform.position;
+        givVision.npcTransform.rotation = Quaternion.LookRotation(new Vector3(givVision.detectedTransform.position.x - givVision.npcTransform.position.x, 0, givVision.detectedTransform.position.z - givVision.npcTransform.position.z));
         givVision.lookAtTarget = false;
         aiAgent.isStopped = true;
         preAttackSprite.SetActive(true);
@@ -67,7 +68,7 @@ public class SoldierAttacks : MonoBehaviour
         rig.velocity = rig.velocity/3;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if(other.tag == "Player" && Time.time > nextAttack)
         {

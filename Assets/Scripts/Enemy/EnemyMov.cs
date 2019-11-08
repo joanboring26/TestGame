@@ -32,4 +32,9 @@ public class EnemyMov : MonoBehaviour
         currentDest = givDest;
         nav.SetDestination(givDest);
     }
+
+    public void EnemyDead()
+    {
+        Destroy(gameObject);
+    }
 }

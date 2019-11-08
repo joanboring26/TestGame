@@ -7,6 +7,7 @@ public class PlayerInputs : MonoBehaviour
 {
     public MovPlayer pFunc;
     public AttackSystem pAttack;
+    public PlayerVisuals pVisuals;
     
     // Start is called before the first frame update
     [SerializeField]
@@ -28,12 +29,13 @@ public class PlayerInputs : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             pAttack.initAttack();
+            pVisuals.attackUpdate(pAttack.attackBox);
         }
-
+        /*
         if(Input.GetButtonDown("Roll"))
         {
             pFunc.InitRoll();
-        }
+        }*/
     }
 
     IEnumerator WriteText()
