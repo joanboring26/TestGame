@@ -6,13 +6,14 @@ public class EntityHealth : MonoBehaviour
 {
     public float hp;
     public GameObject deadSprite;
-
-    public bool alreadyHit;
+    
 
     public float nextDamageDelay;
 
     //Script will broadcast this message to the thing it is attached to when it dies
     public string deathMessage;
+    public GameObject hitMessageTarget;
+    public string hitMessage;
 
     // Start is called before the first frame update
 
@@ -25,11 +26,15 @@ public class EntityHealth : MonoBehaviour
         {
             nextDamage = Time.time + nextDamageDelay;
             hp += givVal;
+            if(hitMessageTarget != null)
+            {
+                hitMessageTarget.SendMessage(hitMessage, 0.3f);
+            }
 
             if (hp <= 0)
             {
                 Instantiate(deadSprite, transform.position, transform.rotation);
-                SendMessageUpwards(deathMessage, hp);
+                SendMessage(deathMessage, hp);
             }
         }
     }

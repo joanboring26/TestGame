@@ -5,8 +5,7 @@ using UnityEngine;
 public class AttackScript : MonoBehaviour
 {
     public GameObject attackBase;
-    public GameObject visualManager;
-    public float activeAttackTime;
+    public float activeAttackColliderTime;
     public float attackDmg;
 
     private void Start()
@@ -17,15 +16,16 @@ public class AttackScript : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         other.gameObject.SendMessage("ModHealth", attackDmg);
-        attackBase.BroadcastMessage("targetHit");
+        if(attackBase!= null)
+        {
+            attackBase.BroadcastMessage("targetHit");
+        }
     }
 
     public IEnumerator attack()
     {
-        visualManager.BroadcastMessage("AttackStarted");
         GetComponent<BoxCollider>().enabled = true;
-        yield return new WaitForSeconds(activeAttackTime);
+        yield return new WaitForSeconds(activeAttackColliderTime);
         GetComponent<BoxCollider>().enabled = false;
-        visualManager.BroadcastMessage("AttackDone");
     }
 }
