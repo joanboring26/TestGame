@@ -26,8 +26,13 @@ public class SoldierAttacks : MonoBehaviour
     float nextAttack;
     Vector3 attackPos;
 
+    public AudioClip preAttackSnd;
+    public AudioClip attackSnd;
+    public AudioSource sndSrc;
+
     void preAttackStarted()
     {
+        sndSrc.PlayOneShot(preAttackSnd);
         attackPos = givVision.detectedTransform.position;
         givVision.npcTransform.rotation = Quaternion.LookRotation(new Vector3(givVision.detectedTransform.position.x - givVision.npcTransform.position.x, 0, givVision.detectedTransform.position.z - givVision.npcTransform.position.z));
         givVision.lookAtTarget = false;
@@ -42,6 +47,7 @@ public class SoldierAttacks : MonoBehaviour
 
     void attackStarted()
     {
+        sndSrc.PlayOneShot(attackSnd);
         StartCoroutine(givAttackScript.attack());
         attackingSprite.SetActive(true);
         preAttackSprite.SetActive(false);
@@ -51,6 +57,7 @@ public class SoldierAttacks : MonoBehaviour
             rig.velocity = new Vector3(atkVector.x * attackSpd, 0, atkVector.z * attackSpd);
         }
     }
+
     void attackDone()
     {
         givVision.lookAtTarget = true;

@@ -9,7 +9,7 @@ public class EnemyMov : MonoBehaviour
     Vector3 lastSeenEnemyPos;
 
     public Transform player;
-    NavMeshAgent nav;
+    public NavMeshAgent nav;
     
     
 

@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class EnemySounds : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public AudioClip[] alert;
+    public AudioClip damageReceived;
 
-    // Update is called once per frame
-    void Update()
+    void playSound(string soundToPlay)
     {
-        
+
     }
 }

@@ -18,6 +18,10 @@ public class EnemyVision : MonoBehaviour
     public Transform detectedTransform;
     public Transform npcTransform;
 
+    public AudioClip[] alert;
+    public AudioClip[] impactSound;
+    public AudioSource sndSrc;
+
     private void Update()
     {
         if(detectedTarget && lookAtTarget)
@@ -37,6 +41,10 @@ public class EnemyVision : MonoBehaviour
             nextCheck = Time.time + checkDelay;
             if(CheckRay())
             {
+                if (movScript.nav.velocity == Vector3.zero)
+                {
+                    sndSrc.PlayOneShot(alert[Random.Range(0, alert.Length)]);
+                }
                 movScript.MoveToDestination(detectedTransform.position);
                 detectedTarget = true;
             }
@@ -45,6 +53,11 @@ public class EnemyVision : MonoBehaviour
                 detectedTarget = false;
             }
         }
+    }
+
+    private void hitNPC(float givFloat)
+    {
+        sndSrc.PlayOneShot(impactSound[Random.Range(0, impactSound.Length)]);
     }
 
     bool CheckRay()
