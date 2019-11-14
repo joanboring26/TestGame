@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MovPlayer : MonoBehaviour
 {
+    public GameObject MouseDirection;
+
     public static Transform playerTransform;
 
     public Rigidbody pRig;
@@ -61,6 +63,17 @@ public class MovPlayer : MonoBehaviour
     public void InitRoll()
     {
         StartCoroutine(rollMove());
+    }
+
+    public void deadPlayer()
+    {
+        Destroy(GetComponent<CapsuleCollider>());
+        Destroy(GetComponent<MeshRenderer>());
+        Destroy(GetComponent<MeshFilter>());
+        Destroy(GetComponent<Rigidbody>());
+        walkSource.Stop();
+        Destroy(MouseDirection);
+        Destroy(GetComponent<EntityHealth>());
     }
 
     IEnumerator rollMove()
