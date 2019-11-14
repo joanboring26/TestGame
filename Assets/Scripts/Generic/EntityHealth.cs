@@ -14,11 +14,16 @@ public class EntityHealth : MonoBehaviour
     public string deathMessage;
     public GameObject hitMessageTarget;
     public string hitMessage;
-
+    private UnityEngine.Object explosionRef;
     // Start is called before the first frame update
 
     float nextDamage = 0;
 
+    void Start()
+    {
+        explosionRef = Resources.Load("Explosion");
+        
+    }
 
     void ModHealth(float givVal)
     {
@@ -26,7 +31,9 @@ public class EntityHealth : MonoBehaviour
         {
             nextDamage = Time.time + nextDamageDelay;
             hp += givVal;
-            if(hitMessageTarget != null)
+            GameObject explosion = (GameObject)Instantiate(explosionRef);
+            explosion.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            if (hitMessageTarget != null)
             {
                 hitMessageTarget.SendMessage(hitMessage, 0.3f);
             }

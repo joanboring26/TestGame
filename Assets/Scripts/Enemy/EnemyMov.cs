@@ -9,6 +9,7 @@ public class EnemyMov : MonoBehaviour
     Vector3 lastSeenEnemyPos;
 
     public Transform player;
+    private UnityEngine.Object explosionRef;
     NavMeshAgent nav;
     
     
@@ -16,7 +17,7 @@ public class EnemyMov : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        explosionRef = Resources.Load("Explosion");
         nav = GetComponent<NavMeshAgent>();
     }
 
@@ -33,6 +34,8 @@ public class EnemyMov : MonoBehaviour
 
     public void EnemyDead()
     {
+        GameObject explosion = (GameObject)Instantiate(explosionRef);
+        explosion.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         Destroy(gameObject);
     }
 }
