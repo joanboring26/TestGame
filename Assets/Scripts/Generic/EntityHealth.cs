@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class EntityHealth : MonoBehaviour
@@ -36,7 +37,20 @@ public class EntityHealth : MonoBehaviour
             {
                 Instantiate(deadSprite, transform.position, transform.rotation);
                 gameObject.SendMessage(deathMessage, hp);
+                StartCoroutine(checkrestart());
             }
+        }
+    }
+
+    IEnumerator checkrestart()
+    {
+        while(true)
+        {
+            if(Input.GetButton("Restart"))
+            {
+                Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
+            }
+            yield return new WaitForEndOfFrame();
         }
     }
 

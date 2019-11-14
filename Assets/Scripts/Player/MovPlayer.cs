@@ -5,6 +5,7 @@ using UnityEngine;
 public class MovPlayer : MonoBehaviour
 {
     public GameObject MouseDirection;
+    public GameObject MousePointer;
 
     public static Transform playerTransform;
 
@@ -21,6 +22,8 @@ public class MovPlayer : MonoBehaviour
 
     public static float movHorizontal;
     public static float movVertical;
+
+    [Header("Audio Vars")]
 
     public AudioSource walkSource;
     public AudioSource dashSource;
@@ -71,9 +74,9 @@ public class MovPlayer : MonoBehaviour
         Destroy(GetComponent<MeshRenderer>());
         Destroy(GetComponent<MeshFilter>());
         Destroy(GetComponent<Rigidbody>());
+        Destroy(MousePointer);
         walkSource.Stop();
         Destroy(MouseDirection);
-        Destroy(GetComponent<EntityHealth>());
     }
 
     IEnumerator rollMove()
