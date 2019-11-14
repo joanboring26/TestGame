@@ -370,7 +370,7 @@ MonoBehaviour:
   deathMessage: deadPlayer
   hitMessageTarget: {fileID: 2335873136362721986}
   hitMessage: camShake
-  explosionRef: {fileID: 1054768076874279320, guid: afceb44bc39807e448d27d37c8bd42f8,
+  explosionRef: {fileID: 7207070486551837917, guid: 794dd01b94b2bd44690e44df7a5f7336,
     type: 3}
 --- !u!114 &2335873135621468479
 MonoBehaviour:
