@@ -8,7 +8,7 @@ public class EnemyAttackScript : MonoBehaviour
     public float activeAttackColliderTime;
     public float attackDmg;
     public float hitPushForce;
-
+    public GameObject parryRef;
     public BoxCollider attackBox;
 
     public AudioClip[] playerImpactSnd;
@@ -48,8 +48,10 @@ public class EnemyAttackScript : MonoBehaviour
             Debug.Log("HITSOMETHING");
             if (other.gameObject.tag == "Parry")
             {
+                
                 sndSrc.PlayOneShot(parryImpactSnd[Random.Range(0,parryImpactSnd.Length)]);
                 StartCoroutine(behaviourBase.stunned(other.transform.position));
+                Instantiate(parryRef, transform.position, transform.rotation);
             }
             else
             {
