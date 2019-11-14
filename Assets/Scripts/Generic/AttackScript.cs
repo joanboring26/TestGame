@@ -5,6 +5,7 @@ using UnityEngine;
 public class AttackScript : MonoBehaviour
 {
     public GameObject attackBase;
+    public BoxCollider attackBox;
     public float activeAttackColliderTime;
     public float attackDmg;
     public float hitPushForce;
@@ -18,7 +19,7 @@ public class AttackScript : MonoBehaviour
 
     private void Start()
     {
-        GetComponent<BoxCollider>().enabled = false;
+        attackBox.enabled = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -51,9 +52,9 @@ public class AttackScript : MonoBehaviour
 
     public IEnumerator attack()
     {
-        GetComponent<BoxCollider>().enabled = true;
+        attackBox.enabled = true;
         yield return new WaitForSeconds(activeAttackColliderTime);
-        GetComponent<BoxCollider>().enabled = false;
+        attackBox.enabled = false;
         for(int i = 0; i < maxHits; i++)
         {
             hitEnts[i] = 0;

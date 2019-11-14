@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MovPlayer : MonoBehaviour
 {
+    public static Transform playerTransform;
+
     public Rigidbody pRig;
 
     [Header("Movement vars")]
@@ -18,6 +20,15 @@ public class MovPlayer : MonoBehaviour
     public static float movHorizontal;
     public static float movVertical;
 
+    public AudioSource walkSource;
+    public AudioSource dashSource;
+
+    private void Start()
+    {
+        playerTransform = transform;
+        walkSource = GetComponent<AudioSource>();
+    }
+
     public void PlayerMove()
     {
         if (!isRolling)
@@ -27,6 +38,8 @@ public class MovPlayer : MonoBehaviour
             movHorizontal *= Time.deltaTime;
             movVertical *= Time.deltaTime;
             transform.Translate(movHorizontal, pRig.velocity.y * Time.deltaTime, movVertical);
+            walkSource.UnPause();
+
         }
         else
         {
@@ -37,6 +50,7 @@ public class MovPlayer : MonoBehaviour
 
     public void InitDash()
     {
+        dashSource.Play();
         Vector2 tempVec;
         tempVec.x = movHorizontal * Time.deltaTime;
         tempVec.y = movVertical * Time.deltaTime;

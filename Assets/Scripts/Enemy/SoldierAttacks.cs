@@ -6,29 +6,38 @@ using UnityEngine.AI;
 public class SoldierAttacks : MonoBehaviour
 {
     public EnemyVision givVision;
-    public AttackScript givAttackScript;
+    public EnemyAttackScript givAttackScript;
 
     public GameObject preAttackSprite;
     public GameObject attackingSprite;
 
-    public float activeAttackTime;
-    public float preAttackSpd;
-    public float attackSpd;
-
-    public float attackCooldown;
-
-    public NavMeshAgent aiAgent;
+    public Transform enemyTransform;
 
     public Rigidbody rig;
 
+    public NavMeshAgent aiAgent;
+
+    public AudioClip preAttackSnd;
+    public AudioClip attackSnd;
+    public AudioClip stunnedSnd;
+    public AudioSource sndSrc;
+
+    public float activeAttackTime;
+    public float preAttackSpd;
+    public float attackSpd;
+    public float stunForce;
+
+    public float attackCooldown;
+    public float stunCooldown;
+
     public float attackDelay;
+
+
 
     float nextAttack;
     Vector3 attackPos;
 
-    public AudioClip preAttackSnd;
-    public AudioClip attackSnd;
-    public AudioSource sndSrc;
+    private bool dontAttack = false;
 
     void preAttackStarted()
     {
@@ -75,12 +84,30 @@ public class SoldierAttacks : MonoBehaviour
         rig.velocity = rig.velocity/3;
     }
 
+    public IEnumerator stunned(Vector3 parryPos)
+    {
+        sndSrc.PlayOneShot(stunnedSnd);
+        givVision.enabled = false;
+        givAttackScript.attackBox.enabled = false;
+        givAttackScript.enabled = false;
+        dontAttack = true;
+        rig.velocity = new Vector3(enemyTransform.position.x - MovPlayer.playerTransform.position.x, 0, enemyTransform.position.z - MovPlayer.playerTransform.position.z).normalized * stunForce;
+        yield return new WaitForSeconds(stunCooldown);
+        dontAttack = false;
+        givAttackScript.enabled = true;
+        givAttackScript.attackBox.enabled = false;
+        givVision.enabled = true;
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if(other.tag == "Player" && Time.time > nextAttack)
         {
-            nextAttack = Time.time + attackCooldown;
-            StartCoroutine("preAttack");
+            if (!dontAttack)
+            {
+                nextAttack = Time.time + attackCooldown;
+                StartCoroutine("preAttack");
+            }
         }
     }
 

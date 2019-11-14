@@ -38,6 +38,7 @@ public class EnemyVision : MonoBehaviour
         detectedTransform = other.transform;
         if(Time.time > nextCheck)
         {
+
             nextCheck = Time.time + checkDelay;
             if(CheckRay())
             {
@@ -52,6 +53,7 @@ public class EnemyVision : MonoBehaviour
             {
                 detectedTarget = false;
             }
+
         }
     }
 

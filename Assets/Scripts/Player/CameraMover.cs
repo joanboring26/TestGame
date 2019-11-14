@@ -29,11 +29,16 @@ public class CameraMover : MonoBehaviour
     //public float yRecoilTest;
     //public float zRecoilTest;
 
+    public AudioClip[] hitSnds;
+
 
     public float mouseRange;
 
+    AudioSource sndOrigin;
+
     private void FixedUpdate()
     {
+        sndOrigin = GetComponent<AudioSource>();
         //Debug.Log(Quaternion.LookRotation((player.position - MousePointer.MousePos), player.up).eulerAngles);
         cLerp = Mathf.Lerp(cLerp, 0.5f, recoveryRate);
         transform.position = Vector3.Lerp(MousePointer.MousePos, player.position, cLerp);
@@ -49,6 +54,8 @@ public class CameraMover : MonoBehaviour
         InvokeRepeating("DoShake", 0, 0.01f);
         Invoke("StopShake", recoilDuration);
 
+        //Plays the player hit sound
+        sndOrigin.PlayOneShot(hitSnds[Random.Range(0, hitSnds.Length)]);
     }
 
     public void DoShake()

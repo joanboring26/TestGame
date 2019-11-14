@@ -16,7 +16,7 @@ public class AttackSystem : MonoBehaviour
     public float takeHitShake;
     public CameraMover cam;
 
-    float nextAttack = 0;
+    public float nextAttack = 0;
 
     public void Start()
     {
@@ -26,6 +26,20 @@ public class AttackSystem : MonoBehaviour
     public void targetHit()
     {
         cam.camShake(giveHitShake);
+    }
+
+    public void targetParry()
+    {
+
+    }
+
+    public bool canAttack()
+    {
+        if (Time.time > nextAttack)
+        {
+            return true;
+        }
+        return false;
     }
 
     public void initAttack()

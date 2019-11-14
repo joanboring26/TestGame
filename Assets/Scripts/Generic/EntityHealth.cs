@@ -26,7 +26,7 @@ public class EntityHealth : MonoBehaviour
         {
             nextDamage = Time.time + nextDamageDelay;
             hp += givVal;
-            if(hitMessageTarget != null)
+            if(hitMessageTarget != null && givVal < 0)
             {
                 hitMessageTarget.SendMessage(hitMessage, 0.3f);
             }
