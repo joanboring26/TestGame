@@ -8,6 +8,9 @@ public class EnemyVision : MonoBehaviour
 
     public EnemyMov movScript;
 
+    public GameObject alertPropulsor;
+    public GameObject idlePropulsor;
+
     public float rotationSpeed;
     public bool lookAtTarget;
     bool detectedTarget;
@@ -30,6 +33,8 @@ public class EnemyVision : MonoBehaviour
             newRotation.x = 0;
             newRotation.z = 0;
             npcTransform.rotation = Quaternion.Slerp(npcTransform.rotation, Quaternion.Euler(newRotation), Time.deltaTime * rotationSpeed);
+            alertPropulsor.SetActive(true);
+            idlePropulsor.SetActive(false);
         }
     }
 
@@ -62,7 +67,7 @@ public class EnemyVision : MonoBehaviour
         sndSrc.PlayOneShot(impactSound[Random.Range(0, impactSound.Length)]);
     }
 
-    bool CheckRay()
+    public bool CheckRay()
     {
         RaycastHit hitInfo;
         Physics.Raycast(transform.position, detectedTransform.position - transform.position, out hitInfo, Mathf.Infinity, enemyVisionLayers);

@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyAttackScript : MonoBehaviour
 {
     public SoldierAttacks behaviourBase;
+    public EnemyVision visionBase;
     public float activeAttackColliderTime;
     public float attackDmg;
     public float hitPushForce;
@@ -55,8 +56,11 @@ public class EnemyAttackScript : MonoBehaviour
             }
             else
             {
-                sndSrc.PlayOneShot(playerImpactSnd[/*Random.Range(0,playerImpactSnd.Length)*/0]);
-                other.gameObject.SendMessage("ModHealth", attackDmg);
+                if(visionBase.CheckRay())
+                {
+                    sndSrc.PlayOneShot(playerImpactSnd[/*Random.Range(0,playerImpactSnd.Length)*/0]);
+                    other.gameObject.SendMessage("ModHealth", attackDmg);
+                }
             }
         }
         else

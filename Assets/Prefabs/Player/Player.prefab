@@ -407,7 +407,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
+  m_Radius: 0.45
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
@@ -425,7 +425,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 120
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &2335873135621468486
 MonoBehaviour:
@@ -464,6 +464,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 100
   deadSprite: {fileID: 0}
+  healthbar: {fileID: 0}
   nextDamageDelay: 0.08
   deathMessage: deadPlayer
   hitMessageTarget: {fileID: 2335873136362721986}
@@ -1199,12 +1200,21 @@ TrailRenderer:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.9999849
+        value: 0.8431396
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 1, g: 0.11792451, b: 0.20844741, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -1266,7 +1276,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8980718601938326947}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.061, y: -0, z: 1.222}
+  m_LocalPosition: {x: 0, y: -0, z: 1.222}
   m_LocalScale: {x: -5.885145, y: 5.571449, z: 1}
   m_Children: []
   m_Father: {fileID: 8980718603025852747}
