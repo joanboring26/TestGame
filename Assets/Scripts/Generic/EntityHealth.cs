@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EntityHealth : MonoBehaviour
 {
     public float hp;
     public GameObject deadSprite;
+    public Slider healthbar; 
     
 
     public float nextDamageDelay;
@@ -19,6 +21,9 @@ public class EntityHealth : MonoBehaviour
     // Start is called before the first frame update
 
     float nextDamage = 0;
+
+    private void Start() { healthbar.value = hp; }
+    
 
     void ModHealth(float givVal)
     {
@@ -40,6 +45,8 @@ public class EntityHealth : MonoBehaviour
                 StartCoroutine(checkrestart());
             }
         }
+
+        healthbar.value = hp;
     }
 
     IEnumerator checkrestart()

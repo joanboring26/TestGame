@@ -10,10 +10,11 @@ public class EnemyMov : MonoBehaviour
 
     public NavMeshAgent nav;
     public Transform player;
-    public GameObject explosionRef;
+    public GameObject explosionRef;
+
     
     public float speed = 4;
-    private NavMeshAgent nav;
+  
 
     // Start is called before the first frame update
     void Start()
