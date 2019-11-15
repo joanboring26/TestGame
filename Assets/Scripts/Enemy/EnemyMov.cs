@@ -5,21 +5,30 @@ using UnityEngine.AI;
 
 public class EnemyMov : MonoBehaviour
 {
-    Transform player;
-    NavMeshAgent nav;
+    public Transform player;
     
-    
+    public float speed = 4;
+    private NavMeshAgent nav;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
         nav = GetComponent<NavMeshAgent>();
     }
+   
 
     // Update is called once per frame
     void Update()
     {
-        nav.SetDestination(player.position);
+        transform.LookAt(player);
+        nav.destination = player.transform.position;
+        /*
+        if (Vector3.Distance(transform.position, player.position) > 0)
+        {
+            transform.position += transform.forward * speed * Time.deltaTime;
+
+        }
+        */
+        
     }
 }
