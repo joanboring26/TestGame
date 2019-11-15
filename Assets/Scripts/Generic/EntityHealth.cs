@@ -16,9 +16,17 @@ public class EntityHealth : MonoBehaviour
     public GameObject hitMessageTarget;
     public string hitMessage;
     public GameObject explosionRef;
+
+    public AudioSource painSrc;
+    public AudioClip[] hitSnds;
     // Start is called before the first frame update
 
     float nextDamage = 0;
+
+    private void Start()
+    {
+        StartCoroutine(checkrestart());
+    }
 
     void ModHealth(float givVal)
     {
@@ -30,6 +38,7 @@ public class EntityHealth : MonoBehaviour
             Instantiate(explosionRef, transform.position, transform.rotation);
             if (hitMessageTarget != null)
             {
+                painSrc.PlayOneShot(hitSnds[Random.Range(0, hitSnds.Length)]);
                 hitMessageTarget.SendMessage(hitMessage, 0.3f);
             }
 
@@ -37,7 +46,6 @@ public class EntityHealth : MonoBehaviour
             {
                 Instantiate(deadSprite, transform.position, transform.rotation);
                 gameObject.SendMessage(deathMessage, hp);
-                StartCoroutine(checkrestart());
             }
         }
     }

@@ -6,6 +6,9 @@ public class AttackScript : MonoBehaviour
 {
     public GameObject attackBase;
     public BoxCollider attackBox;
+
+    public AudioSource swingSrc;
+
     public float activeAttackColliderTime;
     public float attackDmg;
     public float hitPushForce;
@@ -52,6 +55,7 @@ public class AttackScript : MonoBehaviour
 
     public IEnumerator attack()
     {
+        swingSrc.Play();
         attackBox.enabled = true;
         yield return new WaitForSeconds(activeAttackColliderTime);
         attackBox.enabled = false;
