@@ -11,14 +11,17 @@ public class EnemyMov : MonoBehaviour
     public NavMeshAgent nav;
     public Transform player;
     public GameObject explosionRef;
+
     
-    
+    public float speed = 4;
+  
 
     // Start is called before the first frame update
     void Start()
     {
         nav = GetComponent<NavMeshAgent>();
     }
+   
 
     // Update is called once per frame
     void Update()

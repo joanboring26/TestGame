@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EntityHealth : MonoBehaviour
 {
     public float hp;
     public GameObject deadSprite;
+    public Slider healthbar; 
     
 
     public float nextDamageDelay;
@@ -26,8 +28,8 @@ public class EntityHealth : MonoBehaviour
     private void Start()
     {
         StartCoroutine(checkrestart());
+        healthbar.value = hp; 
     }
-
     void ModHealth(float givVal)
     {
         if(Time.time > nextDamage)
@@ -48,6 +50,8 @@ public class EntityHealth : MonoBehaviour
                 gameObject.SendMessage(deathMessage, hp);
             }
         }
+
+        healthbar.value = hp;
     }
 
     IEnumerator checkrestart()
