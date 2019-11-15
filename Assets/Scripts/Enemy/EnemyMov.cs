@@ -5,7 +5,12 @@ using UnityEngine.AI;
 
 public class EnemyMov : MonoBehaviour
 {
+    Vector3 currentDest;
+    Vector3 lastSeenEnemyPos;
+
+    public NavMeshAgent nav;
     public Transform player;
+    public GameObject explosionRef;
     
     public float speed = 4;
     private NavMeshAgent nav;
@@ -20,15 +25,17 @@ public class EnemyMov : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(player);
-        nav.destination = player.transform.position;
-        /*
-        if (Vector3.Distance(transform.position, player.position) > 0)
-        {
-            transform.position += transform.forward * speed * Time.deltaTime;
+    }
 
-        }
-        */
-        
+    public void MoveToDestination( Vector3 givDest)
+    {
+        currentDest = givDest;
+        nav.SetDestination(givDest);
+    }
+
+    public void EnemyDead()
+    {
+        Instantiate(explosionRef, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 }

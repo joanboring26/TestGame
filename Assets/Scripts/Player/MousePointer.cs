@@ -6,6 +6,7 @@ public class MousePointer : MonoBehaviour
 {
     public float MouseSensitivity;
     public float camHeight;
+    public Transform mouseDir;
     static public Vector3 MousePos;
     float camHorizontal;
     float camVertical;
@@ -26,6 +27,7 @@ public class MousePointer : MonoBehaviour
 
     private void OnGUI()
     {
+        mouseDir.LookAt( new Vector3(transform.position.x, mouseDir.position.y, transform.position.z), Vector3.up);
         currentEvent = Event.current;
         ScreenCamPos.x = currentEvent.mousePosition.x;
         ScreenCamPos.y = cam.pixelHeight - currentEvent.mousePosition.y;
