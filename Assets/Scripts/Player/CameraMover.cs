@@ -31,14 +31,24 @@ public class CameraMover : MonoBehaviour
 
     public float mouseRange;
 
+    private bool camMove = true;
+
     private void FixedUpdate()
     {
         //Debug.Log(Quaternion.LookRotation((player.position - MousePointer.MousePos), player.up).eulerAngles);
-        cLerp = Mathf.Lerp(cLerp, 0.5f, recoveryRate);
-        transform.position = Vector3.Lerp(MousePointer.MousePos, player.position, cLerp);
-        
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, player.position.x - mouseRange, player.position.x + mouseRange), transform.position.y + 10, Mathf.Clamp(transform.position.z, player.position.z - mouseRange, player.position.z + mouseRange));
-        transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x + hitDir.x + firstDir.x, transform.position.y + hitDir.y + firstDir.y, transform.position.z + hitDir.z + firstDir.z), Time.deltaTime * 10f);
+        if (camMove)
+        {
+            cLerp = Mathf.Lerp(cLerp, 0.5f, recoveryRate);
+            transform.position = Vector3.Lerp(MousePointer.MousePos, player.position, cLerp);
+
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, player.position.x - mouseRange, player.position.x + mouseRange), transform.position.y + 10, Mathf.Clamp(transform.position.z, player.position.z - mouseRange, player.position.z + mouseRange));
+            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x + hitDir.x + firstDir.x, transform.position.y + hitDir.y + firstDir.y, transform.position.z + hitDir.z + firstDir.z), Time.deltaTime * 10f);
+        }
+    }
+
+    public void CamStatus(bool var)
+    {
+        camMove = var;
     }
 
     public void camShake(float recoil)
@@ -107,5 +117,6 @@ public class CameraMover : MonoBehaviour
         hitDir = Vector3.zero;
     }
     */
+
 }
 

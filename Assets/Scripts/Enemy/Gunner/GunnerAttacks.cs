@@ -9,6 +9,7 @@ public class GunnerAttacks : MonoBehaviour
     public Transform muzzleFire;
 
     public float fireRate;
+    public int bulletsPerBurst;
     public float attackCooldown;
     public bool dontAttack;
 
@@ -22,11 +23,18 @@ public class GunnerAttacks : MonoBehaviour
             if (!dontAttack)
             {
                 nextAttack = Time.time + attackCooldown;
-                Instantiate(projectile, muzzleFire.position, muzzleFire.rotation);
+                StartCoroutine(Burst());
             }
         }
     }
 
-
+    IEnumerator Burst()
+    {
+        for(int i = 0; i < bulletsPerBurst ; i++)
+        {
+            Instantiate(projectile, muzzleFire.position, muzzleFire.rotation);
+            yield return new WaitForSeconds(fireRate);
+        }
+    }
 
 }
