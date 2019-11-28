@@ -25,6 +25,8 @@ public class EntityHealth : MonoBehaviour
 
     float nextDamage = 0;
 
+    public float totalTime = 1;
+
     private void Start()
     {
         StartCoroutine(checkrestart());
@@ -53,7 +55,21 @@ public class EntityHealth : MonoBehaviour
 
         healthbar.value = hp;
     }
+    
 
+    public void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "PoisonArea")
+        {
+            Debug.Log("entra");
+            totalTime -= Time.deltaTime;
+            if (totalTime < 0)
+            {
+                other.SendMessage("ModHealth", -5);
+                totalTime = 1;
+            }
+        }
+    }
     IEnumerator checkrestart()
     {
         while(true)

@@ -22,6 +22,7 @@ public class EnemyAttackScript : MonoBehaviour
     private int cHits = 0;
     private bool dontCheck = false;
 
+   
 
     private void Start()
     {
@@ -31,45 +32,47 @@ public class EnemyAttackScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        hitEnts[cHits] = other.GetInstanceID();
+        
+        
+            hitEnts[cHits] = other.GetInstanceID();
 
-        for (int i = cHits; i > 0; i--)
-        {
-            if (hitEnts[i] == hitEnts[cHits] && i != cHits)
+            for (int i = cHits; i > 0; i--)
             {
-                dontCheck = true;
+                if (hitEnts[i] == hitEnts[cHits] && i != cHits)
+                {
+                    dontCheck = true;
+                }
             }
-        }
-        if (!dontCheck)
-        {
-            if (other.GetComponent<Rigidbody>())
+            if (!dontCheck)
             {
-                other.GetComponent<Rigidbody>().AddForce(Vector3.Normalize(new Vector3(transform.position.x - other.transform.position.x, 0, transform.position.z - other.transform.position.z)) * hitPushForce, ForceMode.Impulse);
-            }
-            Debug.Log("HITSOMETHING");
-            if (other.gameObject.tag == "Parry")
-            {
-                
-                sndSrc.PlayOneShot(parryImpactSnd[Random.Range(0,parryImpactSnd.Length)]);
-                StartCoroutine(behaviourBase.stunned(other.transform.position));
-                Instantiate(parryRef, transform.position, transform.rotation);
+                if (other.GetComponent<Rigidbody>())
+                {
+                    other.GetComponent<Rigidbody>().AddForce(Vector3.Normalize(new Vector3(transform.position.x - other.transform.position.x, 0, transform.position.z - other.transform.position.z)) * hitPushForce, ForceMode.Impulse);
+                }
+                Debug.Log("HITSOMETHING");
+                if (other.gameObject.tag == "Parry")
+                {
+
+                    sndSrc.PlayOneShot(parryImpactSnd[Random.Range(0, parryImpactSnd.Length)]);
+                    StartCoroutine(behaviourBase.stunned(other.transform.position));
+                    Instantiate(parryRef, transform.position, transform.rotation);
+                }
+                else
+                {
+                    if (visionBase.CheckRay())
+                    {
+                        sndSrc.PlayOneShot(playerImpactSnd[/*Random.Range(0,playerImpactSnd.Length)*/0]);
+                        other.gameObject.SendMessage("ModHealth", attackDmg);
+                    }
+                }
             }
             else
             {
-                if(visionBase.CheckRay())
-                {
-                    sndSrc.PlayOneShot(playerImpactSnd[/*Random.Range(0,playerImpactSnd.Length)*/0]);
-                    other.gameObject.SendMessage("ModHealth", attackDmg);
-                }
+                dontCheck = false;
             }
+            cHits = (cHits + 1) % maxHits;
         }
-        else
-        {
-            dontCheck = false;
-        }
-        cHits = (cHits + 1) % maxHits;
-    }
-
+    
     public IEnumerator attack()
     {
         attackBox.enabled = true;
