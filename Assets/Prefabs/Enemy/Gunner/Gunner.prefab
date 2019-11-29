@@ -332,7 +332,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2697619071101202366}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1.086, z: -0.442}
+  m_LocalPosition: {x: 0, y: 1.086, z: -0.66}
   m_LocalScale: {x: 4.313598, y: 4.313598, z: 3.9597}
   m_Children: []
   m_Father: {fileID: 833163099285181844}
@@ -432,7 +432,7 @@ Transform:
   m_GameObject: {fileID: 2935793978288141129}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 1.09, z: 0}
-  m_LocalScale: {x: 2.2, y: 2.2, z: 1}
+  m_LocalScale: {x: 1.8126752, y: 1.895256, z: 1}
   m_Children: []
   m_Father: {fileID: 833163099285181844}
   m_RootOrder: 1
@@ -453,7 +453,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2935793978288141129}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -462,7 +462,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5ee00acbbd2859a418522d65d3059a0b, type: 2}
+  - {fileID: 2100000, guid: c17efd6449495ee41a3d9790f29510ed, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -544,7 +544,7 @@ MonoBehaviour:
   projectile: {fileID: 4002890375969868112, guid: 87e32b03e5e806c4dbc6233bb4a70c8d,
     type: 3}
   muzzleFire: {fileID: 5224492490660755654}
-  fireRate: 0.2
+  fireRate: 0.09
   bulletsPerBurst: 2
   attackCooldown: 1.8
   dontAttack: 0
@@ -692,7 +692,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3741285671985541034}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -801,7 +801,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3741285672639434216}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
