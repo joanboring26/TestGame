@@ -22,7 +22,7 @@ public class PInputs : MonoBehaviour
             pFunc.PlayerMove();
         }
 
-        /*
+        
         else
         {
             pFunc.walkSource.Pause();
@@ -46,7 +46,7 @@ public class PInputs : MonoBehaviour
                 pPSystem.DoParry();
             }
         }
-        */
+        
 
         /*
         if(Input.GetButtonDown("Roll"))

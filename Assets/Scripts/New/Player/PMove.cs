@@ -34,7 +34,6 @@ public class PMove : MonoBehaviour
         playerTransform = transform;
         walkSource = GetComponent<AudioSource>();
     }
-
     public void PlayerMove()
     {
         if (!isRolling)
