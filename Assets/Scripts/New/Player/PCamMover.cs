@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
-public class CameraMover : MonoBehaviour
+public class PCamMover : MonoBehaviour
 {
     //Recoil y cLerp determinan la posicion actual de la cámara entre el Mouse y el jugador, 0.5 = 50% de posicion, osea que está en medio de la posicion
     /*
@@ -39,9 +37,9 @@ public class CameraMover : MonoBehaviour
         if (camMove)
         {
             cLerp = Mathf.Lerp(cLerp, 0.5f, recoveryRate);
-            transform.position = Vector3.Lerp(MousePointer.MousePos, player.position, cLerp);
+            transform.position = Vector3.Lerp(PCam.PMousePos, player.position, cLerp);
 
-            transform.position = new Vector3(Mathf.Clamp(transform.position.x, player.position.x - mouseRange, player.position.x + mouseRange), transform.position.y + 10, Mathf.Clamp(transform.position.z, player.position.z - mouseRange, player.position.z + mouseRange));
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, player.position.x - mouseRange, player.position.x + mouseRange), Mathf.Clamp(transform.position.y, player.position.y - mouseRange, player.position.y + mouseRange), transform.position.z + 10);
             transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x + hitDir.x + firstDir.x, transform.position.y + hitDir.y + firstDir.y, transform.position.z + hitDir.z + firstDir.z), Time.deltaTime * 10f);
         }
     }
@@ -61,12 +59,12 @@ public class CameraMover : MonoBehaviour
 
     public void DoShake()
     {
-        if(shakeAmt > 0)
+        if (shakeAmt > 0)
         {
             Vector3 camPos = cameraShakeHolder.position;
 
-            float offsetX = Random.Range(-shakeAmt, shakeAmt) * - 1.2f;
-            float offsetY = Random.Range(-shakeAmt, shakeAmt) * - 1.2f;
+            float offsetX = Random.Range(-shakeAmt, shakeAmt) * -1.2f;
+            float offsetY = Random.Range(-shakeAmt, shakeAmt) * -1.2f;
 
             camPos.x += offsetX;
             camPos.z += offsetY;
@@ -81,4 +79,3 @@ public class CameraMover : MonoBehaviour
         cameraShakeHolder.localPosition = Vector3.zero;
     }
 }
-

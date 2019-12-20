@@ -39,10 +39,10 @@ public class PMove : MonoBehaviour
         if (!isRolling)
         {
             movHorizontal = Input.GetAxis("Horizontal") * -speed;
-            movVertical = Input.GetAxis("Vertical") * -speed;
+            movVertical = Input.GetAxis("Vertical") * speed;
             movHorizontal *= Time.deltaTime;
             movVertical *= Time.deltaTime;
-            transform.Translate(movHorizontal, pRig.velocity.y * Time.deltaTime, movVertical);
+            transform.Translate(movHorizontal, movVertical, 0);
             walkSource.UnPause();
 
         }
@@ -92,10 +92,10 @@ public class PMove : MonoBehaviour
             tempVec.y = movVertical * Time.deltaTime;
             tempVec.Normalize();
             tempVec *= rollSpeed;
-            pRig.velocity = new Vector3(tempVec.x * -rollSpeed, tempVec.y * -rollSpeed);
+            pRig.velocity = new Vector2(tempVec.x * -rollSpeed, tempVec.y * -rollSpeed);
             yield return new WaitForEndOfFrame();
         }
         isRolling = false;
-        pRig.velocity = new Vector3(tempVec.x, tempVec.y);
+        pRig.velocity = new Vector2(tempVec.x, tempVec.y);
     }
 }

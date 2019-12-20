@@ -27,7 +27,7 @@ public class EnemyTp2D : MonoBehaviour
                 finalVector = finalVector.normalized * -1;
 
 
-                enemy.position = finalVector + enemy.position;
+                //enemy.position = finalVector + enemy.position;
             }
             if (totalTime == 4) totalTime = 0;
         }

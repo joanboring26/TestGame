@@ -48,13 +48,13 @@ public class EnemyAttackScript2D : MonoBehaviour
         {
             if (other.GetComponent<Rigidbody2D>())
             {
-                other.GetComponent<Rigidbody2D>().AddForce(Vector2(new Vector2(transform.position.x - other.transform.position.x, transform.position.y - other.transform.position.y).Normalize()) * hitPushForce, ForceMode.Impulse);
+                //other.GetComponent<Rigidbody2D>().AddForce(Vector2(new Vector2(transform.position.x - other.transform.position.x, transform.position.y - other.transform.position.y).Normalize()) * hitPushForce, ForceMode.Impulse);
             }
             Debug.Log("HITSOMETHING");
             if (other.gameObject.tag == "Parry")
             {
 
-                sndSrc.PlayOneShot(parryImpactSnd[Random.Range(0, parryImpactSnd.Length)]);
+                //sndSrc.PlayOneShot(parryImpactSnd[Random.Range(0, parryImpactSnd.Length)]);
                 StartCoroutine(behaviourBase.stunned(other.transform.position));
                 Instantiate(parryRef, transform.position, transform.rotation);
             }

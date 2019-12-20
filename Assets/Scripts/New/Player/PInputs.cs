@@ -46,13 +46,6 @@ public class PInputs : MonoBehaviour
                 pPSystem.DoParry();
             }
         }
-        
-
-        /*
-        if(Input.GetButtonDown("Roll"))
-        {
-            pFunc.InitRoll();
-        }*/
     }
 
     IEnumerator WriteText()
