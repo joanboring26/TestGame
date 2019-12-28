@@ -6,9 +6,9 @@ using TMPro;
 public class PInputs : MonoBehaviour
 {
     public PMove pFunc;
-    public AttackSystem pAttack;
-    public PlayerVisuals pVisuals;
-    public ParrySystem pPSystem;
+    public PAttSyst pAttack;
+    public PVisuals pVisuals;
+    public PParry pPSystem;
 
     // Start is called before the first frame update
     [SerializeField]

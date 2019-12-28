@@ -15,6 +15,7 @@ public class EnemyHealth : MonoBehaviour
     public GameObject hitMessageTarget;
     public string hitMessage;
     public GameObject explosionRef;
+    public Rigidbody2D rig;
     // Start is called before the first frame update
 
     float nextDamage = 0;

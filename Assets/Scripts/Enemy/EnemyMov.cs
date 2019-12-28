@@ -15,19 +15,6 @@ public class EnemyMov : MonoBehaviour
     public float speed = 4;
 
     public bool retreating;
-  
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        nav = GetComponent<NavMeshAgent>();
-    }
-   
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
 
     public void MoveToDestination( Vector3 givDest)
     {
