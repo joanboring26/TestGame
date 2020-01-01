@@ -16,6 +16,8 @@ public class EnemyAttackScript : MonoBehaviour
     public AudioClip[] parryImpactSnd;
     public AudioSource sndSrc;
 
+    public bool parried = false;
+
     private static int maxHits = 5;
 
     private int[] hitEnts = new int[maxHits];
@@ -53,7 +55,11 @@ public class EnemyAttackScript : MonoBehaviour
 
                 sndSrc.PlayOneShot(parryImpactSnd[Random.Range(0, parryImpactSnd.Length)]);
                 StartCoroutine(behaviourBase.stunned(other.transform.position));
-                Instantiate(parryRef, transform.position, transform.rotation);
+                if(!parried)
+                {
+                    parried = true;
+                    Instantiate(parryRef, transform.position, transform.rotation);
+                }
             }
             else
             {

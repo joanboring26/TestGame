@@ -5,8 +5,10 @@ using UnityEngine;
 public class GunnerAttacks : MonoBehaviour
 {
     public GameObject projectile;
+    public GameObject attackAnims;
 
     public Transform muzzleFire;
+    public AudioSource fireSnd;
 
     public float fireRate;
     public int bulletsPerBurst;
@@ -15,9 +17,8 @@ public class GunnerAttacks : MonoBehaviour
 
     private float nextAttack = 0;
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerStay2D(Collider2D other)
     {
-
         if (Time.time > nextAttack)
         {
             if (!dontAttack)
@@ -30,11 +31,14 @@ public class GunnerAttacks : MonoBehaviour
 
     IEnumerator Burst()
     {
+        attackAnims.SetActive(true);
         for(int i = 0; i < bulletsPerBurst ; i++)
         {
+            fireSnd.PlayOneShot(fireSnd.clip);
             Instantiate(projectile, muzzleFire.position, muzzleFire.rotation);
             yield return new WaitForSeconds(fireRate);
         }
+        attackAnims.SetActive(false);
     }
 
 }

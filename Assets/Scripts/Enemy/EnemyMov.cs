@@ -11,9 +11,6 @@ public class EnemyMov : MonoBehaviour
     public NavMeshAgent nav;
     public GameObject explosionRef;
 
-    
-    public float speed = 4;
-
     public bool retreating;
 
     public void MoveToDestination( Vector3 givDest)

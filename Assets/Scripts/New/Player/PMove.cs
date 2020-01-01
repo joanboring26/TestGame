@@ -5,7 +5,6 @@ using UnityEngine;
 public class PMove : MonoBehaviour
 {
     public GameObject MouseDirection;
-    public GameObject MousePointer;
 
     public static Transform playerTransform;
 
@@ -16,10 +15,8 @@ public class PMove : MonoBehaviour
     public float speed;
     public float dashSpd;
 
-    public bool isRolling;
-    public int rollLayer;
-    public float rollSpeed;
-    public float rollTime;
+    public bool moveEnabled;
+    public float dashTime;
 
     public static float movHorizontal;
     public static float movVertical;
@@ -36,13 +33,15 @@ public class PMove : MonoBehaviour
     }
     public void PlayerMove()
     {
-        if (!isRolling)
+        if (moveEnabled)
         {
-            movHorizontal = Input.GetAxis("Horizontal") * -speed;
+            movHorizontal = Input.GetAxis("Horizontal") * speed;
             movVertical = Input.GetAxis("Vertical") * speed;
             movHorizontal *= Time.deltaTime;
             movVertical *= Time.deltaTime;
-            transform.Translate(movHorizontal, movVertical, 0);
+            pRig.velocity = new Vector2(movHorizontal, movVertical);
+
+            //transform.Translate(movHorizontal, movVertical, 0);
             walkSource.UnPause();
 
         }
@@ -55,33 +54,23 @@ public class PMove : MonoBehaviour
 
     public void InitDash()
     {
-        dashSource.Play();
-        Vector2 tempVec;
-        tempVec.x = movHorizontal * Time.deltaTime;
-        tempVec.y = movVertical * Time.deltaTime;
-        tempVec.Normalize();
-        pRig.velocity = new Vector2(tempVec.x * dashSpd, tempVec.y * dashSpd);
-    }
-
-    public void InitRoll()
-    {
-        StartCoroutine(rollMove());
+        StartCoroutine(dashMove());
     }
 
     public void deadPlayer()
     {
-        Destroy(GetComponent<CapsuleCollider>());
-        Destroy(GetComponent<MeshRenderer>());
-        Destroy(GetComponent<MeshFilter>());
-        Destroy(GetComponent<Rigidbody>());
-        Destroy(MousePointer);
+        Destroy(GetComponent<CircleCollider2D>());
+        Destroy(GetComponent<Rigidbody2D>());
+        Destroy(GetComponent<PMove>());
+        Destroy(GetComponent<PInputs>());
         walkSource.Stop();
         Destroy(MouseDirection);
     }
 
+    /*
     IEnumerator rollMove()
     {
-        isRolling = true;
+        moveEnabled = true;
         Vector2 tempVec;
         tempVec.x = 0;
         tempVec.y = 0;
@@ -95,7 +84,40 @@ public class PMove : MonoBehaviour
             pRig.velocity = new Vector2(tempVec.x * -rollSpeed, tempVec.y * -rollSpeed);
             yield return new WaitForEndOfFrame();
         }
-        isRolling = false;
+        moveEnabled = false;
         pRig.velocity = new Vector2(tempVec.x, tempVec.y);
     }
+    */
+
+    IEnumerator dashMove()
+    {
+        /*
+        dashSource.Play();
+        Vector2 tempVec;
+        tempVec.x = movHorizontal * Time.deltaTime;
+        tempVec.y = movVertical * Time.deltaTime;
+        tempVec.Normalize();
+        pRig.velocity = new Vector2(tempVec.x * dashSpd, tempVec.y * dashSpd);
+        moveEnabled = false;
+        yield return new WaitForSeconds(dashTime);
+        moveEnabled = true;
+        */
+        moveEnabled = false;
+        Vector2 tempVec;
+        tempVec.x = 0;
+        tempVec.y = 0;
+        float nextRoll = Time.time + dashTime;
+        while (nextRoll > Time.time)
+        {
+            tempVec.x = movHorizontal * Time.deltaTime;
+            tempVec.y = movVertical * Time.deltaTime;
+            tempVec.Normalize();
+            tempVec *= dashSpd;
+            pRig.velocity = new Vector2(tempVec.x * dashSpd, tempVec.y * dashSpd);
+            yield return new WaitForEndOfFrame();
+        }
+        moveEnabled = true;
+
+    }
+
 }

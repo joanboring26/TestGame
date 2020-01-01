@@ -6,29 +6,40 @@ using UnityEngine.UI;
 
 public class EntityHealth : MonoBehaviour
 {
+    [Header("Health variables")]
     public float hp;
-    public GameObject deadSprite;
+    float maxHp;
     public Slider healthbar; 
-    
 
-    public float nextDamageDelay;
 
+    [Header("OnDeath variables")]
     //Script will broadcast this message to the thing it is attached to when it dies
     public string deathMessage;
-    public GameObject hitMessageTarget;
+    public GameObject deadSprite;
+
+    [Header("OnHit variables")]
     public string hitMessage;
+    public float nextDamageDelay;
+    public GameObject hitMessageTarget;
     public GameObject explosionRef;
 
+    [Header("Damaged visuals")]
+    public Material[] damagedSprites;
+    int totalStates;
+    int currState;
+
+    [Header("Audio")]
     public AudioSource painSrc;
     public AudioClip[] hitSnds;
-    // Start is called before the first frame update
 
     float nextDamage = 0;
-
     public float totalTime = 1;
 
     private void Start()
     {
+        maxHp = hp;
+        totalStates = damagedSprites.Length;
+        currState = totalStates;
         StartCoroutine(checkrestart());
         healthbar.value = hp; 
     }
@@ -38,6 +49,7 @@ public class EntityHealth : MonoBehaviour
         {
             nextDamage = Time.time + nextDamageDelay;
             hp += givVal;
+            currState = Mathf.RoundToInt((hp / maxHp) * 3);
 
             Instantiate(explosionRef, transform.position, transform.rotation);
             if (hitMessageTarget != null)
@@ -55,21 +67,7 @@ public class EntityHealth : MonoBehaviour
 
         healthbar.value = hp;
     }
-    
 
-    public void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.tag == "PoisonArea")
-        {
-            Debug.Log("entra");
-            totalTime -= Time.deltaTime;
-            if (totalTime < 0)
-            {
-                other.SendMessage("ModHealth", -5);
-                totalTime = 1;
-            }
-        }
-    }
     IEnumerator checkrestart()
     {
         while(true)

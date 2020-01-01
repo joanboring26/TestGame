@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public Rigidbody rig;
+    public Rigidbody2D rig;
     public LayerMask parryTargets;
 
     public float lifeTime;
@@ -19,37 +19,35 @@ public class Projectile : MonoBehaviour
 
     private void Start()
     {
-        rig.AddRelativeForce(new Vector3(velocity, 0, 0), ForceMode.VelocityChange);
+        //rig.AddRelativeForce(new Vector2(velocity, 0), ForceMode2D.Impulse);
+        rig.velocity = transform.up * -velocity;
         StartCoroutine(destroyOverTime());
     }
 
     bool findParryTarget()
     {
         destroy = false;
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, parryTargetSearchRadius, parryTargets);
-        int i = 0;
-        while (i < hitColliders.Length)
+        Collider2D hitColliders = Physics2D.OverlapCircle(transform.position, parryTargetSearchRadius, parryTargets);
+        if(hitColliders != null)
         {
-            if(hitColliders[i].tag == "NPC")
-            {
-                Debug.DrawLine(transform.position, hitColliders[i].transform.position, Color.red, 20);
-                transform.rotation = Quaternion.LookRotation(hitColliders[i].transform.position - transform.position) * Quaternion.Euler(0,-90,0);
-                rig.AddRelativeForce(new Vector3(parryVelocity, 0, 0), ForceMode.VelocityChange);
-                //transform.rotation = Quaternion.LookRotation(new Vector3(transform.position.x - hitColliders[i].transform.position.x, 0, transform.position.z - hitColliders[i].transform.position.z), transform.up);
-                //rig.velocity = new Vector3(transform.position.x - hitColliders[i].transform.position.x, 0, transform.position.z - hitColliders[i].transform.position.z).normalized * parryVelocity;
+            Vector2 dir = hitColliders.transform.position - transform.position;
+            Quaternion newRotation = Quaternion.AngleAxis( Mathf.Atan2(-dir.y, dir.x) * Mathf.Rad2Deg - 90, Vector3.forward);
+            newRotation = Quaternion.Euler(0, 180, newRotation.eulerAngles.z);
 
-                return true;
-            }
-            i++;
+            transform.rotation = Quaternion.Euler(0, 180, newRotation.eulerAngles.z);
+            rig.velocity = transform.up * -velocity;
+
+            return true;
         }
         return false;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag == "Player" || other.tag == "NPC")
         {
             other.SendMessage("ModHealth", damage);
+            Destroy(gameObject);
         }
         if(other.tag == "Parry")
         {

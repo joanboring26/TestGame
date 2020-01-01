@@ -41,8 +41,8 @@ public class EnemyVision : MonoBehaviour
 
             npcTransform.rotation = Quaternion.Euler(0, 180, Quaternion.Slerp(npcTransform.rotation, newRotation, Time.deltaTime * rotationSpeed).eulerAngles.z);
 
-            alertPropulsor.SetActive(true);
-            idlePropulsor.SetActive(false);
+            //alertPropulsor.SetActive(true);
+            //idlePropulsor.SetActive(false);
         }
     }
 
