@@ -5,10 +5,19 @@ using TMPro;
 
 public class PInputs : MonoBehaviour
 {
+    public EntityHealth pStats;
     public PMove pFunc;
     public PAttSyst pAttack;
     public PVisuals pVisuals;
     public PParry pPSystem;
+
+    [Header("Stamina requirements")]
+    public float minStamAttk;
+    public float minStamDash;
+    public float minStamPrry;
+    public float parryStaminaUse;
+    public float dashStaminaUse;
+    public float attackStaminaUse;
 
     // Start is called before the first frame update
     [SerializeField]
@@ -30,20 +39,30 @@ public class PInputs : MonoBehaviour
 
         if (Input.GetButtonDown("Dash"))
         {
-            pFunc.InitDash();
+            if(pStats.stamina > minStamDash)
+            {
+                pStats.ModStamina(-dashStaminaUse);
+                pFunc.InitDash();
+            }
         }
 
         if (Input.GetMouseButtonDown(0))
         {
-            pAttack.initAttack();
-            pVisuals.attackUpdate(pAttack.attackBox, pAttack);
+            if(pAttack.initAttack() && (pStats.stamina > minStamAttk))
+            {
+                pStats.ModStamina(-attackStaminaUse);
+                pVisuals.attackUpdate(pAttack.attackBox, pAttack);
+            }
         }
 
         if (Input.GetMouseButtonDown(1))
         {
             if (pAttack.canAttack() && !pPSystem.parrying)
             {
-                pPSystem.DoParry();
+                if (pPSystem.DoParry() && (pStats.stamina > minStamAttk))
+                {
+                    pStats.ModStamina(-parryStaminaUse);
+                }
             }
         }
     }

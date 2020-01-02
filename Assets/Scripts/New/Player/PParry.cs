@@ -5,18 +5,28 @@ using UnityEngine;
 public class PParry : MonoBehaviour
 {
     public bool parrying = false;
+
     public float activeParryColliderTime;
+    public float parryRate;
 
     public GameObject visualParry;
+
+    float nextParry = 0;
 
     private void Start()
     {
         GetComponent<BoxCollider2D>().enabled = false;
     }
 
-    public void DoParry()
+    public bool DoParry()
     {
-        StartCoroutine(Parry());
+        if (Time.time > nextParry)
+        {
+            nextParry = Time.time + parryRate;
+            StartCoroutine(Parry());
+            return true;
+        }
+        return false;
     }
 
     public IEnumerator Parry()

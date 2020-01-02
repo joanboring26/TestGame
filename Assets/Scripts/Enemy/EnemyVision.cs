@@ -33,16 +33,12 @@ public class EnemyVision : MonoBehaviour
     {
         if(detectedTarget && lookAtTarget)
         {
-            
             dir = detectedTransform.position - transform.position;
             angle = Mathf.Atan2(-dir.y, dir.x) * Mathf.Rad2Deg - 90;
             newRotation = Quaternion.AngleAxis(angle, Vector3.forward);
             newRotation = Quaternion.Euler(0, 180, newRotation.eulerAngles.z);
 
             npcTransform.rotation = Quaternion.Euler(0, 180, Quaternion.Slerp(npcTransform.rotation, newRotation, Time.deltaTime * rotationSpeed).eulerAngles.z);
-
-            //alertPropulsor.SetActive(true);
-            //idlePropulsor.SetActive(false);
         }
     }
 

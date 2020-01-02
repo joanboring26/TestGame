@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GunnerAttacks : MonoBehaviour
 {
+    public LayerMask enemyVisionLayers;
+
     public GameObject projectile;
     public GameObject attackAnims;
 
@@ -19,12 +21,15 @@ public class GunnerAttacks : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (Time.time > nextAttack)
+        if(CheckRay(other.transform))
         {
-            if (!dontAttack)
+            if (Time.time > nextAttack)
             {
-                nextAttack = Time.time + attackCooldown;
-                StartCoroutine(Burst());
+                if (!dontAttack)
+                {
+                    nextAttack = Time.time + attackCooldown;
+                    StartCoroutine(Burst());
+                }
             }
         }
     }
@@ -39,6 +44,17 @@ public class GunnerAttacks : MonoBehaviour
             yield return new WaitForSeconds(fireRate);
         }
         attackAnims.SetActive(false);
+    }
+
+    public bool CheckRay(Transform detectedTransform)
+    {
+        RaycastHit2D hitInfo;
+        hitInfo = Physics2D.Raycast(transform.position, detectedTransform.position - transform.position, 30f, enemyVisionLayers);
+        if (hitInfo.collider.tag == "Player")
+        {
+            return true;
+        }
+        return false;
     }
 
 }

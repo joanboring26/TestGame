@@ -9,7 +9,13 @@ public class EntityHealth : MonoBehaviour
     [Header("Health variables")]
     public float hp;
     float maxHp;
-    public Slider healthbar; 
+    public Slider healthbar;
+    public Slider staminabar;
+
+    [Header("Stamina variables")]
+    public float maxStamina;
+    public float stamina;
+    public float staminaRechargeRate;
 
 
     [Header("OnDeath variables")]
@@ -38,12 +44,22 @@ public class EntityHealth : MonoBehaviour
     private void Start()
     {
         maxHp = hp;
+        maxStamina = stamina;
+        staminabar.maxValue = maxStamina;
         totalStates = damagedSprites.Length;
         currState = totalStates;
         StartCoroutine(checkrestart());
-        healthbar.value = hp; 
+        healthbar.value = hp;
+        staminabar.value = maxStamina;
     }
-    void ModHealth(float givVal)
+
+    private void FixedUpdate()
+    {
+        stamina = Mathf.Clamp( stamina + staminaRechargeRate, 0, maxStamina);
+        staminabar.value = stamina;
+    }
+
+    public void ModHealth(float givVal)
     {
         if(Time.time > nextDamage)
         {
@@ -66,6 +82,11 @@ public class EntityHealth : MonoBehaviour
         }
 
         healthbar.value = hp;
+    }
+
+    public void ModStamina(float givVal)
+    {
+        stamina += givVal;
     }
 
     IEnumerator checkrestart()

@@ -42,22 +42,21 @@ public class PAttSyst : MonoBehaviour
         return false;
     }
 
-    public void initAttack()
+    public bool initAttack()
     {
-        //Vector3 atkVector = Quaternion.Euler(0, Quaternion.LookRotation((transform.position - MousePointer.MousePos), transform.up).eulerAngles.y, 0) * new Vector3(5, 0, 0);
         if (Time.time > nextAttack)
         {
-            //Debug.Log("Attacking!");
             nextAttack = Time.time + attackRate;
             if (camShakeEnabled)
             {
                 cam.camShake(attackShake);
             }
             StartCoroutine(attackBox.attack());
+            return true;
         }
         else
         {
-            //Debug.Log("Didnt attack");
+            return false;
         }
     }
 }
