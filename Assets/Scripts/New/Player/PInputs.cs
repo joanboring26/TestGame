@@ -24,7 +24,7 @@ public class PInputs : MonoBehaviour
     private TextMeshProUGUI text;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if ((Input.GetAxis("Horizontal") != 0) || (Input.GetAxis("Vertical") != 0))
         {
