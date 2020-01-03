@@ -24,14 +24,13 @@ public class PInputs : MonoBehaviour
     private TextMeshProUGUI text;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if ((Input.GetAxis("Horizontal") != 0) || (Input.GetAxis("Vertical") != 0))
         {
             pFunc.PlayerMove();
+            pFunc.walkSource.UnPause();
         }
-
-        
         else
         {
             pFunc.walkSource.Pause();
@@ -54,8 +53,7 @@ public class PInputs : MonoBehaviour
                 pVisuals.attackUpdate(pAttack.attackBox, pAttack);
             }
         }
-
-        if (Input.GetMouseButtonDown(1))
+        else if(Input.GetMouseButtonDown(1))
         {
             if (pAttack.canAttack() && !pPSystem.parrying)
             {

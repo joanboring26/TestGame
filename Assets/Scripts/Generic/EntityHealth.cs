@@ -44,6 +44,7 @@ public class EntityHealth : MonoBehaviour
     private void Start()
     {
         maxHp = hp;
+        healthbar.maxValue = maxHp;
         maxStamina = stamina;
         staminabar.maxValue = maxStamina;
         totalStates = damagedSprites.Length;
