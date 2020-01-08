@@ -26,6 +26,7 @@ public class PParry : MonoBehaviour
         {
             return true;
         }
+        Debug.Log("AAAAAAAAAA");
         return false;
     }
 

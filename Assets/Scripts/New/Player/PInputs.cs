@@ -62,6 +62,14 @@ public class PInputs : MonoBehaviour
                     pPSystem.DoParry();
                     pStats.ModStamina(-parryStaminaUse);
                 }
+                else
+                {
+                    Debug.Log("AAAAAAAAAAA");
+                }
+            }
+            else
+            {
+                Debug.Log("AAAAAAAAAAAAAAAa");
             }
         }
     }

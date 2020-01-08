@@ -43,7 +43,6 @@ public class EnemyHealth : MonoBehaviour
             nextDamage = Time.time + nextDamageDelay;
             hp += givVal;
             currState = Mathf.RoundToInt((hp / maxHp) * totalStates);
-            Debug.Log(currState);
 
             Instantiate(explosionRef, transform.position, transform.rotation);
             if (hitMessageTarget != null)
