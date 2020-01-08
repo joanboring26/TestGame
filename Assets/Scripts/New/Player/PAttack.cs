@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PAttack : MonoBehaviour
 {
+    public EntityHealth playerStats;
     public GameObject attackBase;
     public BoxCollider2D attackBox;
 
@@ -44,6 +45,7 @@ public class PAttack : MonoBehaviour
             other.gameObject.SendMessage("ModHealth", attackDmg);
             if (attackBase != null)
             {
+                playerStats.RecoverPrevHealth((int)attackDmg);
                 attackBase.BroadcastMessage("targetHit");
             }
 

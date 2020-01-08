@@ -10,12 +10,21 @@ public class EntityHealth : MonoBehaviour
     public float hp;
     float maxHp;
     public Slider healthbar;
-    public Slider staminabar;
+
 
     [Header("Stamina variables")]
     public float maxStamina;
     public float stamina;
     public float staminaRechargeRate;
+    public Slider staminabar;
+
+    [Header("Previous health variables")]
+    public float delayPrevHealth;
+    public float prevHealthEmptyRate;
+    public int prevHealthRecovery; //Se usa para calcular cuanta vida recupera un ataque a un enemigo
+    private float prevHealth = 0;
+    private bool drainPrevHealth = false;
+    public Slider prevHealthBar;
 
 
     [Header("OnDeath variables")]
@@ -43,6 +52,8 @@ public class EntityHealth : MonoBehaviour
 
     private void Start()
     {
+        prevHealth = hp;
+        prevHealthBar.maxValue = prevHealth;
         maxHp = hp;
         healthbar.maxValue = maxHp;
         maxStamina = stamina;
@@ -50,6 +61,7 @@ public class EntityHealth : MonoBehaviour
         totalStates = damagedSprites.Length;
         currState = totalStates;
         StartCoroutine(checkrestart());
+        prevHealthBar.value = prevHealth;
         healthbar.value = hp;
         staminabar.value = maxStamina;
     }
@@ -58,17 +70,26 @@ public class EntityHealth : MonoBehaviour
     {
         stamina = Mathf.Clamp( stamina + staminaRechargeRate, 0, maxStamina);
         staminabar.value = stamina;
+        if (drainPrevHealth)
+        {
+            prevHealth = Mathf.Clamp(prevHealth - prevHealthEmptyRate, hp, maxHp);
+            prevHealthBar.value = prevHealth;
+        }
     }
 
     public void ModHealth(float givVal)
     {
         if(Time.time > nextDamage)
         {
+            if (givVal < 0)
+            {
+                Instantiate(explosionRef, transform.position, transform.rotation);
+                StartCoroutine(PrevHealthStart(givVal));
+            }
             nextDamage = Time.time + nextDamageDelay;
             hp += givVal;
             currState = Mathf.RoundToInt((hp / maxHp) * 3);
 
-            Instantiate(explosionRef, transform.position, transform.rotation);
             if (hitMessageTarget != null)
             {
                 painSrc.PlayOneShot(hitSnds[Random.Range(0, hitSnds.Length)]);
@@ -85,9 +106,27 @@ public class EntityHealth : MonoBehaviour
         healthbar.value = hp;
     }
 
+    public void RecoverPrevHealth(int dealtDamage)
+    {
+        if(prevHealth > hp)
+        {
+            hp = Mathf.Clamp((dealtDamage / prevHealthRecovery) * dealtDamage + hp, hp, prevHealth);
+            healthbar.value = hp;
+        }
+    }
+
     public void ModStamina(float givVal)
     {
         stamina += givVal;
+    }
+
+    IEnumerator PrevHealthStart( float damage)
+    {
+        prevHealthBar.value = hp;
+        prevHealth = hp;
+        drainPrevHealth = false;
+        yield return new WaitForSeconds(delayPrevHealth);
+        drainPrevHealth = true;
     }
 
     IEnumerator checkrestart()

@@ -49,7 +49,6 @@ public class EnemyAttackScript : MonoBehaviour
             {
                 other.GetComponent<Rigidbody>().AddForce(Vector3.Normalize(new Vector3(transform.position.x - other.transform.position.x, transform.position.y - other.transform.position.y, 0)) * hitPushForce, ForceMode.Impulse);
             }
-            Debug.Log("HITSOMETHING");
             if (other.gameObject.tag == "Parry")
             {
 

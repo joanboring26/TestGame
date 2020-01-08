@@ -53,14 +53,22 @@ public class PInputs : MonoBehaviour
                 pVisuals.attackUpdate(pAttack.attackBox, pAttack);
             }
         }
-        else if(Input.GetMouseButtonDown(1))
+        if(Input.GetMouseButtonDown(1))
         {
-            if (pAttack.canAttack() && !pPSystem.parrying)
+            if (!pPSystem.parrying)
             {
                 if (pPSystem.DoParry() && (pStats.stamina > minStamAttk))
                 {
                     pStats.ModStamina(-parryStaminaUse);
                 }
+                else
+                {
+                    Debug.Log("AAAAAAAAAAA");
+                }
+            }
+            else
+            {
+                Debug.Log("AAAAAAAAAAAAAAAa");
             }
         }
     }
