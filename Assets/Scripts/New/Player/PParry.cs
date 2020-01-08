@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PParry : MonoBehaviour
 {
+    public EntityHealth entityStats;
+
     public bool parrying = false;
 
     public float activeParryColliderTime;
@@ -18,15 +20,27 @@ public class PParry : MonoBehaviour
         GetComponent<BoxCollider2D>().enabled = false;
     }
 
-    public bool DoParry()
+    public bool CanParry()
+    {
+        if (Time.time > nextParry)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public void ParryStaminaRestore(int givRestoreVal)
+    {
+        entityStats.ModStamina(givRestoreVal);
+    }
+
+    public void DoParry()
     {
         if (Time.time > nextParry)
         {
             nextParry = Time.time + parryRate;
             StartCoroutine(Parry());
-            return true;
         }
-        return false;
     }
 
     public IEnumerator Parry()

@@ -42,7 +42,7 @@ public class PAttSyst : MonoBehaviour
         return false;
     }
 
-    public bool initAttack()
+    public void initAttack()
     {
         if (Time.time > nextAttack)
         {
@@ -52,11 +52,6 @@ public class PAttSyst : MonoBehaviour
                 cam.camShake(attackShake);
             }
             StartCoroutine(attackBox.attack());
-            return true;
-        }
-        else
-        {
-            return false;
         }
     }
 }

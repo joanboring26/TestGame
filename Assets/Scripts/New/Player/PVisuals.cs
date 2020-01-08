@@ -10,13 +10,13 @@ public class PVisuals : MonoBehaviour
 
     public void attackUpdate(PAttack givAtkScript, PAttSyst givAttackSystem)
     {
-        if (Time.time > nextAttack)
-        {
+        //if (Time.time > nextAttack)
+        //{
             attackSprite.transform.localScale = new Vector3(-attackSprite.transform.localScale.x, attackSprite.transform.localScale.y, attackSprite.transform.localScale.z);
-            nextAttack = Time.time + givAttackSystem.attackRate;
+            //nextAttack = Time.time + givAttackSystem.attackRate;
             attackSprite.SetActive(true);
             StartCoroutine(attackUpdateVisuals(givAtkScript));
-        }
+        //}
     }
 
     IEnumerator attackUpdateVisuals(PAttack givAtkScript)

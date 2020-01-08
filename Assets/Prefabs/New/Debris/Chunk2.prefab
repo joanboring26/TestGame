@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7331683959327146524}
   - component: {fileID: 7331683959327146525}
   - component: {fileID: 7331683959327146526}
+  - component: {fileID: 2515461587857223806}
   m_Layer: 0
   m_Name: Chunk2
   m_TagString: Untagged
@@ -99,3 +100,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2515461587857223806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7331683959327146527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 368ff2bb61bea834b99fa99a7339e916, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeSpeed: 0

@@ -12,9 +12,6 @@ public class PInputs : MonoBehaviour
     public PParry pPSystem;
 
     [Header("Stamina requirements")]
-    public float minStamAttk;
-    public float minStamDash;
-    public float minStamPrry;
     public float parryStaminaUse;
     public float dashStaminaUse;
     public float attackStaminaUse;
@@ -24,7 +21,7 @@ public class PInputs : MonoBehaviour
     private TextMeshProUGUI text;
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if ((Input.GetAxis("Horizontal") != 0) || (Input.GetAxis("Vertical") != 0))
         {
@@ -38,7 +35,7 @@ public class PInputs : MonoBehaviour
 
         if (Input.GetButtonDown("Dash"))
         {
-            if(pStats.stamina > minStamDash)
+            if(pStats.stamina > dashStaminaUse)
             {
                 pStats.ModStamina(-dashStaminaUse);
                 pFunc.InitDash();
@@ -47,18 +44,22 @@ public class PInputs : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            if(pAttack.initAttack() && (pStats.stamina > minStamAttk))
+            if(pAttack.canAttack() && (pStats.stamina > attackStaminaUse))
             {
+                Debug.Log("REALLY SWUNG");
+                pAttack.initAttack();
                 pStats.ModStamina(-attackStaminaUse);
                 pVisuals.attackUpdate(pAttack.attackBox, pAttack);
             }
+            
         }
-        else if(Input.GetMouseButtonDown(1))
+        if(Input.GetMouseButtonDown(1))
         {
-            if (pAttack.canAttack() && !pPSystem.parrying)
+            if (pAttack.canAttack() && !pPSystem.parrying && pPSystem.CanParry())
             {
-                if (pPSystem.DoParry() && (pStats.stamina > minStamAttk))
+                if (pStats.stamina > parryStaminaUse)
                 {
+                    pPSystem.DoParry();
                     pStats.ModStamina(-parryStaminaUse);
                 }
             }

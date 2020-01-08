@@ -9,6 +9,8 @@ public class ChunkDamage : MonoBehaviour
     public float maxChunkSpeed;
     public float minChunkSpeed;
     public int chunkAmount;
+
+    public float disappearSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +19,7 @@ public class ChunkDamage : MonoBehaviour
         {
             tempGObj = Instantiate( Chunks[ i % Chunks.Length ], new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.Euler(180,0,Random.Range(0,359)));
             tempGObj.transform.rotation = Quaternion.Euler(180, 0, Random.Range(0, 360));
+            tempGObj.GetComponent<ChunkFade>().fadeSpeed = disappearSpeed;
             tempGObj.GetComponent<Rigidbody2D>().velocity = tempGObj.transform.up * -Random.Range(minChunkSpeed,maxChunkSpeed);
             tempGObj.GetComponent<Rigidbody2D>().angularVelocity = Random.Range(-10, 10);
         }

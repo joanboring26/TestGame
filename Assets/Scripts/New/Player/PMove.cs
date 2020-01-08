@@ -35,10 +35,8 @@ public class PMove : MonoBehaviour
     {
         if (moveEnabled)
         {
-            movHorizontal = Input.GetAxis("Horizontal") * speed;
-            movVertical = Input.GetAxis("Vertical") * speed;
-            movHorizontal *= Time.deltaTime;
-            movVertical *= Time.deltaTime;
+            movHorizontal = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+            movVertical = Input.GetAxis("Vertical") * speed * Time.deltaTime;
             pRig.velocity = new Vector2(movHorizontal, movVertical);
 
             //transform.Translate(movHorizontal, movVertical, 0);
