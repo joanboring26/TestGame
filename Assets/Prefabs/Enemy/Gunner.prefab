@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 60
-  deadSprite: {fileID: 4834847289373875138, guid: 3a70359c83d8167448434ca847b2d634,
+  deadSprite: {fileID: 5427232108109011665, guid: 8fefe5190d5e266498f9fc3ebfe7e628,
     type: 3}
   nextDamageDelay: 0.08
   deathMessage: EnemyDead
@@ -112,9 +112,9 @@ MonoBehaviour:
   - {fileID: 2100000, guid: a9997370ab2ce6e4c9059c1cdc0ba423, type: 2}
   - {fileID: 2100000, guid: 56730bbf0e3f2b24d90c09f7c83034f0, type: 2}
   - {fileID: 2100000, guid: 3fe321c582ee1d34d9cb77c139554f96, type: 2}
-  damageChunks: {fileID: 3269188712472273140, guid: ec596a9889153fb42917e67addf02c30,
+  damageChunks: {fileID: 177074741886948827, guid: ac6b5c6814fcb6f4cbde21a473ac6c46,
     type: 3}
-  deathChunks: {fileID: 3601861621241228811, guid: f6e2872326f6e124b84c748c564c8b8a,
+  deathChunks: {fileID: 8805428298082872499, guid: 1fb54d173ab7cbf4e8eb0a3cd74b95d7,
     type: 3}
 --- !u!114 &472702724594898948
 MonoBehaviour:

@@ -40,13 +40,12 @@ public class PAttack : MonoBehaviour
         }
         if (!dontCheck)
         {
+            //other.gameObject.GetComponent<EnemyHealth>();
             other.GetComponent<EnemyHealth>().rig.AddForce(Vector3.Normalize(new Vector3(transform.position.x - other.transform.position.x, transform.position.y - other.transform.position.y)) * hitPushForce, ForceMode2D.Impulse);
-            Debug.Log("HITSOMETHING");
-            other.gameObject.SendMessage("ModHealth", attackDmg);
+            other.GetComponent<EnemyHealth>().ModHealth(attackDmg, playerStats.transform.position);
             if (attackBase != null)
             {
                 playerStats.RecoverPrevHealth((int)attackDmg);
-                attackBase.BroadcastMessage("targetHit");
             }
 
         }
@@ -61,7 +60,6 @@ public class PAttack : MonoBehaviour
     public IEnumerator attack()
     {
         swingSrc.Play();
-        Debug.Log("SWUNG!!!!");
         attackBox.enabled = true;
         yield return new WaitForSeconds(activeAttackColliderTime);
         attackBox.enabled = false;

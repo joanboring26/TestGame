@@ -44,19 +44,23 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Player" || other.tag == "NPC")
+        switch(other.tag)
         {
-            other.SendMessage("ModHealth", damage);
-            Destroy(gameObject);
-        }
-        if(other.tag == "Parry")
-        {
-            gameObject.layer = 12;
-            findParryTarget();
-        }
-        if (destroy || other.tag == "NPC")
-        {
-            Destroy(gameObject);
+            case "Player":
+                other.GetComponent<EntityHealth>().ModHealth(damage);
+                Destroy(gameObject);
+                break;
+            case "Parry":
+                gameObject.layer = 12;
+                findParryTarget();
+                break;
+            case "NPC":
+                other.GetComponent<EnemyHealth>().ModHealth(damage, transform.position);
+                Destroy(gameObject);
+                break;
+            default:
+                Destroy(gameObject);
+                break;
         }
     }
 

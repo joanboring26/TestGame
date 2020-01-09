@@ -66,7 +66,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 50
-  deadSprite: {fileID: 4834847289373875138, guid: 3a70359c83d8167448434ca847b2d634,
+  deadSprite: {fileID: 5427232108109011665, guid: 8fefe5190d5e266498f9fc3ebfe7e628,
     type: 3}
   nextDamageDelay: 0.08
   deathMessage: EnemyDead
@@ -80,9 +80,9 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 45849cb338e0ea9499d6108bfd84640f, type: 2}
   - {fileID: 2100000, guid: d5d088a5af1b7b241b7c24a49e1e24fe, type: 2}
   - {fileID: 2100000, guid: 4b287950f0f18d54eb29e2144ec34b36, type: 2}
-  damageChunks: {fileID: 3269188712472273140, guid: ec596a9889153fb42917e67addf02c30,
+  damageChunks: {fileID: 177074741886948827, guid: ac6b5c6814fcb6f4cbde21a473ac6c46,
     type: 3}
-  deathChunks: {fileID: 3601861621241228811, guid: f6e2872326f6e124b84c748c564c8b8a,
+  deathChunks: {fileID: 8805428298082872499, guid: 1fb54d173ab7cbf4e8eb0a3cd74b95d7,
     type: 3}
 --- !u!114 &189903894556399761
 MonoBehaviour:
@@ -223,8 +223,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 189903894627126393}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.01, z: -0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -2.46, z: -0}
+  m_LocalScale: {x: 1.1597, y: 1.1597, z: 1.1597}
   m_Children: []
   m_Father: {fileID: 189903895186519263}
   m_RootOrder: 1
@@ -252,14 +252,14 @@ MonoBehaviour:
   attackSnd: {fileID: 8300000, guid: 381f9c10971bbe74dbc764c013ccfefd, type: 3}
   stunnedSnd: {fileID: 8300000, guid: 6de82ee93bf550d4dae67fed5e864d14, type: 3}
   sndSrc: {fileID: 189903894627126395}
-  activeAttackTime: 0.2
-  preAttackSpd: 10
+  activeAttackTime: 0.4
+  preAttackSpd: 20
   preAttackDrag: 0.4
-  attackSpd: 28
+  attackSpd: 20
   attackDrag: 0.1
   stunForce: 4
-  attackCooldown: 1
-  stunCooldown: 1.7
+  attackCooldown: 1.8
+  stunCooldown: 2.5
   attackDelay: 0.3
 --- !u!82 &189903894627126395
 AudioSource:
