@@ -13,7 +13,7 @@ public class SoldierAttacks : MonoBehaviour
 
     public Transform enemyTransform;
 
-    public Rigidbody rig;
+    public Rigidbody2D rig;
 
     public NavMeshAgent aiAgent;
 
@@ -24,7 +24,9 @@ public class SoldierAttacks : MonoBehaviour
 
     public float activeAttackTime;
     public float preAttackSpd;
+    public float preAttackDrag;
     public float attackSpd;
+    public float attackDrag;
     public float stunForce;
 
     public float attackCooldown;
@@ -38,37 +40,58 @@ public class SoldierAttacks : MonoBehaviour
     Vector3 attackPos;
 
     private bool dontAttack = false;
+    private Quaternion newRotation;
+    private Vector3 dir;
+    private float angle = 0;
+    private float originalDrag;
+    
 
     void preAttackStarted()
     {
+        originalDrag = rig.drag;
+        rig.drag = preAttackDrag;
         sndSrc.PlayOneShot(preAttackSnd);
         attackPos = givVision.detectedTransform.position;
-        givVision.npcTransform.rotation = Quaternion.LookRotation(new Vector3(givVision.detectedTransform.position.x - givVision.npcTransform.position.x, 0, givVision.detectedTransform.position.z - givVision.npcTransform.position.z));
-        givVision.lookAtTarget = false;
+        //
+        dir = givVision.detectedTransform.position - givVision.npcTransform.position;
+        angle = Mathf.Atan2(-dir.y, dir.x) * Mathf.Rad2Deg - 90;
+        newRotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        givVision.npcTransform.rotation = Quaternion.Euler(0, 180, newRotation.eulerAngles.z);
+        //
+
         aiAgent.isStopped = true;
         preAttackSprite.SetActive(true);
         if (givVision.detectedTransform != null)
         {
-            Vector3 atkVector = new Vector3(transform.position.x - attackPos.x, 0, transform.position.z - attackPos.z).normalized;
-            rig.velocity = new Vector3(atkVector.x * preAttackSpd,0, atkVector.z * preAttackSpd);
+            /*
+            Vector2 atkVector = new Vector2(transform.position.x - attackPos.x, transform.position.y - attackPos.y).normalized;
+            rig.velocity = new Vector2(atkVector.x, atkVector.y) * preAttackSpd;
+            */
+            rig.velocity = transform.up * preAttackSpd;
         }
     }
 
     void attackStarted()
     {
+        rig.drag = attackDrag;
+        givVision.lookAtTarget = false;
         sndSrc.PlayOneShot(attackSnd);
         StartCoroutine(givAttackScript.attack());
         attackingSprite.SetActive(true);
         preAttackSprite.SetActive(false);
         if (givVision.detectedTransform != null)
         {
-            Vector3 atkVector = new Vector3(transform.position.x - attackPos.x, 0, transform.position.z - attackPos.z).normalized;
-            rig.velocity = new Vector3(atkVector.x * attackSpd, 0, atkVector.z * attackSpd);
+            /*
+            Vector2 atkVector = new Vector2(transform.position.x - attackPos.x, transform.position.y - attackPos.y).normalized;
+            rig.velocity = new Vector2(atkVector.x, atkVector.y) * attackSpd;
+            */
+            rig.velocity = transform.up * -attackSpd;
         }
     }
 
     void attackDone()
     {
+        rig.drag = originalDrag;
         givVision.lookAtTarget = true;
         attackingSprite.SetActive(false);
         aiAgent.isStopped = false;
@@ -91,17 +114,18 @@ public class SoldierAttacks : MonoBehaviour
         givAttackScript.attackBox.enabled = false;
         givAttackScript.enabled = false;
         dontAttack = true;
-        rig.velocity = new Vector3(enemyTransform.position.x - MovPlayer.playerTransform.position.x, 0, enemyTransform.position.z - MovPlayer.playerTransform.position.z).normalized * stunForce;
+        rig.velocity = new Vector2(enemyTransform.position.x - PMove.playerTransform.position.x, enemyTransform.position.y - PMove.playerTransform.position.y).normalized * stunForce;
         yield return new WaitForSeconds(stunCooldown);
+        givAttackScript.parried = false;
         dontAttack = false;
         givAttackScript.enabled = true;
         givAttackScript.attackBox.enabled = false;
         givVision.enabled = true;
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerStay2D(Collider2D other)
     {
-        if(other.tag == "Player" && Time.time > nextAttack)
+        if (other.tag == "Player" && Time.time > nextAttack)
         {
             if (!dontAttack)
             {

@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public float hp;
+    float maxHp;
     public GameObject deadSprite;
 
 
@@ -15,9 +16,25 @@ public class EnemyHealth : MonoBehaviour
     public GameObject hitMessageTarget;
     public string hitMessage;
     public GameObject explosionRef;
-    // Start is called before the first frame update
+    public Rigidbody2D rig;
+
+    [Header("Damaged visuals")]
+    public MeshRenderer meshRenderer;
+    public Material[] damagedSprites;
+    public GameObject damageChunks;
+    public GameObject deathChunks;
+    int totalStates;
+    int currState;
 
     float nextDamage = 0;
+
+    private void Start()
+    {
+        maxHp = hp;
+        totalStates = damagedSprites.Length;
+        currState = totalStates;
+        totalStates--;
+    }
 
     void ModHealth(float givVal)
     {
@@ -25,6 +42,7 @@ public class EnemyHealth : MonoBehaviour
         {
             nextDamage = Time.time + nextDamageDelay;
             hp += givVal;
+            currState = Mathf.RoundToInt((hp / maxHp) * totalStates);
 
             Instantiate(explosionRef, transform.position, transform.rotation);
             if (hitMessageTarget != null)
@@ -35,8 +53,15 @@ public class EnemyHealth : MonoBehaviour
             if (hp <= 0)
             {
                 Instantiate(deadSprite, transform.position, transform.rotation);
+                Instantiate(deathChunks, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
                 gameObject.SendMessage(deathMessage, hp);
             }
+            else
+            {
+                meshRenderer.material = damagedSprites[currState];
+                Instantiate(damageChunks, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
+            }
+
         }
     }
 }

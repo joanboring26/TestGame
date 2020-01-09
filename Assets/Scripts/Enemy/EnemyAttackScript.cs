@@ -10,11 +10,14 @@ public class EnemyAttackScript : MonoBehaviour
     public float attackDmg;
     public float hitPushForce;
     public GameObject parryRef;
-    public BoxCollider attackBox;
+    public BoxCollider2D attackBox;
 
     public AudioClip[] playerImpactSnd;
     public AudioClip[] parryImpactSnd;
     public AudioSource sndSrc;
+
+    public bool parried = false;
+    public int parriedStaminaRestore; 
 
     private static int maxHits = 5;
 
@@ -22,14 +25,15 @@ public class EnemyAttackScript : MonoBehaviour
     private int cHits = 0;
     private bool dontCheck = false;
 
+   
 
     private void Start()
     {
-        attackBox = GetComponent<BoxCollider>();
+        attackBox = GetComponent<BoxCollider2D>();
         attackBox.enabled = false;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         hitEnts[cHits] = other.GetInstanceID();
 
@@ -44,21 +48,27 @@ public class EnemyAttackScript : MonoBehaviour
         {
             if (other.GetComponent<Rigidbody>())
             {
-                other.GetComponent<Rigidbody>().AddForce(Vector3.Normalize(new Vector3(transform.position.x - other.transform.position.x, 0, transform.position.z - other.transform.position.z)) * hitPushForce, ForceMode.Impulse);
+                other.GetComponent<Rigidbody>().AddForce(Vector3.Normalize(new Vector3(transform.position.x - other.transform.position.x, transform.position.y - other.transform.position.y, 0)) * hitPushForce, ForceMode.Impulse);
             }
-            Debug.Log("HITSOMETHING");
             if (other.gameObject.tag == "Parry")
             {
-                
-                sndSrc.PlayOneShot(parryImpactSnd[Random.Range(0,parryImpactSnd.Length)]);
+
+                sndSrc.PlayOneShot(parryImpactSnd[Random.Range(0, parryImpactSnd.Length)]);
                 StartCoroutine(behaviourBase.stunned(other.transform.position));
+                //if(!parried)
+                //{
+                //parried = true;
+                other.GetComponent<PParry>().ParryStaminaRestore(parriedStaminaRestore);
+                attackBox.enabled = false;
                 Instantiate(parryRef, transform.position, transform.rotation);
+                //}
             }
             else
             {
-                if(visionBase.CheckRay())
+                if (visionBase.CheckRay())
                 {
                     sndSrc.PlayOneShot(playerImpactSnd[/*Random.Range(0,playerImpactSnd.Length)*/0]);
+                    attackBox.enabled = false;
                     other.gameObject.SendMessage("ModHealth", attackDmg);
                 }
             }
