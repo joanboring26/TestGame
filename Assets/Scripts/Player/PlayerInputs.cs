@@ -8,6 +8,7 @@ public class PlayerInputs : MonoBehaviour
     public MovPlayer pFunc;
     public AttackSystem pAttack;
     public PlayerVisuals pVisuals;
+    public ParrySystem pPSystem;
     
     // Start is called before the first frame update
     [SerializeField]
@@ -20,6 +21,10 @@ public class PlayerInputs : MonoBehaviour
         {
             pFunc.PlayerMove();
         }
+        else
+        {
+            pFunc.walkSource.Pause();
+        }
 
         if(Input.GetButtonDown("Dash"))
         {
@@ -29,8 +34,17 @@ public class PlayerInputs : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             pAttack.initAttack();
-            pVisuals.attackUpdate(pAttack.attackBox);
+            pVisuals.attackUpdate(pAttack.attackBox, pAttack);
         }
+
+        if(Input.GetMouseButtonDown(1))
+        {
+            if(pAttack.canAttack() && !pPSystem.parrying)
+            {
+                pPSystem.DoParry();
+            }
+        }
+
         /*
         if(Input.GetButtonDown("Roll"))
         {
