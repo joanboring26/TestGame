@@ -14,7 +14,7 @@ public class openDoor : MonoBehaviour
     void checkEnemies()
     {
         counter++;
-        if (counter == 4)
+        if (counter == 6)
         {
             Destroy(door2);
             Destroy(door1);
