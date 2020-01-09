@@ -61,6 +61,7 @@ public class PAttack : MonoBehaviour
     public IEnumerator attack()
     {
         swingSrc.Play();
+        Debug.Log("SWUNG!!!!");
         attackBox.enabled = true;
         yield return new WaitForSeconds(activeAttackColliderTime);
         attackBox.enabled = false;

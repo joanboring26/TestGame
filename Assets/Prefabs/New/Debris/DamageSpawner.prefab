@@ -52,3 +52,4 @@ MonoBehaviour:
   maxChunkSpeed: 20
   minChunkSpeed: 10
   chunkAmount: 2
+  disappearSpeed: 1
