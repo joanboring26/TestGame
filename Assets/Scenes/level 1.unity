@@ -31748,7 +31748,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   door1: {fileID: 1811844192}
   door2: {fileID: 1945514949}
-  counter: 3
+  counter: 0
 --- !u!1 &1820761458
 GameObject:
   m_ObjectHideFlags: 0
@@ -32876,14 +32876,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 096d1162a2700d54294499f140565aa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  door2: {fileID: 1945514949}
-  counter: 0
 --- !u!1 &1959957283
 GameObject:
   m_ObjectHideFlags: 0
@@ -33607,11 +33599,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3478829182969849907, guid: 454853426102c0947b8b3fe893b98032,
-        type: 3}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 3478829181675110531, guid: 454853426102c0947b8b3fe893b98032,
         type: 3}
       propertyPath: staminabar
@@ -33646,6 +33633,11 @@ PrefabInstance:
         type: 3}
       propertyPath: delayPrevHealth
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3478829182969849907, guid: 454853426102c0947b8b3fe893b98032,
+        type: 3}
+      propertyPath: m_Name
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3478829182969849908, guid: 454853426102c0947b8b3fe893b98032,
         type: 3}
