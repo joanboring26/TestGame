@@ -31742,7 +31742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   door1: {fileID: 1811844192}
   door2: {fileID: 1945514949}
-  counter: 3
+  counter: 0
 --- !u!1 &1820761458
 GameObject:
   m_ObjectHideFlags: 0
@@ -32870,11 +32870,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 096d1162a2700d54294499f140565aa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Name: 
-  m_Name: 
-  m_Name: 
-  door2: {fileID: 1945514949}
-  counter: 0
 --- !u!1 &1959957283
 GameObject:
   m_ObjectHideFlags: 0
