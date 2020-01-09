@@ -23,6 +23,7 @@ public class PInputs : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(Input.GetAxis("Horizontal"));
         if ((Input.GetAxis("Horizontal") != 0) || (Input.GetAxis("Vertical") != 0))
         {
             pFunc.PlayerMove();
