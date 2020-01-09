@@ -22,11 +22,12 @@ public class ParryTutoCollision : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && panel.activeSelf)
         {
             panel.SetActive(false);
             time.Resume();
             tutorial.SetActive(false);
+            Destroy(gameObject);
         }
 
     }

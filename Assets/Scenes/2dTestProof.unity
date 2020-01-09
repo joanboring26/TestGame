@@ -142,7 +142,6 @@ RectTransform:
   m_Children:
   - {fileID: 1938366689}
   - {fileID: 897968287}
-  - {fileID: 1673190062}
   - {fileID: 470534162}
   - {fileID: 1302139424}
   - {fileID: 1673190062}
@@ -267,7 +266,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 863743800}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &99321224
 GameObject:
@@ -10521,7 +10520,7 @@ RectTransform:
   m_Children:
   - {fileID: 1721830815}
   m_Father: {fileID: 32938013}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
@@ -10919,7 +10918,7 @@ MonoBehaviour:
   prevHealthRecovery: 30
   prevHealthBar: {fileID: 500445377}
   deathMessage: deadPlayer
-  deadSprite: {fileID: 4834847289373875138, guid: 3a70359c83d8167448434ca847b2d634,
+  deadSprite: {fileID: 8805428298082872499, guid: 1fb54d173ab7cbf4e8eb0a3cd74b95d7,
     type: 3}
   hitMessage: camShake
   nextDamageDelay: 0.08
@@ -15896,10 +15895,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 2030351822}
   - {fileID: 1293279904}
   - {fileID: 55889269}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &880229116
 GameObject:
@@ -16580,7 +16580,7 @@ RectTransform:
   - {fileID: 500445376}
   - {fileID: 511665278}
   m_Father: {fileID: 863743800}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -16616,7 +16616,7 @@ RectTransform:
   m_Children:
   - {fileID: 250019048}
   m_Father: {fileID: 32938013}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -21985,7 +21985,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 32938013}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
@@ -23110,8 +23110,8 @@ Transform:
   - {fileID: 1460190858}
   - {fileID: 8866921020198199741}
   - {fileID: 1786379314}
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_Father: {fileID: 863743800}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &2030351823
 AudioSource:
