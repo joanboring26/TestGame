@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MouseSensitivity: 5
-  camHeight: 5
+  camHeight: -5
   mouseDir: {fileID: 5499389475388887521}
 --- !u!1 &3828479184470225754
 GameObject:
@@ -151,13 +151,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3828479184470225754}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 20}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5499389475245347206}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &3828479184470225752
 Camera:
   m_ObjectHideFlags: 0
@@ -668,7 +668,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5499389475216912418}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.2096, z: 0.848}
+  m_LocalPosition: {x: 0, y: 0.2096, z: -0.94}
   m_LocalScale: {x: 0.6189867, y: 0.6189867, z: 0.6189867}
   m_Children: []
   m_Father: {fileID: 5499389475352583168}
@@ -1014,13 +1014,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 100
   healthbar: {fileID: 0}
-  maxStamina: 50
-  stamina: 50
+  maxStamina: 60
+  stamina: 60
   staminaRechargeRate: 0.18
   staminabar: {fileID: 0}
   delayPrevHealth: 2
   prevHealthEmptyRate: 0.18
-  prevHealthRecovery: 15
+  prevHealthRecovery: 10
   prevHealthBar: {fileID: 0}
   deathMessage: deadPlayer
   deadSprite: {fileID: 8805428298082872499, guid: 1fb54d173ab7cbf4e8eb0a3cd74b95d7,
@@ -1063,7 +1063,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MouseDirection: {fileID: 5499389475388887518}
   pRig: {fileID: 5499389475809834890}
-  speed: 450
+  speed: 550
   dashSpd: 6
   moveEnabled: 1
   dashTime: 0.14
@@ -1636,7 +1636,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entityStats: {fileID: 5499389474381406008}
   parrying: 0
-  activeParryColliderTime: 0.1
+  activeParryColliderTime: 0.25
   parryRate: 0.5
   visualParry: {fileID: 7631954616186069119}
 --- !u!1 &7631954617690158139

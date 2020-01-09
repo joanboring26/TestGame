@@ -52,7 +52,7 @@ MonoBehaviour:
     m_Bits: 1024
   lifeTime: 5
   damage: -10
-  velocity: 15
+  velocity: 23
   parryVelocity: -30
   parryTargetSearchRadius: 8
   parried: 0

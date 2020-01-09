@@ -52,6 +52,8 @@ public class Projectile : MonoBehaviour
                 break;
             case "Parry":
                 gameObject.layer = 12;
+                velocity *= 1.6f;
+                damage *= 1.5f;
                 findParryTarget();
                 break;
             case "NPC":
