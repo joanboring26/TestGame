@@ -5,9 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void PlayGame()
+    public void PlayLvl1()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("level 1");
+    }
+     public void PlayLvl2()
+    {
+        SceneManager.LoadScene("Level2");
+    }
+      public void PlayTuto()
+    {
+        SceneManager.LoadScene("2d Tutorial");
     }
 
     public void QuitGame()
