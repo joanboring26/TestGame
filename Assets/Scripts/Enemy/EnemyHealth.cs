@@ -8,7 +8,7 @@ public class EnemyHealth : MonoBehaviour
     float maxHp;
     public GameObject deadSprite;
 
-
+    protected int counter = 0;
     public float nextDamageDelay;
 
     //Script will broadcast this message to the thing it is attached to when it dies
@@ -52,9 +52,13 @@ public class EnemyHealth : MonoBehaviour
 
             if (hp <= 0)
             {
+
                 Instantiate(deadSprite, transform.position, transform.rotation);
                 Instantiate(deathChunks, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
                 gameObject.SendMessage(deathMessage, hp);
+                
+                GameObject.Find("door1").SendMessage("checkEnemies");
+                
             }
             else
             {
@@ -64,4 +68,5 @@ public class EnemyHealth : MonoBehaviour
 
         }
     }
+   
 }
