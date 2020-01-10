@@ -60,7 +60,7 @@ public class EntityHealth : MonoBehaviour
         staminabar.maxValue = maxStamina;
         totalStates = damagedSprites.Length;
         currState = totalStates;
-        StartCoroutine(checkrestart());
+        //StartCoroutine(checkrestart());
         prevHealthBar.value = prevHealth;
         healthbar.value = hp;
         staminabar.value = maxStamina;

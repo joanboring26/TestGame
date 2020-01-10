@@ -21,7 +21,8 @@ public class PInputs : MonoBehaviour
     private TextMeshProUGUI text;
 
     // Update is called once per frame
-    void Update()
+
+    private void FixedUpdate()
     {
         if ((Input.GetAxis("Horizontal") != 0) || (Input.GetAxis("Vertical") != 0))
         {
@@ -32,7 +33,11 @@ public class PInputs : MonoBehaviour
         {
             pFunc.walkSource.Pause();
         }
+    }
 
+
+    void Update()
+    {
         if (Input.GetButtonDown("Dash"))
         {
             if(pStats.stamina > dashStaminaUse)
