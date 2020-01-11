@@ -9,29 +9,35 @@ public class EnemyMov : MonoBehaviour
     Vector3 lastSeenEnemyPos;
 
     public NavMeshAgent nav;
-    public Transform player;
     public GameObject explosionRef;
 
-    
-    public float speed = 4;
-  
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        nav = GetComponent<NavMeshAgent>();
-    }
-   
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
+    public bool retreating;
 
     public void MoveToDestination( Vector3 givDest)
     {
-        currentDest = givDest;
-        nav.SetDestination(givDest);
+        if(nav.stoppingDistance < (transform.position - givDest).magnitude)
+        {
+            retreating = false;
+        }
+        else
+        {
+            retreating = true;
+        }
+
+        if (!retreating)
+        {
+            //Debug.Log("Not near player");
+            currentDest = givDest;
+            nav.SetDestination(givDest);
+        }
+        else
+        {
+            //Debug.Log("NEAR PLAYER");
+            currentDest = (transform.position - givDest).normalized * (nav.stoppingDistance * 2) + transform.position;
+            //Debug.DrawLine(transform.position, currentDest, Color.red, 20);
+            
+            nav.SetDestination(currentDest);
+        }
     }
 
     public void EnemyDead()
