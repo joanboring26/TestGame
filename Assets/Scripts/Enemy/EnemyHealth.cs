@@ -36,7 +36,7 @@ public class EnemyHealth : MonoBehaviour
         totalStates--;
     }
 
-    void ModHealth(float givVal)
+    public void ModHealth(float givVal, Vector3 attackDir)
     {
         if (Time.time > nextDamage)
         {
@@ -52,12 +52,22 @@ public class EnemyHealth : MonoBehaviour
 
             if (hp <= 0)
             {
+                if (deadSprite != null)
+                {
+                    Vector3 dir = attackDir - transform.position;
+                    Quaternion newRotation = Quaternion.AngleAxis(Mathf.Atan2(-dir.y, dir.x) * Mathf.Rad2Deg, Vector3.forward);
+                    newRotation = Quaternion.Euler(0, 180, newRotation.eulerAngles.z);
 
-                Instantiate(deadSprite, transform.position, transform.rotation);
+                    Instantiate(deadSprite, transform.position, newRotation);
+                }
                 Instantiate(deathChunks, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
                 gameObject.SendMessage(deathMessage, hp);
-                
-                GameObject.Find("door1").SendMessage("checkEnemies");
+
+                GameObject door = GameObject.Find("door1");
+                if (door != null)
+                {
+                    GameObject.Find("door1").SendMessage("checkEnemies");
+                }
                 
             }
             else
