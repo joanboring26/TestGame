@@ -9,7 +9,7 @@ public class EntityHealth : MonoBehaviour
     [Header("Health variables")]
     public float hp;
     float maxHp;
-    public Slider healthbar;
+    public Image healthbar;
 
 
     [Header("Stamina variables")]
@@ -24,7 +24,7 @@ public class EntityHealth : MonoBehaviour
     public int prevHealthRecovery; //Se usa para calcular cuanta vida recupera un ataque a un enemigo
     private float prevHealth = 0;
     private bool drainPrevHealth = false;
-    public Slider prevHealthBar;
+    public Image prevHealthBar;
 
 
     [Header("OnDeath variables")]
@@ -50,20 +50,38 @@ public class EntityHealth : MonoBehaviour
     float nextDamage = 0;
     public float totalTime = 1;
 
+    [Header("Other")]
+    public Transform playerRot;
+
+    private float scaleVal = 0;
+    private float maxHPBarVal = 0.9f;
+    private float minHPBarVal = 0.1f;
+    private float newRange = 0;
+
+    //Escala la vida actual a la barra de vida que tiene el jugador pegada
+    public float scaleToHP( float OldValue)
+    {
+        scaleVal = (((OldValue - 0) * newRange) / maxHp) + minHPBarVal;
+        return (scaleVal);
+    }
+
     private void Start()
     {
+        newRange = (maxHPBarVal - minHPBarVal);
+
         prevHealth = hp;
-        prevHealthBar.maxValue = prevHealth;
+        prevHealthBar.fillAmount = maxHPBarVal;
         maxHp = hp;
-        healthbar.maxValue = maxHp;
+        healthbar.fillAmount = scaleToHP(hp);
+
         maxStamina = stamina;
         staminabar.maxValue = maxStamina;
+        staminabar.value = maxStamina;
+
         totalStates = damagedSprites.Length;
         currState = totalStates;
-        //StartCoroutine(checkrestart());
-        prevHealthBar.value = prevHealth;
-        healthbar.value = hp;
-        staminabar.value = maxStamina;
+
+        prevHealthBar.fillAmount = scaleToHP(prevHealth);
     }
 
     private void FixedUpdate()
@@ -73,7 +91,7 @@ public class EntityHealth : MonoBehaviour
         if (drainPrevHealth)
         {
             prevHealth = Mathf.Clamp(prevHealth - prevHealthEmptyRate, hp, maxHp);
-            prevHealthBar.value = prevHealth;
+            prevHealthBar.fillAmount = scaleToHP(prevHealth);
         }
     }
 
@@ -103,7 +121,7 @@ public class EntityHealth : MonoBehaviour
             }
         }
 
-        healthbar.value = hp;
+        healthbar.fillAmount = scaleToHP(hp);
     }
 
     public void RecoverPrevHealth(int dealtDamage)
@@ -111,7 +129,7 @@ public class EntityHealth : MonoBehaviour
         if(prevHealth > hp)
         {
             hp = Mathf.Clamp((dealtDamage / prevHealthRecovery) * dealtDamage + hp, hp, prevHealth);
-            healthbar.value = hp;
+            healthbar.fillAmount = scaleToHP(hp);
         }
     }
 
@@ -122,7 +140,7 @@ public class EntityHealth : MonoBehaviour
 
     IEnumerator PrevHealthStart( float damage)
     {
-        prevHealthBar.value = hp;
+        prevHealthBar.fillAmount = scaleToHP(hp);
         prevHealth = hp;
         drainPrevHealth = false;
         yield return new WaitForSeconds(delayPrevHealth);
@@ -135,7 +153,8 @@ public class EntityHealth : MonoBehaviour
         {
             if(Input.GetButton("Restart"))
             {
-                Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
+                Scene scene = SceneManager.GetActiveScene();
+                SceneManager.LoadScene(scene.name);
             }
             yield return new WaitForEndOfFrame();
         }
