@@ -26,7 +26,7 @@ public class EnemyHealth : MonoBehaviour
     int totalStates;
     int currState;
 
-    float nextDamage = 0;
+    public float nextDamage = 0;
 
     private void Start()
     {
@@ -36,7 +36,7 @@ public class EnemyHealth : MonoBehaviour
         totalStates--;
     }
 
-    public void ModHealth(float givVal, Vector3 attackDir)
+    public virtual void ModHealth(float givVal, Vector3 attackDir)
     {
         if (Time.time > nextDamage)
         {
@@ -72,8 +72,13 @@ public class EnemyHealth : MonoBehaviour
             }
             else
             {
+                Vector3 dir = attackDir - transform.position;
+                Quaternion newRotation = Quaternion.AngleAxis(Mathf.Atan2(-dir.y, dir.x) * Mathf.Rad2Deg, Vector3.forward);
+                Debug.Log(newRotation.eulerAngles.z);
+                newRotation = Quaternion.Euler(0, 180, newRotation.eulerAngles.z);
                 meshRenderer.material = damagedSprites[currState];
-                Instantiate(damageChunks, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
+                Instantiate(damageChunks, new Vector3(transform.position.x, transform.position.y, transform.position.z), newRotation);
+                Debug.Log(newRotation);
             }
 
         }
