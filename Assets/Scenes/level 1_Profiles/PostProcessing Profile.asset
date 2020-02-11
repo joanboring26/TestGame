@@ -37,7 +37,7 @@ MonoBehaviour:
     value: 1
   colored:
     overrideState: 1
-    value: 1
+    value: 0
   intensity:
     overrideState: 1
     value: 0.04
@@ -109,19 +109,19 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 25.11
+    value: 22
   intensityX:
     overrideState: 0
     value: 1
   intensityY:
     overrideState: 0
-    value: 1
+    value: 0
   centerX:
     overrideState: 0
-    value: 0
+    value: -0.13
   centerY:
     overrideState: 0
-    value: 0
+    value: -0.13
   scale:
     overrideState: 0
     value: 1
@@ -149,8 +149,8 @@ MonoBehaviour:
     overrideState: 1
     value: 0.1
   fastMode:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 1
 --- !u!114 &114867181373667892
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b94fcd11afffcb142908bfcb1e261fba, type: 3}
   m_Name: MotionBlur
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
