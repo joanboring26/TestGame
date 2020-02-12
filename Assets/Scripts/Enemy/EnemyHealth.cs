@@ -36,7 +36,7 @@ public class EnemyHealth : MonoBehaviour
         totalStates--;
     }
 
-    public virtual void ModHealth(float givVal, Vector3 attackDir)
+    public virtual void ModHealth(float givVal, Transform attackDir)
     {
         if (Time.time > nextDamage)
         {
@@ -54,7 +54,7 @@ public class EnemyHealth : MonoBehaviour
             {
                 if (deadSprite != null)
                 {
-                    Vector3 dir = attackDir - transform.position;
+                    Vector3 dir = attackDir.position - transform.position;
                     Quaternion newRotation = Quaternion.AngleAxis(Mathf.Atan2(-dir.y, dir.x) * Mathf.Rad2Deg, Vector3.forward);
                     newRotation = Quaternion.Euler(0, 180, newRotation.eulerAngles.z);
 
@@ -72,7 +72,7 @@ public class EnemyHealth : MonoBehaviour
             }
             else
             {
-                Vector3 dir = attackDir - transform.position;
+                Vector3 dir = attackDir.position - transform.position;
                 Quaternion newRotation = Quaternion.AngleAxis(Mathf.Atan2(-dir.y, dir.x) * Mathf.Rad2Deg, Vector3.forward);
                 Debug.Log(newRotation.eulerAngles.z);
                 newRotation = Quaternion.Euler(0, 180, newRotation.eulerAngles.z);

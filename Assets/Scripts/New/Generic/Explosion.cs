@@ -58,7 +58,7 @@ public class Explosion : MonoBehaviour
 
                     //Le aplica caida de daño dependiendo de la distancia de la explosion
                     damage = Mathf.Clamp(0, damage, damage - (otherPos.magnitude / damageFalloff));
-                    targets[i].GetComponent<EnemyHealth>().ModHealth(damage, transform.position);
+                    targets[i].GetComponent<EnemyHealth>().ModHealth(damage, transform);
                     break;
 
                 default:

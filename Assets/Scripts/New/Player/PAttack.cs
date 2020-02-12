@@ -42,7 +42,7 @@ public class PAttack : MonoBehaviour
         {
             //other.gameObject.GetComponent<EnemyHealth>();
             other.GetComponent<EnemyHealth>().rig.AddForce(Vector3.Normalize(new Vector3(transform.position.x - other.transform.position.x, transform.position.y - other.transform.position.y)) * hitPushForce, ForceMode2D.Impulse);
-            other.GetComponent<EnemyHealth>().ModHealth(attackDmg, playerStats.transform.position);
+            other.GetComponent<EnemyHealth>().ModHealth(attackDmg, playerStats.playerRot);
             if (attackBase != null)
             {
                 playerStats.RecoverPrevHealth((int)attackDmg);

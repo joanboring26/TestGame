@@ -12,7 +12,7 @@ public class BomberHealth : EnemyHealth
     public GameObject detectPlayerColl;
 
     // Update is called once per frame
-    public override void ModHealth(float givVal, Vector3 attackDir)
+    public override void ModHealth(float givVal, Transform attackDir)
     {
 
         if (Time.time > nextDamage)
@@ -23,7 +23,7 @@ public class BomberHealth : EnemyHealth
             if (!bomberAtks.canDetonate && !launching)
             {
                 Debug.Log("LAUNCHING!!");
-                Vector3 launchDir = transform.position - attackDir;
+                Vector3 launchDir = attackDir.up;
                 rig.drag = 0;
                 rig.angularDrag = 0;
                 rig.velocity = launchDir * pushForce;
