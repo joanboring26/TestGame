@@ -17,8 +17,9 @@ public class BomberLDetect : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject != gameObject && collision.tag != "Player")
+        if( collision.tag != "Attack" && collision.tag != "Player")
         {
+            Debug.Log(collision);
             Instantiate(explosion, transform.position, transform.rotation);
             Destroy(baseAI);
         }

@@ -45,8 +45,8 @@ public class Explosion : MonoBehaviour
                     temp.AddForce(otherPos * force, ForceMode2D.Impulse);
 
                     //Le aplica caida de daño dependiendo de la distancia de la explosion
-                    damage = Mathf.Clamp(0, damage, damage - (otherPos.magnitude / damageFalloff));
-                    targets[i].GetComponent<EntityHealth>().ModHealth(damage);
+                    damage = Mathf.Clamp(-damage - (otherPos.magnitude / damageFalloff), 0, -damage);
+                    targets[i].GetComponent<EntityHealth>().ModHealth(-damage);
                     break;
 
                 case "NPC":
@@ -57,8 +57,8 @@ public class Explosion : MonoBehaviour
                     tmp.AddForce(otherPos * force, ForceMode2D.Impulse);
 
                     //Le aplica caida de daño dependiendo de la distancia de la explosion
-                    damage = Mathf.Clamp(0, damage, damage - (otherPos.magnitude / damageFalloff));
-                    targets[i].GetComponent<EnemyHealth>().ModHealth(damage, transform);
+                    damage = Mathf.Clamp(-damage - (otherPos.magnitude / damageFalloff), 0, -damage);
+                    targets[i].GetComponent<EnemyHealth>().ModHealth(-damage, transform);
                     break;
 
                 default:

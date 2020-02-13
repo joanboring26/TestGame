@@ -117,6 +117,7 @@ public class EntityHealth : MonoBehaviour
             if (hp <= 0)
             {
                 Instantiate(deadSprite, transform.position, transform.rotation);
+                StartCoroutine(checkrestart());
                 gameObject.SendMessage(deathMessage, hp);
             }
         }

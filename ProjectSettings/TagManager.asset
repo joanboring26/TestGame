@@ -6,6 +6,7 @@ TagManager:
   tags:
   - NPC
   - Parry
+  - Attack
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - Player
   - Parry
   - PostProcessing
-  - 
+  - PlayerProjectile
   - 
   - 
   - 

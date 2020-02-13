@@ -406,6 +406,21 @@ PrefabInstance:
       propertyPath: staminaRechargeRate
       value: 0.25
       objectReference: {fileID: 0}
+    - target: {fileID: 5499389474381406008, guid: 454853426102c0947b8b3fe893b98032,
+        type: 3}
+      propertyPath: delayPrevHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499389474381406008, guid: 454853426102c0947b8b3fe893b98032,
+        type: 3}
+      propertyPath: prevHealthEmptyRate
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499389474381406008, guid: 454853426102c0947b8b3fe893b98032,
+        type: 3}
+      propertyPath: prevHealthRecovery
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3828479183563593847, guid: 454853426102c0947b8b3fe893b98032,
         type: 3}
       propertyPath: m_LocalRotation.x
