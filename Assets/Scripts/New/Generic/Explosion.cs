@@ -17,6 +17,9 @@ public class Explosion : MonoBehaviour
 
     public bool blowUpOnAppear;
 
+    public AudioClip[] explosionSnds;
+    public AudioSource explosionSrc;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +31,7 @@ public class Explosion : MonoBehaviour
 
     public void blowUp()
     {
+        explosionSrc.PlayOneShot(explosionSnds[Random.Range(0, explosionSnds.Length)]);
         Collider2D[] targets = Physics2D.OverlapCircleAll(transform.position, radius, explMask);
         for(int i = 0; i < targets.Length; i++)
         {
@@ -54,7 +58,7 @@ public class Explosion : MonoBehaviour
 
                     //Le aplica caida de daño dependiendo de la distancia de la explosion
                     damage = Mathf.Clamp(0, damage, damage - (otherPos.magnitude / damageFalloff));
-                    targets[i].GetComponent<EnemyHealth>().ModHealth(damage, transform.position);
+                    targets[i].GetComponent<EnemyHealth>().ModHealth(damage, transform);
                     break;
 
                 default:
@@ -65,4 +69,10 @@ public class Explosion : MonoBehaviour
 
     }
 
+
+    public IEnumerator explStart()
+    {
+        yield return new WaitForSeconds(2f);
+    
+    }
 }
