@@ -15,7 +15,7 @@ public class BomberAttacks : MonoBehaviour
     public Material mat;
     public Color initCol;
 
-    private float colChangeAm = 4;
+    private float colChangeAm = 0.1f;
 
     [Header("Time variables")]
     public float preReadyTime;
@@ -29,6 +29,7 @@ public class BomberAttacks : MonoBehaviour
     private void Start()
     {
         explIEnum = startExpl();
+        mat.color = initCol;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -64,7 +65,7 @@ public class BomberAttacks : MonoBehaviour
         mat.color = initCol;
         while (mat.color.g > 0)
         {
-            mat.color = new Color( mat.color.r, Mathf.Clamp(mat.color.g - colChangeAm, 0, 255), mat.color.b);
+            mat.color = new Color( mat.color.r, Mathf.SmoothStep(mat.color.g,0,colChangeAm), mat.color.b);
             yield return new WaitForEndOfFrame();
         }
 
