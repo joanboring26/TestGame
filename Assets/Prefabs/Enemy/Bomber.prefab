@@ -221,7 +221,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6005930913338762490}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 0, y: 0.68, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8622007338303345376}
@@ -235,7 +235,7 @@ TrailRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6005930913338762490}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 0
@@ -245,7 +245,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 260b6cd22b2437545b07859fbdb1c6b0, type: 2}
+  - {fileID: 2100000, guid: b9c49a4af2eafae47bdc2b2071df6a3e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -268,7 +268,7 @@ TrailRenderer:
   m_Time: 0.4
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 3
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -638,6 +638,7 @@ MonoBehaviour:
   bomberAtks: {fileID: 8622007338375054860}
   detectExplColl: {fileID: 4340977138186941212}
   detectPlayerColl: {fileID: 8622007338116389268}
+  trail: {fileID: 6005930913338762490}
 --- !u!114 &8622007338303345381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -896,7 +897,7 @@ MonoBehaviour:
   objectBase: {fileID: 8622007338968888309}
   canDetonate: 1
   visScript: {fileID: 8622007338116389256}
-  mat: {fileID: 2100000, guid: 9acb386cc0a4dec4cb3898175f8475d3, type: 2}
+  meshRend: {fileID: 8622007339524722465}
   initCol: {r: 1, g: 1, b: 0.5882353, a: 1}
   preReadyTime: 0.8
   detonationTime: 0.4

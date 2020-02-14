@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class BomberHealth : EnemyHealth
 {
+    [Header("Bomber variables")]
+
     bool launching = false;
     public float pushForce;
 
     public BomberAttacks bomberAtks;
     public GameObject detectExplColl;
     public GameObject detectPlayerColl;
+    public GameObject trail;
+
+
 
     // Update is called once per frame
     public override void ModHealth(float givVal, Transform attackDir)
@@ -32,6 +37,7 @@ public class BomberHealth : EnemyHealth
                 bomberAtks.StopAllCoroutines();
                 StopCoroutine(bomberAtks.explIEnum);
                 this.enabled = false;
+                trail.SetActive(true);
             }
 
         }

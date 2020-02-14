@@ -12,7 +12,8 @@ public class BomberAttacks : MonoBehaviour
     public EnemyVision visScript;
     public IEnumerator explIEnum;
 
-    public Material mat;
+    public MeshRenderer meshRend;
+    Material mat;
     public Color initCol;
 
     private float colChangeAm = 0.1f;
@@ -29,6 +30,7 @@ public class BomberAttacks : MonoBehaviour
     private void Start()
     {
         explIEnum = startExpl();
+        mat = meshRend.material;
         mat.color = initCol;
     }
     private void OnTriggerEnter2D(Collider2D collision)
