@@ -57,7 +57,7 @@ public class Projectile : MonoBehaviour
                 findParryTarget();
                 break;
             case "NPC":
-                other.GetComponent<EnemyHealth>().ModHealth(damage, transform.position);
+                other.GetComponent<EnemyHealth>().ModHealth(damage, transform);
                 Destroy(gameObject);
                 break;
             default:
