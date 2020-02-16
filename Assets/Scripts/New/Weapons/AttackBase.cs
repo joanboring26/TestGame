@@ -6,8 +6,11 @@ public class AttackBase : MonoBehaviour
 {
     [Header("Base vars")]
     //Used to spawn the weapon or item in this relative location to the player's item holder base
+    public GameObject pickupPrefab;
+    public Transform objTransform;
     public Vector3 RelativeSpawnCoordinates;
     //Used for hud stuff
+    [Header("HUD shown vars")]
     public Sprite hudIcon;
     public string AtkType;
     public string AtkRate;
@@ -18,8 +21,6 @@ public class AttackBase : MonoBehaviour
     public bool mUp;
 
     public EntityHealth playerStats;
-
-    private InventoryManager managerRef;
 
     public virtual void attack()
     {
@@ -36,31 +37,8 @@ public class AttackBase : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public virtual void enableWeapon()
     {
-        if (managerRef == null && collision.tag == "Player")
-        {
-            managerRef = GetComponent<InventoryManager>();
-            managerRef.showItem(this);
-        }
-        else
-        {
-            managerRef.showItem(this);
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (managerRef == null && collision.tag == "Player")
-        {
-            managerRef = GetComponent<InventoryManager>();
-            managerRef.hideItem();
-        }
-        else
-        {
-            managerRef.hideItem();
-        }
 
     }
-
 }

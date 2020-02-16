@@ -6,7 +6,6 @@ public class SwordAttack : AttackBase
 {
     [Header("Sword vars")]
     [Header("Object and component references")]
-    public GameObject attackBase;
     public GameObject attackVisual;
     public BoxCollider2D attackBox;
     public AudioSource swingSrc;
@@ -34,7 +33,6 @@ public class SwordAttack : AttackBase
     }
 
     //Activated when the attack box collider touches something
-    /*
     private void OnTriggerEnter2D(Collider2D other)
     {
         hitEnts[cHits] = other.GetInstanceID();
@@ -51,10 +49,7 @@ public class SwordAttack : AttackBase
             //other.gameObject.GetComponent<EnemyHealth>();
             other.GetComponent<EnemyHealth>().rig.AddForce(Vector3.Normalize(new Vector3(transform.position.x - other.transform.position.x, transform.position.y - other.transform.position.y)) * hitPushForce, ForceMode2D.Impulse);
             other.GetComponent<EnemyHealth>().ModHealth(attackDmg, playerStats.playerRot);
-            if (attackBase != null)
-            {
-                playerStats.RecoverPrevHealth((int)attackDmg);
-            }
+            playerStats.RecoverPrevHealth((int)attackDmg);
 
         }
         else
@@ -63,7 +58,7 @@ public class SwordAttack : AttackBase
         }
         cHits = (cHits + 1) % maxHits;
     }
-    */
+    
     public override void attack()
     {
         if (prevTime + fireRate < Time.time)

@@ -7,9 +7,6 @@ public class BaseInputs : MonoBehaviour
 {
     public EntityHealth pStats;
     public PMove pFunc;
-    public AttackBase pAttackM1;
-    public AttackBase pAttackM2;
-    public PParry pPSystem;
 
     [Header("Stamina requirements")]
     public float parryStaminaUse;
@@ -45,16 +42,6 @@ public class BaseInputs : MonoBehaviour
                 pStats.ModStamina(-dashStaminaUse);
                 pFunc.InitDash();
             }
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            pAttackM1.attack();
-
-        }
-        if (Input.GetMouseButtonDown(1))
-        {
-            pAttackM2.attack();
         }
     }
 

@@ -22,24 +22,17 @@ public class BomberHealth : EnemyHealth
 
         if (Time.time > nextDamage)
         {
-            hp += givVal;
-            nextDamage = Time.time + nextDamageDelay;
-
-            if (!bomberAtks.canDetonate && !launching)
-            {
-                Debug.Log("LAUNCHING!!");
-                Vector3 launchDir = attackDir.up;
-                rig.drag = 0;
-                rig.angularDrag = 0;
-                rig.velocity = launchDir * pushForce;
-                detectExplColl.SetActive(true);
-                bomberAtks.canDetonate = false;
-                bomberAtks.StopAllCoroutines();
-                StopCoroutine(bomberAtks.explIEnum);
-                this.enabled = false;
-                trail.SetActive(true);
-            }
-
+            Debug.Log("LAUNCHING!!");
+            Vector3 launchDir = attackDir.up;
+            rig.drag = 0;
+            rig.angularDrag = 0;
+            rig.velocity = launchDir * pushForce;
+            detectExplColl.SetActive(true);
+            bomberAtks.canDetonate = false;
+            bomberAtks.StopAllCoroutines();
+            StopCoroutine(bomberAtks.explIEnum);
+            this.enabled = false;
+            trail.SetActive(true);
         }
     }
 }
