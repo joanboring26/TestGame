@@ -31,7 +31,7 @@ Transform:
   m_LocalPosition: {x: -0.42, y: 12.47, z: 0}
   m_LocalScale: {x: 0.393514, y: 0.393514, z: 0.393514}
   m_Children:
-  - {fileID: 6417550666030122465}
+  - {fileID: 6982897513526708265}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cff411dabae7fb84180f7cfde7429772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackBaseRef: {fileID: 940662128527084160}
+  attackBaseRef: {fileID: 3812969050405783368}
   inputChecker: {fileID: 2342544767539811993}
   managerRef: {fileID: 0}
 --- !u!58 &2971232822443615849
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseRef: {fileID: 1890149686759134813}
---- !u!1001 &2123240172721867772
+--- !u!1001 &2634825336169612852
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -137,7 +137,7 @@ PrefabInstance:
     - target: {fileID: 4927317809636150166, guid: 0dc7807bbb1ca62408a7b9d5aab76206,
         type: 3}
       propertyPath: m_Name
-      value: SwordHcomp
+      value: SwordHeldcomp
       objectReference: {fileID: 0}
     - target: {fileID: 4933970349715951133, guid: 0dc7807bbb1ca62408a7b9d5aab76206,
         type: 3}
@@ -194,44 +194,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 379847015357405916, guid: 0dc7807bbb1ca62408a7b9d5aab76206,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 379847015357405916, guid: 0dc7807bbb1ca62408a7b9d5aab76206,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1187442359334863228, guid: 0dc7807bbb1ca62408a7b9d5aab76206,
-        type: 3}
-      propertyPath: playerStats
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1187442359334863228, guid: 0dc7807bbb1ca62408a7b9d5aab76206,
-        type: 3}
-      propertyPath: attackBase
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1187442359334863228, guid: 0dc7807bbb1ca62408a7b9d5aab76206,
         type: 3}
       propertyPath: pickupPrefab
       value: 
       objectReference: {fileID: 4805401523072933380}
+    - target: {fileID: 379847015357405916, guid: 0dc7807bbb1ca62408a7b9d5aab76206,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0dc7807bbb1ca62408a7b9d5aab76206, type: 3}
---- !u!4 &6417550666030122465 stripped
+--- !u!4 &6982897513526708265 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4933970349715951133, guid: 0dc7807bbb1ca62408a7b9d5aab76206,
     type: 3}
-  m_PrefabInstance: {fileID: 2123240172721867772}
+  m_PrefabInstance: {fileID: 2634825336169612852}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &940662128527084160 stripped
+--- !u!114 &3812969050405783368 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1187442359334863228, guid: 0dc7807bbb1ca62408a7b9d5aab76206,
     type: 3}
-  m_PrefabInstance: {fileID: 2123240172721867772}
+  m_PrefabInstance: {fileID: 2634825336169612852}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1

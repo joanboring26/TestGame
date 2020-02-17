@@ -6,7 +6,7 @@ public class AttackBase : MonoBehaviour
 {
     [Header("Base vars")]
     //Used to spawn the weapon or item in this relative location to the player's item holder base
-    public GameObject pickupPrefab;
+    public string pickupPrefab;
     public Transform objTransform;
     public Vector3 RelativeSpawnCoordinates;
     //Used for hud stuff
