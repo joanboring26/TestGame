@@ -12,6 +12,8 @@ public class Parry : AttackBase
     public float parryRate;
     public int staminaUse;
 
+    public int staminaRestore;
+
     public GameObject visualParry;
 
     float nextParry = 0;
@@ -19,6 +21,11 @@ public class Parry : AttackBase
     private void Start()
     {
         GetComponent<BoxCollider2D>().enabled = false;
+    }
+
+    public override void hitByEnemy()
+    {
+        playerStats.ModStamina(staminaRestore);
     }
 
     public override void attack()

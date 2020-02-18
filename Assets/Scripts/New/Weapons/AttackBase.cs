@@ -36,6 +36,12 @@ public class AttackBase : MonoBehaviour
     {
 
     }
+    
+    //Used whenever an enemy hits a collider in the weapon, used for parrying in general
+    public virtual void hitByEnemy()
+    {
+
+    }
 
     public virtual void enableWeapon()
     {

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1187442359334863228}
   - component: {fileID: 9035641956654952758}
   m_Layer: 10
-  m_Name: SwordHcomp
+  m_Name: SwordHeldcomp
   m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,8 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71135b4497a2bd6438e4d0d808626179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupPrefab: {fileID: 4805401523072933380, guid: e07e3d3ab08a39249aa9906e7ffe70cc,
-    type: 3}
+  pickupPrefab: SwordPickup
   objTransform: {fileID: 4933970349715951133}
   RelativeSpawnCoordinates: {x: 0, y: 0, z: 0}
   hudIcon: {fileID: 21300000, guid: 1f320eca16b54584d9f3edc07379fad4, type: 3}
@@ -87,9 +86,9 @@ MonoBehaviour:
   attackVisual: {fileID: 6706731050529423716}
   attackBox: {fileID: 379847015357405916}
   swingSrc: {fileID: 9035641956654952758}
-  fireRate: 0.8
+  fireRate: 0.6
   activeAttackColliderTime: 0.1
-  attackDmg: 25
+  attackDmg: -25
   staminaUse: 20
   hitPushForce: 15
 --- !u!82 &9035641956654952758

@@ -37,5 +37,6 @@ public class PickupBase : MonoBehaviour
             managerRef.hideItem();
         }
         inputChecker.enabled = false;
+        managerRef.m1m2Enabled = true;
     }
 }

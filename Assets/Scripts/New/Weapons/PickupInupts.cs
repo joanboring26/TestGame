@@ -7,11 +7,12 @@ public class PickupInupts : MonoBehaviour
     public PickupBase baseRef;
 
     // Start is called before the first frame update
-    private void FixedUpdate()
+    void Update()
     {
         if (Input.GetKey(KeyCode.F))
         {
-            if(Input.GetMouseButtonDown(0))
+            baseRef.managerRef.m1m2Enabled = false;
+            if (Input.GetMouseButtonDown(0))
             {
                 baseRef.managerRef.setWeapon(1, baseRef.attackBaseRef);
                 
@@ -21,5 +22,10 @@ public class PickupInupts : MonoBehaviour
                 baseRef.managerRef.setWeapon(2, baseRef.attackBaseRef);
             }
         }
+        else
+        {
+            baseRef.managerRef.m1m2Enabled = true;
+        }
+        Debug.Log(baseRef.managerRef.m1m2Enabled);
     }
 }

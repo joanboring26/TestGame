@@ -170,8 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 651cd3c15fe45064fb1b4259eade2baa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupPrefab: {fileID: 2982786286182032298, guid: 995a61f55c5195a4aa7d0d1a733f0b14,
-    type: 3}
+  pickupPrefab: ParryPickup
   objTransform: {fileID: 1392915528956119224}
   RelativeSpawnCoordinates: {x: 0, y: -0.15, z: 0}
   hudIcon: {fileID: 21300000, guid: d5f0042444e15914b82e1563c406c3e0, type: 3}

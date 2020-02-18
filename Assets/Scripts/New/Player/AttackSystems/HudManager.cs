@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class HudManager : MonoBehaviour
 {
     public GameObject inspectHolder;
+    public Image mouse1;
+    public Image mouse2;
     public Image itemImage;
     public TextMeshProUGUI name;
     public TextMeshProUGUI type;
@@ -38,5 +40,17 @@ public class HudManager : MonoBehaviour
         staminaUse.text = "Unknown";
         */
         inspectHolder.SetActive(false);
+    }
+
+    public void setItem(Sprite givSprite, int mouseNum)
+    {
+        if(mouseNum == 1)
+        {
+            mouse1.sprite = givSprite;
+        }
+        else if(mouseNum == 2)
+        {
+            mouse2.sprite = givSprite;
+        }
     }
 }

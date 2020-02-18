@@ -11,16 +11,21 @@ public class InventoryManager : MonoBehaviour
     public HudManager HudMan;
     public EntityHealth playerStats;
 
+    public bool m1m2Enabled = true;
+
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (m1m2Enabled)
         {
-            if (item1 != null) item1.attack();
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (item1 != null) item1.attack();
 
-        }
-        if (Input.GetMouseButtonDown(1))
-        {
-            if (item2 != null) item2.attack();
+            }
+            if (Input.GetMouseButtonDown(1))
+            {
+                if (item2 != null) item2.attack();
+            }
         }
     }
 
@@ -33,6 +38,7 @@ public class InventoryManager : MonoBehaviour
             {
                 dropWeapon(item1);
             }
+            HudMan.setItem(wepAtkBase.hudIcon, 1);
             item1 = wepAtkBase;
             item1.playerStats = playerStats;
             setPos(item1);
@@ -43,6 +49,7 @@ public class InventoryManager : MonoBehaviour
             {
                 dropWeapon(item2);
             }
+            HudMan.setItem(wepAtkBase.hudIcon, 2);
             item2 = wepAtkBase;
             item2.playerStats = playerStats;
             setPos(item2);
@@ -59,6 +66,7 @@ public class InventoryManager : MonoBehaviour
         item.objTransform.localScale = Vector3.one;
         item.enableWeapon();
 
+
         //Destruimos su parent(El pickup base)
         Destroy(tmp);
     }
@@ -66,7 +74,7 @@ public class InventoryManager : MonoBehaviour
     public void dropWeapon(AttackBase wepAtkBase)
     {
         //Instanciamos el prefab de el arma en el suelo y destruimos el arma que nos han pasado que deberia de ser soltada
-        Instantiate(Resources.Load("Weapons/Pickup/" + wepAtkBase.pickupPrefab), transform.position, transform.rotation);
+        Instantiate(Resources.Load("Weapons/Pickup/" + wepAtkBase.pickupPrefab) as GameObject, transform.position, transform.rotation);
         Destroy(wepAtkBase.gameObject);
     }
 

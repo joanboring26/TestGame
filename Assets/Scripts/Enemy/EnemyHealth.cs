@@ -62,12 +62,6 @@ public class EnemyHealth : MonoBehaviour
                 }
                 Instantiate(deathChunks, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
                 gameObject.SendMessage(deathMessage, hp);
-
-                GameObject door = GameObject.Find("door1");
-                if (door != null)
-                {
-                    GameObject.Find("door1").SendMessage("checkEnemies");
-                }
                 
             }
             else
