@@ -9,9 +9,7 @@ public class BaseInputs : MonoBehaviour
     public PMove pFunc;
 
     [Header("Stamina requirements")]
-    public float parryStaminaUse;
     public float dashStaminaUse;
-    public float attackStaminaUse;
 
     // Start is called before the first frame update
     [SerializeField]

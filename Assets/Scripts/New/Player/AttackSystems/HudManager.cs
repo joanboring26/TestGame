@@ -53,4 +53,6 @@ public class HudManager : MonoBehaviour
             mouse2.sprite = givSprite;
         }
     }
+
+
 }

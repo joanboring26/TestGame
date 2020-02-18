@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class AddDoor : MonoBehaviour
 {
-    public GameObject door;
-    public void EnemyDead()
+    public GameObject[] door;
+    public void EnemyDead(float hp)
     {
-        door.GetComponent<DoorCounter>().substractVal(1);
+        for(int i = 0; i < door.Length; i++)
+        {
+            door[i].GetComponent<DoorCounter>().substractVal(1);
+        }
     }
 }

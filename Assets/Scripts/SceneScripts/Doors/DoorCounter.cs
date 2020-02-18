@@ -14,6 +14,7 @@ public class DoorCounter : MonoBehaviour
         if(numOfEnemies <= 0)
         {
             Destroy(door);
+            Destroy(gameObject);
         }
     }
 }
