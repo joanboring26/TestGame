@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 379847015357405916}
   - component: {fileID: 1187442359334863228}
   - component: {fileID: 9035641956654952758}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: SwordHeldcomp
   m_TagString: Attack
   m_Icon: {fileID: 0}
