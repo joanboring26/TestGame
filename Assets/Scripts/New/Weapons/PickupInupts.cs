@@ -26,6 +26,5 @@ public class PickupInupts : MonoBehaviour
         {
             baseRef.managerRef.m1m2Enabled = true;
         }
-        Debug.Log(baseRef.managerRef.m1m2Enabled);
     }
 }

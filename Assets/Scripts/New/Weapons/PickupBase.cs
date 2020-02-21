@@ -15,28 +15,23 @@ public class PickupBase : MonoBehaviour
     {
         if (managerRef == null && collision.tag == "Player")
         {
+            Debug.Log(collision);
             managerRef = collision.GetComponent<InventoryManager>();
             managerRef.showItem(attackBaseRef);
+            inputChecker.enabled = true;
         }
-        else
-        {
-            managerRef.showItem(attackBaseRef);
-        }
-        inputChecker.enabled = true;
+        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (managerRef == null && collision.tag == "Player")
         {
+            Debug.Log(collision);
             managerRef = GetComponent<InventoryManager>();
             managerRef.hideItem();
+            inputChecker.enabled = false;
+            managerRef.m1m2Enabled = true;
         }
-        else
-        {
-            managerRef.hideItem();
-        }
-        inputChecker.enabled = false;
-        managerRef.m1m2Enabled = true;
     }
 }

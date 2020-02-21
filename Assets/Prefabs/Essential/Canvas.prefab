@@ -464,7 +464,7 @@ MonoBehaviour:
   m_material: {fileID: 0}
   m_sharedMaterial: {fileID: 0}
   m_isDefaultMaterial: 0
-  m_padding: 1.25
+  m_padding: 0
   m_canvasRenderer: {fileID: 1633948433434942970}
   m_TextComponent: {fileID: 6805743145471891842}
   m_materialReferenceIndex: 1
@@ -539,7 +539,7 @@ MonoBehaviour:
   m_material: {fileID: 0}
   m_sharedMaterial: {fileID: 0}
   m_isDefaultMaterial: 0
-  m_padding: 1.25
+  m_padding: 0
   m_canvasRenderer: {fileID: 2988244562494281603}
   m_TextComponent: {fileID: 7566155815995000780}
   m_materialReferenceIndex: 1
@@ -789,7 +789,7 @@ GameObject:
   - component: {fileID: 5280848193554711562}
   - component: {fileID: 8167129766345408391}
   m_Layer: 5
-  m_Name: Name (1)
+  m_Name: CtrlScheme
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -812,7 +812,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -70.4}
+  m_AnchoredPosition: {x: -14.7, y: -56.6}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5280848193554711562
@@ -843,7 +843,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: '[F]'
+  m_text: '[F] + M1 Or M2'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fda4869157dba634390164d2959d29f8, type: 2}
   m_sharedMaterial: {fileID: 21010028181323688, guid: fda4869157dba634390164d2959d29f8,
@@ -910,13 +910,13 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -22.491333, w: -27.68158}
   m_textInfo:
     textComponent: {fileID: 8167129766345408391}
-    characterCount: 3
+    characterCount: 14
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 1
+    spaceCount: 4
+    wordCount: 4
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -1325,7 +1325,7 @@ MonoBehaviour:
   m_material: {fileID: 0}
   m_sharedMaterial: {fileID: 0}
   m_isDefaultMaterial: 0
-  m_padding: 1.25
+  m_padding: 0
   m_canvasRenderer: {fileID: 4832019684621727566}
   m_TextComponent: {fileID: 8167129766345408391}
   m_materialReferenceIndex: 1
@@ -1559,7 +1559,7 @@ MonoBehaviour:
   m_material: {fileID: 0}
   m_sharedMaterial: {fileID: 0}
   m_isDefaultMaterial: 0
-  m_padding: 1.25
+  m_padding: 0
   m_canvasRenderer: {fileID: 4209296824000684052}
   m_TextComponent: {fileID: 3241379690505900009}
   m_materialReferenceIndex: 1
@@ -1634,7 +1634,7 @@ MonoBehaviour:
   m_material: {fileID: 0}
   m_sharedMaterial: {fileID: 0}
   m_isDefaultMaterial: 0
-  m_padding: 1.25
+  m_padding: 0
   m_canvasRenderer: {fileID: 3733848956798329154}
   m_TextComponent: {fileID: 4946612786502161743}
   m_materialReferenceIndex: 1
@@ -1709,7 +1709,7 @@ MonoBehaviour:
   m_material: {fileID: 0}
   m_sharedMaterial: {fileID: 0}
   m_isDefaultMaterial: 0
-  m_padding: 1.25
+  m_padding: 0
   m_canvasRenderer: {fileID: 7129029878632675056}
   m_TextComponent: {fileID: 4978154767960141385}
   m_materialReferenceIndex: 1
@@ -2566,7 +2566,7 @@ MonoBehaviour:
   m_material: {fileID: 0}
   m_sharedMaterial: {fileID: 0}
   m_isDefaultMaterial: 0
-  m_padding: 1.25
+  m_padding: 0
   m_canvasRenderer: {fileID: 3763104699468727388}
   m_TextComponent: {fileID: 3807830965710562396}
   m_materialReferenceIndex: 1
