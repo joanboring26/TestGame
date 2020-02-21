@@ -72,7 +72,6 @@ public class EnemyHealth : MonoBehaviour
                 newRotation = Quaternion.Euler(0, 180, newRotation.eulerAngles.z);
                 meshRenderer.material = damagedSprites[currState];
                 Instantiate(damageChunks, new Vector3(transform.position.x, transform.position.y, transform.position.z), newRotation);
-                Debug.Log(newRotation);
             }
 
         }
