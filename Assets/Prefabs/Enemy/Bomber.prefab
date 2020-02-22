@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4340977138186941203}
   - component: {fileID: 4340977138186941201}
   - component: {fileID: 4340977138186941202}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: DetectExplCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -419,10 +419,9 @@ MonoBehaviour:
   detectedTransform: {fileID: 0}
   npcTransform: {fileID: 8622007338303345376}
   alert:
-  - {fileID: 8300000, guid: 92af36c19edf28e41a0ec4e113f211ac, type: 3}
-  - {fileID: 8300000, guid: 2e1c31f7e6eeae044b05cf4a38a4ca47, type: 3}
-  - {fileID: 8300000, guid: 662c553fa5b83e74f90e3a73ae9f3829, type: 3}
-  - {fileID: 8300000, guid: a0b5eef95299be84ea5d30b982282d45, type: 3}
+  - {fileID: 8300000, guid: 65e019ae4a7e8be41bc5632efc3f9797, type: 3}
+  - {fileID: 8300000, guid: b328186a6876ff144addea81b2e2acbf, type: 3}
+  - {fileID: 8300000, guid: 5ec36d8cdfed72449b181c7efbc950bf, type: 3}
   impactSound:
   - {fileID: 8300000, guid: 8d170c0cfcc38d6439680bafeb37fb6f, type: 3}
   - {fileID: 8300000, guid: 919100b0eb4cc214dbc47721ac4a6e07, type: 3}
@@ -450,10 +449,10 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 0
+  MaxDistance: 20
   Pan2D: 0
-  rolloffMode: 2
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -461,22 +460,22 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.002
+      time: 0.40897447
       value: 1
-      inSlope: -7.6941247
-      outSlope: -7.6941247
+      inSlope: -1.7182709
+      outSlope: -1.7182709
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.27101487
+      outWeight: 0.48559028
     - serializedVersion: 3
-      time: 0.42778015
-      value: 0.0082092285
-      inSlope: -0.28731138
-      outSlope: -0.28731138
+      time: 1
+      value: 0
+      inSlope: -1.0526316
+      outSlope: -1.0526316
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.4636798
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -486,7 +485,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -564,7 +563,6 @@ GameObject:
   - component: {fileID: 8622007338303345379}
   - component: {fileID: 8622007338303345383}
   - component: {fileID: 8622007338303345381}
-  - component: {fileID: 5263614778826730096}
   m_Layer: 10
   m_Name: 2dBase
   m_TagString: NPC
@@ -655,102 +653,6 @@ MonoBehaviour:
   explosionRef: {fileID: 1054768076874279320, guid: afceb44bc39807e448d27d37c8bd42f8,
     type: 3}
   retreating: 0
---- !u!82 &5263614778826730096
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8622007338303345377}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 117e66c7c8a84c34394b09db7dfa205d, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 50
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &8622007338375054861
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,9 +707,9 @@ AudioSource:
   Priority: 211
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 25
   Pan2D: 0
-  rolloffMode: 2
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -817,20 +719,20 @@ AudioSource:
     - serializedVersion: 3
       time: 0.002
       value: 1
-      inSlope: -7.612783
-      outSlope: -7.612783
+      inSlope: -1.2957904
+      outSlope: -1.2957904
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.15500939
+      outWeight: 0.25738794
     - serializedVersion: 3
-      time: 0.38333893
-      value: 0.016418457
-      inSlope: -0.05575561
-      outSlope: -0.05575561
+      time: 0.88517
+      value: 0
+      inSlope: 0.12634988
+      outSlope: 0.12634988
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.7721479
+      inWeight: 0.051300816
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -997,7 +899,7 @@ NavMeshAgent:
   m_Speed: 16
   m_Acceleration: 10
   avoidancePriority: 50
-  m_AngularSpeed: 0
+  m_AngularSpeed: 20
   m_StoppingDistance: 0.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -1005,7 +907,7 @@ NavMeshAgent:
   m_Height: 1
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 1
 --- !u!1 &8622007339524722479
 GameObject:
   m_ObjectHideFlags: 0

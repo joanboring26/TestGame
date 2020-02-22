@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DoorCounter : MonoBehaviour
 {
+    public bool destroyDoor;
     public int numOfEnemies;
     public GameObject door;
 
@@ -13,8 +14,16 @@ public class DoorCounter : MonoBehaviour
         numOfEnemies -= val;
         if(numOfEnemies <= 0)
         {
-            Destroy(door);
-            Destroy(gameObject);
+            if (destroyDoor)
+            {
+                Destroy(door);
+                Destroy(gameObject);
+            }
+            else
+            {
+                door.SetActive(false);
+                Destroy(this);
+            }
         }
     }
 }
