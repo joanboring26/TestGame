@@ -86,10 +86,10 @@ MonoBehaviour:
   attackVisual: {fileID: 6706731050529423716}
   attackBox: {fileID: 379847015357405916}
   swingSrc: {fileID: 9035641956654952758}
-  fireRate: 0.6
+  fireRate: 0.45
   activeAttackColliderTime: 0.1
   attackDmg: -25
-  staminaUse: 20
+  staminaUse: 15
   hitPushForce: 15
 --- !u!82 &9035641956654952758
 AudioSource:
