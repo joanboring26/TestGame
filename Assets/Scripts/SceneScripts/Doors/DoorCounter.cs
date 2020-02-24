@@ -9,7 +9,7 @@ public class DoorCounter : MonoBehaviour
     public GameObject door;
 
     // Start is called before the first frame update
-    public void substractVal(int val)
+    public void eventTrig(int val)
     {
         numOfEnemies -= val;
         if(numOfEnemies <= 0)

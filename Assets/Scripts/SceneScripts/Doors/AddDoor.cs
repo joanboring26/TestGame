@@ -9,7 +9,7 @@ public class AddDoor : MonoBehaviour
     {
         for(int i = 0; i < door.Length; i++)
         {
-            door[i].GetComponent<DoorCounter>().substractVal(1);
+            door[i].SendMessage("eventTrig", 1);
         }
     }
 }
