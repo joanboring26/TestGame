@@ -12,9 +12,15 @@ public class CameraShake : MonoBehaviour
         public float m_springVal;
         public float m_damperVal;
         public float m_shakeVal;
+        public type(float g_springVal, float g_damperVal, float g_shakeVal)
+        {
+            m_springVal = g_springVal;
+            m_damperVal = g_damperVal;
+            m_shakeVal = g_shakeVal;
+        }
     }
 
-    public Dictionary< ShakeType,type[]> typeArr;
+    public Dictionary< ShakeType,type> typeArr;
 
     private float m_spring = 0.0f;
     private float m_damper = 0.0f;
@@ -35,7 +41,10 @@ public class CameraShake : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //We initialize different types on the testArr struct
+        //We initialize different types of cameraShake on the typeArr struct
+        //Used when player is hit
+        typeArr.Add(ShakeType.PLAYERDAM, new type(0.8366044f, 0.6334246f, 0.5730728f));
+        //
 
         //m_initialPos = transform.position;
         m_springSlider.onValueChanged.AddListener(delegate { m_spring = Mathf.Clamp(m_springSlider.value, 0.1f, 0.9f); }); // clamp its easier
@@ -58,7 +67,7 @@ public class CameraShake : MonoBehaviour
     public void AddCustomShake(Vector2 input, ShakeType givShake)
     {
 
-        m_velocity += input * m_shake;
+        m_velocity += input * typeArr[givShake].m_shakeVal;
         //m_velocity += new Vector2(Mathf.Clamp(m_velocity.x, minX, maxX), Mathf.Clamp(m_velocity, minY, maxY);)
     }
 
