@@ -31,17 +31,9 @@ public class PCamMover : MonoBehaviour
 
     private bool camMove = true;
 
-    private void FixedUpdate()
+    private void Update()
     {
-        //Debug.Log(Quaternion.LookRotation((player.position - MousePointer.MousePos), player.up).eulerAngles);
-        if (camMove)
-        {
-            cLerp = Mathf.Lerp(cLerp, 0.5f, recoveryRate);
-            transform.position = Vector3.Lerp(PCam.PMousePos, player.position, cLerp);
-
-            transform.position = new Vector3(Mathf.Clamp(transform.position.x, player.position.x - mouseRange, player.position.x + mouseRange), Mathf.Clamp(transform.position.y, player.position.y - mouseRange, player.position.y + mouseRange), transform.position.z - 10);
-            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x + hitDir.x + firstDir.x, transform.position.y + hitDir.y + firstDir.y, transform.position.z + hitDir.z + firstDir.z), Time.deltaTime * 10f);
-        }
+        
     }
 
     public void CamStatus(bool var)

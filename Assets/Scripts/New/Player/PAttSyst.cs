@@ -14,7 +14,7 @@ public class PAttSyst : MonoBehaviour
     public float attackShake;
     public float giveHitShake;
     public float takeHitShake;
-    public PCamMover cam;
+    public CameraShake cam;
 
     public float nextAttack = 0;
 
@@ -25,7 +25,7 @@ public class PAttSyst : MonoBehaviour
 
     public void targetHit()
     {
-        cam.camShake(giveHitShake);
+        //cam.camShake(giveHitShake);
     }
 
     public void targetParry()
@@ -49,7 +49,7 @@ public class PAttSyst : MonoBehaviour
             nextAttack = Time.time + attackRate;
             if (camShakeEnabled)
             {
-                cam.camShake(attackShake);
+                //cam.AddCustomShake( ,CameraShake.ShakeType.SWORDSWING);
             }
             StartCoroutine(attackBox.attack());
         }

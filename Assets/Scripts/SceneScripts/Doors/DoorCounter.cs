@@ -4,16 +4,26 @@ using UnityEngine;
 
 public class DoorCounter : MonoBehaviour
 {
+    public bool destroyDoor;
     public int numOfEnemies;
     public GameObject door;
 
     // Start is called before the first frame update
-    public void substractVal(int val)
+    public void eventTrig(int val)
     {
         numOfEnemies -= val;
         if(numOfEnemies <= 0)
         {
-            Destroy(door);
+            if (destroyDoor)
+            {
+                Destroy(door);
+                Destroy(gameObject);
+            }
+            else
+            {
+                door.SetActive(false);
+                Destroy(this);
+            }
         }
     }
 }

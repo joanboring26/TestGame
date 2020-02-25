@@ -17,7 +17,6 @@ public class EnemyAttackScript : MonoBehaviour
     public AudioSource sndSrc;
 
     public bool parried = false;
-    public int parriedStaminaRestore; 
 
     private static int maxHits = 5;
 
@@ -58,7 +57,7 @@ public class EnemyAttackScript : MonoBehaviour
                 //if(!parried)
                 //{
                 //parried = true;
-                other.GetComponent<PParry>().ParryStaminaRestore(parriedStaminaRestore);
+                other.GetComponent<AttackBase>().hitByEnemy();
                 attackBox.enabled = false;
                 Instantiate(parryRef, transform.position, transform.rotation);
                 //}
@@ -67,9 +66,9 @@ public class EnemyAttackScript : MonoBehaviour
             {
                 if (visionBase.CheckRay())
                 {
-                    sndSrc.PlayOneShot(playerImpactSnd[/*Random.Range(0,playerImpactSnd.Length)*/0]);
+                    sndSrc.PlayOneShot(playerImpactSnd[Random.Range(0,playerImpactSnd.Length)]);
                     attackBox.enabled = false;
-                    other.gameObject.SendMessage("ModHealth", attackDmg);
+                    other.gameObject.GetComponent<EntityHealth>().ModHealth(attackDmg, transform.up* 2);
                 }
             }
         }

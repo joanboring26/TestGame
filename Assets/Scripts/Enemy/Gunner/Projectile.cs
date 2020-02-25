@@ -47,7 +47,7 @@ public class Projectile : MonoBehaviour
         switch(other.tag)
         {
             case "Player":
-                other.GetComponent<EntityHealth>().ModHealth(damage);
+                other.GetComponent<EntityHealth>().ModHealth(damage, rig.velocity.normalized * 3);
                 Destroy(gameObject);
                 break;
             case "Parry":

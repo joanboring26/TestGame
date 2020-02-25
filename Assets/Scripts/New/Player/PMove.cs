@@ -5,6 +5,7 @@ using UnityEngine;
 public class PMove : MonoBehaviour
 {
     public GameObject MouseDirection;
+    public GameObject dashTrail;
 
     public static Transform playerTransform;
 
@@ -25,6 +26,8 @@ public class PMove : MonoBehaviour
 
     public AudioSource walkSource;
     public AudioSource dashSource;
+
+    public AudioClip[] dashSnds;
 
     private void Start()
     {
@@ -67,41 +70,10 @@ public class PMove : MonoBehaviour
         Destroy(MouseDirection);
     }
 
-    /*
-    IEnumerator rollMove()
-    {
-        moveEnabled = true;
-        Vector2 tempVec;
-        tempVec.x = 0;
-        tempVec.y = 0;
-        float nextRoll = Time.time + rollTime;
-        while (nextRoll > Time.time)
-        {
-            tempVec.x = movHorizontal * Time.deltaTime;
-            tempVec.y = movVertical * Time.deltaTime;
-            tempVec.Normalize();
-            tempVec *= rollSpeed;
-            pRig.velocity = new Vector2(tempVec.x * -rollSpeed, tempVec.y * -rollSpeed);
-            yield return new WaitForEndOfFrame();
-        }
-        moveEnabled = false;
-        pRig.velocity = new Vector2(tempVec.x, tempVec.y);
-    }
-    */
-
     IEnumerator dashMove()
     {
-        /*
-        dashSource.Play();
-        Vector2 tempVec;
-        tempVec.x = movHorizontal * Time.deltaTime;
-        tempVec.y = movVertical * Time.deltaTime;
-        tempVec.Normalize();
-        pRig.velocity = new Vector2(tempVec.x * dashSpd, tempVec.y * dashSpd);
-        moveEnabled = false;
-        yield return new WaitForSeconds(dashTime);
-        moveEnabled = true;
-        */
+        dashTrail.SetActive(true);
+        dashSource.PlayOneShot(dashSnds[Random.Range(0, dashSnds.Length)]);
         moveEnabled = false;
         Vector2 tempVec;
         tempVec.x = 0;
@@ -116,6 +88,7 @@ public class PMove : MonoBehaviour
             pRig.velocity = new Vector2(tempVec.x * dashSpd, tempVec.y * dashSpd);
             yield return new WaitForEndOfFrame();
         }
+        dashTrail.SetActive(false);
         moveEnabled = true;
 
     }

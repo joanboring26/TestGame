@@ -19,7 +19,6 @@ public class BomberLDetect : MonoBehaviour
     {
         if( collision.tag != "Attack" && collision.tag != "Player")
         {
-            Debug.Log(collision);
             Instantiate(explosion, transform.position, transform.rotation);
             Destroy(baseAI);
         }

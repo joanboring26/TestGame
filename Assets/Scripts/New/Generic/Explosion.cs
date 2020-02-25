@@ -31,6 +31,7 @@ public class Explosion : MonoBehaviour
 
     public void blowUp()
     {
+        StartCoroutine(explStart());
         explosionSrc.PlayOneShot(explosionSnds[Random.Range(0, explosionSnds.Length)]);
         Collider2D[] targets = Physics2D.OverlapCircleAll(transform.position, radius, explMask);
         for(int i = 0; i < targets.Length; i++)
@@ -72,7 +73,7 @@ public class Explosion : MonoBehaviour
 
     public IEnumerator explStart()
     {
-        yield return new WaitForSeconds(2f);
-    
+        yield return new WaitForSeconds(3f);
+        Destroy(gameObject);
     }
 }

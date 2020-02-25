@@ -5,6 +5,7 @@ using TMPro;
 
 public class PInputs : MonoBehaviour
 {
+
     public EntityHealth pStats;
     public PMove pFunc;
     public PAttSyst pAttack;
@@ -20,8 +21,8 @@ public class PInputs : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI text;
 
-    // Update is called once per frame
 
+    // Update is called once per frame
     private void FixedUpdate()
     {
         if ((Input.GetAxis("Horizontal") != 0) || (Input.GetAxis("Vertical") != 0))
