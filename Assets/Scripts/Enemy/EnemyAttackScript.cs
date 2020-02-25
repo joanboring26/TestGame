@@ -66,9 +66,9 @@ public class EnemyAttackScript : MonoBehaviour
             {
                 if (visionBase.CheckRay())
                 {
-                    sndSrc.PlayOneShot(playerImpactSnd[/*Random.Range(0,playerImpactSnd.Length)*/0]);
+                    sndSrc.PlayOneShot(playerImpactSnd[Random.Range(0,playerImpactSnd.Length)]);
                     attackBox.enabled = false;
-                    other.gameObject.SendMessage("ModHealth", attackDmg);
+                    other.gameObject.GetComponent<EntityHealth>().ModHealth(attackDmg);
                 }
             }
         }

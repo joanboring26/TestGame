@@ -52,6 +52,7 @@ public class EntityHealth : MonoBehaviour
 
     [Header("Other")]
     public Transform playerRot;
+    public CameraShake camShaker;
 
     private float scaleVal = 0;
     private float maxHPBarVal = 0.9f;
@@ -102,6 +103,7 @@ public class EntityHealth : MonoBehaviour
             if (givVal < 0)
             {
                 Instantiate(explosionRef, transform.position, transform.rotation);
+                camShaker.AddCustomShake(-transform.up * 3, CameraShake.ShakeType.PLAYERDAM);
                 StartCoroutine(PrevHealthStart(givVal));
             }
             nextDamage = Time.time + nextDamageDelay;
@@ -113,6 +115,31 @@ public class EntityHealth : MonoBehaviour
                 painSrc.PlayOneShot(hitSnds[Random.Range(0, hitSnds.Length)]);
                 hitMessageTarget.SendMessage(hitMessage, 0.3f);
             }
+
+            if (hp <= 0)
+            {
+                Instantiate(deadSprite, transform.position, transform.rotation);
+                StartCoroutine(checkrestart());
+                gameObject.SendMessage(deathMessage, hp);
+            }
+        }
+
+        healthbar.fillAmount = scaleToHP(hp);
+    }
+
+    public void ModHealth(float givVal, Vector2 dir)
+    {
+        if (Time.time > nextDamage)
+        {
+            Instantiate(explosionRef, transform.position, transform.rotation);
+            camShaker.AddCustomShake(-dir * 3, CameraShake.ShakeType.PLAYERDAM);
+            StartCoroutine(PrevHealthStart(givVal));
+
+            nextDamage = Time.time + nextDamageDelay;
+            hp += givVal;
+            currState = Mathf.RoundToInt((hp / maxHp) * 3);
+
+            painSrc.PlayOneShot(hitSnds[Random.Range(0, hitSnds.Length)]);
 
             if (hp <= 0)
             {

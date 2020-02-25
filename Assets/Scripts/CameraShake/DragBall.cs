@@ -46,7 +46,7 @@ public class DragBall : MonoBehaviour
 
             StartCoroutine("DestroyBall");
 
-            m_cameraShake.AddShake(m_rb.velocity * 0.5f);
+            //m_cameraShake.AddShake(m_rb.velocity * 0.5f);
             if (outOfBoundsX)
             {
                 m_rb.velocity = new Vector2(-m_rb.velocity.x, m_rb.velocity.y);

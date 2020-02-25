@@ -25,6 +25,7 @@ public class SwordAttack : AttackBase
 
     //Used for fireRate timer!
     private float prevTime = 0;
+    private bool hitP = false;
 
 
     private void Start()
@@ -65,6 +66,18 @@ public class SwordAttack : AttackBase
         {
             if (playerStats.stamina > staminaUse && !attackBox.enabled)
             {
+                if(hitP)
+                {
+                    playerStats.camShaker.AddCustomShake(transform.right * 2, CameraShake.ShakeType.SWORDSWING);
+                    hitP = false;
+                    attackVisual.transform.localScale = new Vector3(-attackVisual.transform.localScale.x, attackVisual.transform.localScale.y, 1);
+                }
+                else
+                {
+                    playerStats.camShaker.AddCustomShake(-transform.right * 2, CameraShake.ShakeType.SWORDSWING);
+                    hitP = true;
+                    attackVisual.transform.localScale = new Vector3(attackVisual.transform.localScale.x, attackVisual.transform.localScale.y, 1);
+                }
                 playerStats.ModStamina(-staminaUse);
                 prevTime = Time.time + fireRate;
                 StartCoroutine(initAttack());

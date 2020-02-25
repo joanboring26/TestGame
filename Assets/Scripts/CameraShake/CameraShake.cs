@@ -21,16 +21,11 @@ public class CameraShake : MonoBehaviour
     }
 
     public Dictionary< ShakeType,type> typeArr;
+    public Transform ogPos;
 
     private float m_spring = 0.0f;
     private float m_damper = 0.0f;
     private float m_shake = 0.0f;
-
-    [SerializeField] float maxVelocity = 10.0f;
-
-    [SerializeField] private Slider m_springSlider;
-    [SerializeField] private Slider m_damperSlider;
-    [SerializeField] private Slider m_shakeSlider;
 
     public Vector2 PositionDiff
     {
@@ -42,38 +37,46 @@ public class CameraShake : MonoBehaviour
     void Start()
     {
         //We initialize different types of cameraShake on the typeArr struct
+
+        //We initialize dictionary
+        typeArr = new Dictionary<ShakeType, type>();
+
         //Used when player is hit
         typeArr.Add(ShakeType.PLAYERDAM, new type(0.8366044f, 0.6334246f, 0.5730728f));
+
+        //Used when the player swings his sword
+        typeArr.Add(ShakeType.SWORDSWING, new type(0.4510828f, 0.383356f, 0.1198249f));
+
+        //Used when the player damages an enemy
+        typeArr.Add(ShakeType.ENEMYDAM, new type(0.03430229f, 0.08640016f, 0.3594728f));
+
         //
 
-        //m_initialPos = transform.position;
-        m_springSlider.onValueChanged.AddListener(delegate { m_spring = Mathf.Clamp(m_springSlider.value, 0.1f, 0.9f); }); // clamp its easier
-        m_damperSlider.onValueChanged.AddListener(delegate { m_damper = Mathf.Clamp(m_damperSlider.value, 0.1f, 0.9f); });
-        m_shakeSlider.onValueChanged.AddListener(delegate { m_shake = m_shakeSlider.value; });
+        m_initialPos = transform.position;
 
-        m_spring = m_springSlider.value;
-        m_damper = m_damperSlider.value;
-        m_shake = m_shakeSlider.value;
     }
 
     // Update is called once per frame
     void Update()
     {
+        m_initialPos = ogPos.position;
         m_velocity += (m_initialPos - (Vector2)this.transform.position) * m_spring;
         m_velocity -= m_velocity * m_damper;
-        transform.localPosition += (Vector3)m_velocity;
+        transform.localPosition += new Vector3(m_velocity.x, m_velocity.y, 0);
     }
 
     public void AddCustomShake(Vector2 input, ShakeType givShake)
     {
-
         m_velocity += input * typeArr[givShake].m_shakeVal;
+        m_spring = typeArr[givShake].m_springVal;
+        m_damper = typeArr[givShake].m_damperVal;
+        m_shake = typeArr[givShake].m_shakeVal;
         //m_velocity += new Vector2(Mathf.Clamp(m_velocity.x, minX, maxX), Mathf.Clamp(m_velocity, minY, maxY);)
     }
 
-    public void AddShake(Vector2 input)
+    IEnumerator test()
     {
-        m_velocity += input * m_shake;
-        //m_velocity += new Vector2(Mathf.Clamp(m_velocity.x, minX, maxX), Mathf.Clamp(m_velocity, minY, maxY);)
+        yield return new WaitForSeconds(2f);
+        AddCustomShake(new Vector2(1, 0), ShakeType.SWORDSWING);
     }
 }

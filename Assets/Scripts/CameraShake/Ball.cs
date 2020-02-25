@@ -30,7 +30,7 @@ public class Ball : MonoBehaviour
                     m_currentBounceTime = m_bounceTime;
                     m_bouncingUp = true;
                     //Trigger camera shake
-                    m_cameraShake.AddShake(Vector2.down);
+                    //m_cameraShake.AddShake(Vector2.down);
                 }
             }
         }

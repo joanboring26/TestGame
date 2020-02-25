@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 2473800009257813231}
   - component: {fileID: 2473800009257813136}
   - component: {fileID: 2473800009257813137}
+  - component: {fileID: 6619626924967141093}
   - component: {fileID: 2473800009257813141}
   - component: {fileID: 2473800009257813139}
   - component: {fileID: 6636810241988630389}
@@ -162,6 +163,18 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2473800009257813138}
   m_Enabled: 1
+--- !u!114 &6619626924967141093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2473800009257813138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a1ffdc2d4cb2d94b9628f1848e41222, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2473800009257813141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1713,11 +1726,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6567383089679914626}
     m_Modifications:
-    - target: {fileID: 4927317809636150166, guid: 0dc7807bbb1ca62408a7b9d5aab76206,
-        type: 3}
-      propertyPath: m_Name
-      value: SwordHeldcomp
-      objectReference: {fileID: 0}
     - target: {fileID: 1187442359334863228, guid: 0dc7807bbb1ca62408a7b9d5aab76206,
         type: 3}
       propertyPath: playerStats
@@ -1778,6 +1786,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4927317809636150166, guid: 0dc7807bbb1ca62408a7b9d5aab76206,
+        type: 3}
+      propertyPath: m_Name
+      value: SwordHeldcomp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0dc7807bbb1ca62408a7b9d5aab76206, type: 3}
 --- !u!114 &2688656074591842822 stripped
@@ -1805,16 +1818,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6567383089679914626}
     m_Modifications:
-    - target: {fileID: 6404660139869482077, guid: 163e7db60003a1942947e22e5a1946a6,
-        type: 3}
-      propertyPath: m_Name
-      value: ParryHeldComp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392915528956119230, guid: 163e7db60003a1942947e22e5a1946a6,
-        type: 3}
-      propertyPath: playerStats
-      value: 
-      objectReference: {fileID: 6567383089465403632}
     - target: {fileID: 1392915528956119224, guid: 163e7db60003a1942947e22e5a1946a6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1870,6 +1873,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1392915528956119230, guid: 163e7db60003a1942947e22e5a1946a6,
+        type: 3}
+      propertyPath: playerStats
+      value: 
+      objectReference: {fileID: 6567383089465403632}
     - target: {fileID: 6404660139193940947, guid: 163e7db60003a1942947e22e5a1946a6,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -1879,6 +1887,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6404660139869482077, guid: 163e7db60003a1942947e22e5a1946a6,
+        type: 3}
+      propertyPath: m_Name
+      value: ParryHeldComp
       objectReference: {fileID: 0}
     - target: {fileID: 6404660139869482066, guid: 163e7db60003a1942947e22e5a1946a6,
         type: 3}
