@@ -68,13 +68,13 @@ public class SwordAttack : AttackBase
             {
                 if(hitP)
                 {
-                    playerStats.camShaker.AddCustomShake(transform.right * 2, CameraShake.ShakeType.SWORDSWING);
+                    playerStats.camShaker.AddCustomShake(transform.right * 3, CameraShake.ShakeType.SWORDSWING);
                     hitP = false;
                     attackVisual.transform.localScale = new Vector3(-attackVisual.transform.localScale.x, attackVisual.transform.localScale.y, 1);
                 }
                 else
                 {
-                    playerStats.camShaker.AddCustomShake(-transform.right * 2, CameraShake.ShakeType.SWORDSWING);
+                    playerStats.camShaker.AddCustomShake(-transform.right * 3, CameraShake.ShakeType.SWORDSWING);
                     hitP = true;
                     attackVisual.transform.localScale = new Vector3(attackVisual.transform.localScale.x, attackVisual.transform.localScale.y, 1);
                 }

@@ -24,7 +24,6 @@ public class ParryTutoCollision : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1) && panel.activeSelf)
         {
-            panel.SetActive(false);
             time.Resume();
             tutorial.SetActive(false);
             Destroy(gameObject);

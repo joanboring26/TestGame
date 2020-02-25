@@ -68,7 +68,7 @@ public class EnemyAttackScript : MonoBehaviour
                 {
                     sndSrc.PlayOneShot(playerImpactSnd[Random.Range(0,playerImpactSnd.Length)]);
                     attackBox.enabled = false;
-                    other.gameObject.GetComponent<EntityHealth>().ModHealth(attackDmg);
+                    other.gameObject.GetComponent<EntityHealth>().ModHealth(attackDmg, transform.up* 2);
                 }
             }
         }

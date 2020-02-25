@@ -132,7 +132,7 @@ public class EntityHealth : MonoBehaviour
         if (Time.time > nextDamage)
         {
             Instantiate(explosionRef, transform.position, transform.rotation);
-            camShaker.AddCustomShake(-dir * 3, CameraShake.ShakeType.PLAYERDAM);
+            camShaker.AddCustomShake(-dir, CameraShake.ShakeType.PLAYERDAM);
             StartCoroutine(PrevHealthStart(givVal));
 
             nextDamage = Time.time + nextDamageDelay;
