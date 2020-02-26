@@ -22,7 +22,7 @@ PlayerSettings:
   m_SplashScreenOverlayOpacity: 1
   m_SplashScreenAnimation: 2
   m_SplashScreenLogoStyle: 1
-  m_SplashScreenDrawMode: 0
+  m_SplashScreenDrawMode: 1
   m_SplashScreenBackgroundAnimationZoom: 1
   m_SplashScreenLogoAnimationZoom: 1
   m_SplashScreenBackgroundLandscapeAspect: 1
@@ -39,7 +39,11 @@ PlayerSettings:
     y: 0
     width: 1
     height: 1
-  m_SplashScreenLogos: []
+  m_SplashScreenLogos:
+  - logo: {fileID: 21300000, guid: 6fe5e59f9b18c584fa9e4c0aa94edc11, type: 3}
+    duration: 2
+  - logo: {fileID: 10404, guid: 0000000000000000e000000000000000, type: 0}
+    duration: 2
   m_VirtualRealitySplashScreen: {fileID: 2800000, guid: 44a1a934c658efa4bbac89ff1d58f359,
     type: 3}
   m_HolographicTrackingLossScreen: {fileID: 0}
@@ -120,7 +124,17 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleVersion: 0.1
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: 8622007338968888309, guid: 9148d91b081466a4a95cd5f179ae8209, type: 3}
+  - {fileID: 472702725801015572, guid: 0e5e179e2a7a87a4e97cf375ea1a68c9, type: 3}
+  - {fileID: 4002890375969868112, guid: 87e32b03e5e806c4dbc6233bb4a70c8d, type: 3}
+  - {fileID: 189903896562612609, guid: 3bef862b0cca6014287a0bef7e73f2be, type: 3}
+  - {fileID: 3170815768789983721, guid: 40b4d517133a3db4aa71c349cdd1f107, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -513,7 +527,8 @@ PlayerSettings:
   ps4attribEyeToEyeDistanceSettingVR: 0
   ps4IncludedModules: []
   monoEnv: 
-  splashScreenBackgroundSourceLandscape: {fileID: 0}
+  splashScreenBackgroundSourceLandscape: {fileID: 21300000, guid: 59a25fa0e69ee8d448985abf4e9de9a0,
+    type: 3}
   splashScreenBackgroundSourcePortrait: {fileID: 0}
   spritePackerPolicy: 
   webGLMemorySize: 256
@@ -529,7 +544,16 @@ PlayerSettings:
   webGLCompressionFormat: 1
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    1: UNITY_POST_PROCESSING_STACK_V2
+    7: UNITY_POST_PROCESSING_STACK_V2
+    13: UNITY_POST_PROCESSING_STACK_V2
+    19: UNITY_POST_PROCESSING_STACK_V2
+    21: UNITY_POST_PROCESSING_STACK_V2
+    25: UNITY_POST_PROCESSING_STACK_V2
+    26: UNITY_POST_PROCESSING_STACK_V2
+    27: UNITY_POST_PROCESSING_STACK_V2
+    28: UNITY_POST_PROCESSING_STACK_V2
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}
