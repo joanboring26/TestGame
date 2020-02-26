@@ -5,22 +5,29 @@ using UnityEngine.AI;
 
 public class SoldierAttacks : MonoBehaviour
 {
+    [Header("Component references")]
     public EnemyVision givVision;
     public EnemyAttackScript givAttackScript;
+    public StunIndicator givStunIndicator;
 
+    [Header("Visuals")]
     public GameObject preAttackSprite;
     public GameObject attackingSprite;
-
+    [Header("Position references")]
     public Transform enemyTransform;
-
+    [Header("Physics")]
     public Rigidbody2D rig;
-
+    [Header("AI")]
     public NavMeshAgent aiAgent;
+
+    [Header("Audio references")]
 
     public AudioClip preAttackSnd;
     public AudioClip attackSnd;
     public AudioClip stunnedSnd;
     public AudioSource sndSrc;
+
+    [Header("Enemy settings")]
 
     public float activeAttackTime;
     public float preAttackSpd;
@@ -44,7 +51,6 @@ public class SoldierAttacks : MonoBehaviour
     private Vector3 dir;
     private float angle = 0;
     private float originalDrag;
-    
 
     void preAttackStarted()
     {
@@ -115,6 +121,7 @@ public class SoldierAttacks : MonoBehaviour
         givAttackScript.enabled = false;
         dontAttack = true;
         rig.velocity = new Vector2(enemyTransform.position.x - PMove.playerTransform.position.x, enemyTransform.position.y - PMove.playerTransform.position.y).normalized * stunForce;
+        StartCoroutine(givStunIndicator.stunTimer(stunCooldown));
         yield return new WaitForSeconds(stunCooldown);
         givAttackScript.parried = false;
         dontAttack = false;

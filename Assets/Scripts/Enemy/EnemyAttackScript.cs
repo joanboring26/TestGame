@@ -54,13 +54,9 @@ public class EnemyAttackScript : MonoBehaviour
 
                 sndSrc.PlayOneShot(parryImpactSnd[Random.Range(0, parryImpactSnd.Length)]);
                 StartCoroutine(behaviourBase.stunned(other.transform.position));
-                //if(!parried)
-                //{
-                //parried = true;
                 other.GetComponent<AttackBase>().hitByEnemy();
                 attackBox.enabled = false;
                 Instantiate(parryRef, transform.position, transform.rotation);
-                //}
             }
             else
             {

@@ -73,10 +73,4 @@ public class CameraShake : MonoBehaviour
         m_shake = typeArr[givShake].m_shakeVal;
         //m_velocity += new Vector2(Mathf.Clamp(m_velocity.x, minX, maxX), Mathf.Clamp(m_velocity, minY, maxY);)
     }
-
-    IEnumerator test()
-    {
-        yield return new WaitForSeconds(2f);
-        AddCustomShake(new Vector2(1, 0), ShakeType.SWORDSWING);
-    }
 }

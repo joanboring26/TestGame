@@ -31,6 +31,7 @@ public class EntityHealth : MonoBehaviour
     //Script will broadcast this message to the thing it is attached to when it dies
     public string deathMessage;
     public GameObject deadSprite;
+    public GameObject deadHudMsg;
 
     [Header("OnHit variables")]
     public string hitMessage;
@@ -121,6 +122,7 @@ public class EntityHealth : MonoBehaviour
                 Instantiate(deadSprite, transform.position, transform.rotation);
                 StartCoroutine(checkrestart());
                 gameObject.SendMessage(deathMessage, hp);
+                deadHudMsg.SetActive(true);
             }
         }
 

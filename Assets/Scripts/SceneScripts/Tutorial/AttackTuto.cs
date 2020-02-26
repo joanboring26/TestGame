@@ -4,10 +4,22 @@ using UnityEngine;
 
 public class AttackTuto : MonoBehaviour
 {
-    GameObject attack;
+    public bool dontCheck;
+    public GameObject attack;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (!dontCheck)
+        {
+            if (collision.tag == "Parry")
+            {
+                attack.SetActive(true);
+            }
+        }
+    }
+
+    public void EnemyDead()
+    {
+        Destroy(attack);
     }
 }

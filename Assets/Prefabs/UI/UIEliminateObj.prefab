@@ -342,6 +342,6 @@ MonoBehaviour:
   maxTargets: 6
   pointerObj: {fileID: 1334985597298996440}
   text: {fileID: 8740989546033822397}
-  objectiveDoneSnd: {fileID: 8300000, guid: 7e6e0ecb258fcd04f8fa0834e1f99a1f, type: 3}
+  objectiveDoneSnd: {fileID: 8300000, guid: 2dc9f01e26133de4d999471089ff0d20, type: 3}
   enemyDownSnd: {fileID: 8300000, guid: dac22eab181656b47b0c9ebe35be9add, type: 3}
   sndSrc: {fileID: 0}
