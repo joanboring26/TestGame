@@ -31,7 +31,7 @@ public class EnemyVision : MonoBehaviour
 
     private void Update()
     {
-        if(detectedTarget && lookAtTarget)
+        if(detectedTarget && lookAtTarget && (detectedTransform != null))
         {
             dir = detectedTransform.position - transform.position;
             angle = Mathf.Atan2(-dir.y, dir.x) * Mathf.Rad2Deg - 90;

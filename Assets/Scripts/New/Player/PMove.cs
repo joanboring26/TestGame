@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PMove : MonoBehaviour
 {
+    public GameObject rayHolder;
     public GameObject MouseDirection;
     public GameObject dashTrail;
 
@@ -43,10 +44,6 @@ public class PMove : MonoBehaviour
             movVertical = Input.GetAxis("Vertical") * speed;
             movVertical *= Time.deltaTime;
             pRig.velocity = new Vector2(movHorizontal, movVertical);
-
-            //transform.Translate(movHorizontal, movVertical, 0);
-            walkSource.UnPause();
-
         }
         else
         {
@@ -66,8 +63,8 @@ public class PMove : MonoBehaviour
         Destroy(GetComponent<Rigidbody2D>());
         Destroy(GetComponent<PMove>());
         Destroy(GetComponent<PInputs>());
-        walkSource.Stop();
         Destroy(MouseDirection);
+        Destroy(rayHolder);
     }
 
     IEnumerator dashMove()

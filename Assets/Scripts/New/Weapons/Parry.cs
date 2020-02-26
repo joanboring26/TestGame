@@ -43,6 +43,7 @@ public class Parry : AttackBase
 
     public IEnumerator doParry()
     {
+        StartCoroutine(playerStats.crossFiller.fadeTimer(parryRate - 0.4f));
         parrying = true;
         visualParry.SetActive(true);
         GetComponent<BoxCollider2D>().enabled = true;

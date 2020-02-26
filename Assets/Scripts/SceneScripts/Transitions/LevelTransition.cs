@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class LevelTransition : MonoBehaviour
 {
-    GameObject door;
     public string nextLevel;
     public float fadeTime;
     public GameObject doorToClose;
@@ -20,11 +19,13 @@ public class LevelTransition : MonoBehaviour
 
     public IEnumerator fadeTimer(float fadeTime)
     {
+        GetComponent<AudioSource>().Play();
+        doorToClose.SetActive(true);
         render.color = new Color(render.color.r, render.color.g, render.color.b, 0);
         float fadeDurationInSeconds = fadeTime;
         float timeout = 0.05f;
         float fadeAmount = 1 / (fadeDurationInSeconds / timeout);
-
+        
         for (float f = 0; f <= 1; f += fadeAmount)
         {
             Color c = render.color;

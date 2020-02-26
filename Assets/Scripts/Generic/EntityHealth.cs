@@ -36,7 +36,7 @@ public class EntityHealth : MonoBehaviour
     [Header("OnHit variables")]
     public string hitMessage;
     public float nextDamageDelay;
-    public GameObject hitMessageTarget;
+    public GameObject mainCam;
     public GameObject explosionRef;
 
     [Header("Damaged visuals")]
@@ -54,6 +54,10 @@ public class EntityHealth : MonoBehaviour
     [Header("Other")]
     public Transform playerRot;
     public CameraShake camShaker;
+    public PCamMover camMover;
+    public PCam camHolder;
+    public MusicScene musicHolder;
+    public CrossTimer crossFiller;
 
     private float scaleVal = 0;
     private float maxHPBarVal = 0.9f;
@@ -84,11 +88,13 @@ public class EntityHealth : MonoBehaviour
         currState = totalStates;
 
         prevHealthBar.fillAmount = scaleToHP(prevHealth);
+
+
     }
 
     private void FixedUpdate()
     {
-        stamina = Mathf.Clamp( stamina + staminaRechargeRate, 0, maxStamina);
+        stamina = Mathf.Clamp(stamina + staminaRechargeRate, 0, maxStamina);
         staminabar.value = stamina;
         if (drainPrevHealth)
         {
@@ -111,18 +117,24 @@ public class EntityHealth : MonoBehaviour
             hp += givVal;
             currState = Mathf.RoundToInt((hp / maxHp) * 3);
 
-            if (hitMessageTarget != null)
+            if (mainCam != null)
             {
                 painSrc.PlayOneShot(hitSnds[Random.Range(0, hitSnds.Length)]);
-                hitMessageTarget.SendMessage(hitMessage, 0.3f);
+                mainCam.SendMessage(hitMessage, 0.3f);
             }
 
             if (hp <= 0)
             {
-                Instantiate(deadSprite, transform.position, transform.rotation);
-                StartCoroutine(checkrestart());
-                gameObject.SendMessage(deathMessage, hp);
                 deadHudMsg.SetActive(true);
+                Destroy(camShaker);
+                Destroy(camMover);
+                Destroy(camHolder);
+                mainCam.transform.parent = null;
+                mainCam.GetComponent<CheckRestar>().enabled = true;
+                Instantiate(deadSprite, transform.position, transform.rotation);
+                //StartCoroutine(checkrestart());
+                gameObject.SendMessage(deathMessage, hp);
+                Destroy(gameObject);
             }
         }
 
@@ -145,9 +157,16 @@ public class EntityHealth : MonoBehaviour
 
             if (hp <= 0)
             {
+                deadHudMsg.SetActive(true);
+                Destroy(camShaker);
+                Destroy(camMover);
+                Destroy(camHolder);
+                mainCam.transform.parent = null;
+                mainCam.GetComponent<CheckRestar>().enabled = true;
                 Instantiate(deadSprite, transform.position, transform.rotation);
-                StartCoroutine(checkrestart());
+                //StartCoroutine(checkrestart());
                 gameObject.SendMessage(deathMessage, hp);
+                Destroy(gameObject);
             }
         }
 
@@ -176,18 +195,4 @@ public class EntityHealth : MonoBehaviour
         yield return new WaitForSeconds(delayPrevHealth);
         drainPrevHealth = true;
     }
-
-    IEnumerator checkrestart()
-    {
-        while(true)
-        {
-            if(Input.GetButton("Restart"))
-            {
-                Scene scene = SceneManager.GetActiveScene();
-                SceneManager.LoadScene(scene.name);
-            }
-            yield return new WaitForEndOfFrame();
-        }
-    }
-
 }

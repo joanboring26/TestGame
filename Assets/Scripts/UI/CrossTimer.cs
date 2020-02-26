@@ -11,7 +11,7 @@ public class CrossTimer : MonoBehaviour
     {
         crossFiller.fillAmount = 0;
         float fadeDurationInSeconds = fadeTime;
-        float timeout = 0.05f;
+        float timeout = 0.01f;
         float fadeAmount = 1 / (fadeDurationInSeconds / timeout);
 
         for (float f = 0; f <= 1; f += fadeAmount)

@@ -66,18 +66,10 @@ public class SwordAttack : AttackBase
         {
             if (playerStats.stamina > staminaUse && !attackBox.enabled)
             {
-                if(hitP)
-                {
-                    playerStats.camShaker.AddCustomShake(transform.right * 3, CameraShake.ShakeType.SWORDSWING);
-                    hitP = false;
-                    attackVisual.transform.localScale = new Vector3(-attackVisual.transform.localScale.x, attackVisual.transform.localScale.y, 1);
-                }
-                else
-                {
-                    playerStats.camShaker.AddCustomShake(-transform.right * 3, CameraShake.ShakeType.SWORDSWING);
-                    hitP = true;
-                    attackVisual.transform.localScale = new Vector3(attackVisual.transform.localScale.x, attackVisual.transform.localScale.y, 1);
-                }
+                StartCoroutine(playerStats.crossFiller.fadeTimer(fireRate + 0.1f));
+                playerStats.camShaker.AddCustomShake(transform.right * 3, CameraShake.ShakeType.SWORDSWING);
+                hitP = false;
+                attackVisual.transform.localScale = new Vector3(-attackVisual.transform.localScale.x, attackVisual.transform.localScale.y, 1);
                 playerStats.ModStamina(-staminaUse);
                 prevTime = Time.time + fireRate;
                 StartCoroutine(initAttack());

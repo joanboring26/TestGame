@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 6619626924967141093}
   - component: {fileID: 2473800009257813141}
   - component: {fileID: 2473800009257813139}
+  - component: {fileID: 2937234307886951817}
   - component: {fileID: 6636810241988630389}
   m_Layer: 14
   m_Name: Main Camera
@@ -287,6 +288,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2937234307886951817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2473800009257813138}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffbf661faa9a93347a4a4888e064e852, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6636810241988630389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -838,7 +851,7 @@ MonoBehaviour:
   deadHudMsg: {fileID: 0}
   hitMessage: camShake
   nextDamageDelay: 0.08
-  hitMessageTarget: {fileID: 2473800009257813138}
+  mainCam: {fileID: 2473800009257813138}
   explosionRef: {fileID: 7207070486551837917, guid: 794dd01b94b2bd44690e44df7a5f7336,
     type: 3}
   damagedSprites: []
@@ -852,6 +865,9 @@ MonoBehaviour:
   totalTime: 0
   playerRot: {fileID: 6567383088323307049}
   camShaker: {fileID: 6619626924967141093}
+  camMover: {fileID: 2473800009257813141}
+  camHolder: {fileID: 2473800009548774903}
+  crossFiller: {fileID: 3827391248426273266}
 --- !u!114 &6567383088170664004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -864,6 +880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6325b5af259df224fa098985afe90d44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rayHolder: {fileID: 6567383088420047288}
   MouseDirection: {fileID: 6567383088323307030}
   dashTrail: {fileID: 5514683840287835537}
   pRig: {fileID: 6567383088170664002}
@@ -1594,6 +1611,7 @@ GameObject:
   - component: {fileID: 457862781259362270}
   - component: {fileID: 7486577000702870324}
   - component: {fileID: 375745684797627666}
+  - component: {fileID: 3827391248426273266}
   m_Layer: 14
   m_Name: CrossHolder
   m_TagString: Untagged
@@ -1682,6 +1700,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &3827391248426273266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7533324290721848001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fa01873829a7434c82697166d87e899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crossFiller: {fileID: 347949752090761637}
 --- !u!1 &7982944063583262897
 GameObject:
   m_ObjectHideFlags: 0
@@ -2038,12 +2069,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 163e7db60003a1942947e22e5a1946a6, type: 3}
---- !u!4 &9124274982557922713 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1392915528956119224, guid: 163e7db60003a1942947e22e5a1946a6,
-    type: 3}
-  m_PrefabInstance: {fileID: 7911503525989268769}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &9124274982557922719 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1392915528956119230, guid: 163e7db60003a1942947e22e5a1946a6,
@@ -2056,3 +2081,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 651cd3c15fe45064fb1b4259eade2baa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &9124274982557922713 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1392915528956119224, guid: 163e7db60003a1942947e22e5a1946a6,
+    type: 3}
+  m_PrefabInstance: {fileID: 7911503525989268769}
+  m_PrefabAsset: {fileID: 0}
