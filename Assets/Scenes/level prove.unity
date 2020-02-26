@@ -15131,7 +15131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyDoor: 0
-  numOfEnemies: 5
+  numOfEnemies: 6
   door: {fileID: 2061540747}
 --- !u!4 &2067241578 stripped
 Transform:
@@ -15980,16 +15980,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 6661225139232714362, guid: e397fe38872454a4c98653f3afbaea01,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6661225139232714362, guid: e397fe38872454a4c98653f3afbaea01,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6661225140424280237, guid: e397fe38872454a4c98653f3afbaea01,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16095,17 +16085,22 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6661225139232714362, guid: e397fe38872454a4c98653f3afbaea01,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661225139232714362, guid: e397fe38872454a4c98653f3afbaea01,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7718834126659509470, guid: e397fe38872454a4c98653f3afbaea01,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3895072699938073788, guid: e397fe38872454a4c98653f3afbaea01,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4129058547095082814, guid: e397fe38872454a4c98653f3afbaea01,
+    - target: {fileID: 5553358510910798942, guid: e397fe38872454a4c98653f3afbaea01,
         type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -16115,22 +16110,27 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4508138471913895848, guid: e397fe38872454a4c98653f3afbaea01,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5553358510910798942, guid: e397fe38872454a4c98653f3afbaea01,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3258571102830085612, guid: e397fe38872454a4c98653f3afbaea01,
         type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4508138471913895848, guid: e397fe38872454a4c98653f3afbaea01,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4129058547095082814, guid: e397fe38872454a4c98653f3afbaea01,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2546147757323973959, guid: e397fe38872454a4c98653f3afbaea01,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3895072699938073788, guid: e397fe38872454a4c98653f3afbaea01,
         type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -16300,6 +16300,11 @@ PrefabInstance:
       propertyPath: staminabar
       value: 
       objectReference: {fileID: 1743420000832852570}
+    - target: {fileID: 6567383088170664006, guid: 454853426102c0947b8b3fe893b98032,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 117e66c7c8a84c34394b09db7dfa205d, type: 3}
     - target: {fileID: 6567383088170664059, guid: 454853426102c0947b8b3fe893b98032,
         type: 3}
       propertyPath: HudMan
@@ -16321,11 +16326,6 @@ PrefabInstance:
       propertyPath: m_Depth
       value: -1
       objectReference: {fileID: 0}
-    - target: {fileID: 6567383088170664006, guid: 454853426102c0947b8b3fe893b98032,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 117e66c7c8a84c34394b09db7dfa205d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 454853426102c0947b8b3fe893b98032, type: 3}
 --- !u!1001 &8973452460674850643
