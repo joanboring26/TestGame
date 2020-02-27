@@ -31,7 +31,7 @@ public class EnemyVision : MonoBehaviour
 
     private void Update()
     {
-        if(detectedTarget && lookAtTarget)
+        if(detectedTarget && lookAtTarget && (detectedTransform != null))
         {
             dir = detectedTransform.position - transform.position;
             angle = Mathf.Atan2(-dir.y, dir.x) * Mathf.Rad2Deg - 90;
@@ -56,6 +56,7 @@ public class EnemyVision : MonoBehaviour
                     sndSrc.PlayOneShot(alert[Random.Range(0, alert.Length)]);
                 }
                 movScript.MoveToDestination(detectedTransform.position);
+                Debug.Log("MOVING");
                 detectedTarget = true;
             }
             else
@@ -75,6 +76,7 @@ public class EnemyVision : MonoBehaviour
     {
         RaycastHit2D hitInfo;
         hitInfo = Physics2D.Raycast(transform.position, detectedTransform.position - transform.position, 30f, enemyVisionLayers);
+        Debug.DrawLine(hitInfo.point, transform.position, Color.red, 0.5f);
         if (hitInfo.collider.tag == "Player")
         {
             return true;

@@ -9,7 +9,7 @@ public class EntityHealth : MonoBehaviour
     [Header("Health variables")]
     public float hp;
     float maxHp;
-    public Slider healthbar;
+    public Image healthbar;
 
 
     [Header("Stamina variables")]
@@ -24,18 +24,19 @@ public class EntityHealth : MonoBehaviour
     public int prevHealthRecovery; //Se usa para calcular cuanta vida recupera un ataque a un enemigo
     private float prevHealth = 0;
     private bool drainPrevHealth = false;
-    public Slider prevHealthBar;
+    public Image prevHealthBar;
 
 
     [Header("OnDeath variables")]
     //Script will broadcast this message to the thing it is attached to when it dies
     public string deathMessage;
     public GameObject deadSprite;
+    public GameObject deadHudMsg;
 
     [Header("OnHit variables")]
     public string hitMessage;
     public float nextDamageDelay;
-    public GameObject hitMessageTarget;
+    public GameObject mainCam;
     public GameObject explosionRef;
 
     [Header("Damaged visuals")]
@@ -50,30 +51,55 @@ public class EntityHealth : MonoBehaviour
     float nextDamage = 0;
     public float totalTime = 1;
 
+    [Header("Other")]
+    public Transform playerRot;
+    public CameraShake camShaker;
+    public PCamMover camMover;
+    public PCam camHolder;
+    public MusicScene musicHolder;
+    public CrossTimer crossFiller;
+
+    private float scaleVal = 0;
+    private float maxHPBarVal = 0.9f;
+    private float minHPBarVal = 0.1f;
+    private float newRange = 0;
+
+    //Escala la vida actual a la barra de vida que tiene el jugador pegada
+    public float scaleToHP( float OldValue)
+    {
+        scaleVal = (((OldValue - 0) * newRange) / maxHp) + minHPBarVal;
+        return (scaleVal);
+    }
+
     private void Start()
     {
+        newRange = (maxHPBarVal - minHPBarVal);
+
         prevHealth = hp;
-        prevHealthBar.maxValue = prevHealth;
+        prevHealthBar.fillAmount = maxHPBarVal;
         maxHp = hp;
-        healthbar.maxValue = maxHp;
+        healthbar.fillAmount = scaleToHP(hp);
+
         maxStamina = stamina;
         staminabar.maxValue = maxStamina;
+        staminabar.value = maxStamina;
+
         totalStates = damagedSprites.Length;
         currState = totalStates;
-        StartCoroutine(checkrestart());
-        prevHealthBar.value = prevHealth;
-        healthbar.value = hp;
-        staminabar.value = maxStamina;
+
+        prevHealthBar.fillAmount = scaleToHP(prevHealth);
+
+
     }
 
     private void FixedUpdate()
     {
-        stamina = Mathf.Clamp( stamina + staminaRechargeRate, 0, maxStamina);
+        stamina = Mathf.Clamp(stamina + staminaRechargeRate, 0, maxStamina);
         staminabar.value = stamina;
         if (drainPrevHealth)
         {
             prevHealth = Mathf.Clamp(prevHealth - prevHealthEmptyRate, hp, maxHp);
-            prevHealthBar.value = prevHealth;
+            prevHealthBar.fillAmount = scaleToHP(prevHealth);
         }
     }
 
@@ -84,26 +110,67 @@ public class EntityHealth : MonoBehaviour
             if (givVal < 0)
             {
                 Instantiate(explosionRef, transform.position, transform.rotation);
+                camShaker.AddCustomShake(-transform.up * 3, CameraShake.ShakeType.PLAYERDAM);
                 StartCoroutine(PrevHealthStart(givVal));
             }
             nextDamage = Time.time + nextDamageDelay;
             hp += givVal;
             currState = Mathf.RoundToInt((hp / maxHp) * 3);
 
-            if (hitMessageTarget != null)
+            if (mainCam != null)
             {
                 painSrc.PlayOneShot(hitSnds[Random.Range(0, hitSnds.Length)]);
-                hitMessageTarget.SendMessage(hitMessage, 0.3f);
+                mainCam.SendMessage(hitMessage, 0.3f);
             }
 
             if (hp <= 0)
             {
+                deadHudMsg.SetActive(true);
+                Destroy(camShaker);
+                Destroy(camMover);
+                Destroy(camHolder);
+                mainCam.transform.parent = null;
+                mainCam.GetComponent<CheckRestar>().enabled = true;
                 Instantiate(deadSprite, transform.position, transform.rotation);
+                //StartCoroutine(checkrestart());
                 gameObject.SendMessage(deathMessage, hp);
+                Destroy(gameObject);
             }
         }
 
-        healthbar.value = hp;
+        healthbar.fillAmount = scaleToHP(hp);
+    }
+
+    public void ModHealth(float givVal, Vector2 dir)
+    {
+        if (Time.time > nextDamage)
+        {
+            Instantiate(explosionRef, transform.position, transform.rotation);
+            camShaker.AddCustomShake(-dir, CameraShake.ShakeType.PLAYERDAM);
+            StartCoroutine(PrevHealthStart(givVal));
+
+            nextDamage = Time.time + nextDamageDelay;
+            hp += givVal;
+            currState = Mathf.RoundToInt((hp / maxHp) * 3);
+
+            painSrc.PlayOneShot(hitSnds[Random.Range(0, hitSnds.Length)]);
+
+            if (hp <= 0)
+            {
+                deadHudMsg.SetActive(true);
+                Destroy(camShaker);
+                Destroy(camMover);
+                Destroy(camHolder);
+                mainCam.transform.parent = null;
+                mainCam.GetComponent<CheckRestar>().enabled = true;
+                Instantiate(deadSprite, transform.position, transform.rotation);
+                //StartCoroutine(checkrestart());
+                gameObject.SendMessage(deathMessage, hp);
+                Destroy(gameObject);
+            }
+        }
+
+        healthbar.fillAmount = scaleToHP(hp);
     }
 
     public void RecoverPrevHealth(int dealtDamage)
@@ -111,7 +178,7 @@ public class EntityHealth : MonoBehaviour
         if(prevHealth > hp)
         {
             hp = Mathf.Clamp((dealtDamage / prevHealthRecovery) * dealtDamage + hp, hp, prevHealth);
-            healthbar.value = hp;
+            healthbar.fillAmount = scaleToHP(hp);
         }
     }
 
@@ -122,23 +189,10 @@ public class EntityHealth : MonoBehaviour
 
     IEnumerator PrevHealthStart( float damage)
     {
-        prevHealthBar.value = hp;
+        prevHealthBar.fillAmount = scaleToHP(hp);
         prevHealth = hp;
         drainPrevHealth = false;
         yield return new WaitForSeconds(delayPrevHealth);
         drainPrevHealth = true;
     }
-
-    IEnumerator checkrestart()
-    {
-        while(true)
-        {
-            if(Input.GetButton("Restart"))
-            {
-                Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
-            }
-            yield return new WaitForEndOfFrame();
-        }
-    }
-
 }

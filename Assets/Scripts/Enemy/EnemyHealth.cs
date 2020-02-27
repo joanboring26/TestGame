@@ -8,7 +8,7 @@ public class EnemyHealth : MonoBehaviour
     float maxHp;
     public GameObject deadSprite;
 
-
+    protected int counter = 0;
     public float nextDamageDelay;
 
     //Script will broadcast this message to the thing it is attached to when it dies
@@ -26,7 +26,7 @@ public class EnemyHealth : MonoBehaviour
     int totalStates;
     int currState;
 
-    float nextDamage = 0;
+    public float nextDamage = 0;
 
     private void Start()
     {
@@ -36,7 +36,7 @@ public class EnemyHealth : MonoBehaviour
         totalStates--;
     }
 
-    void ModHealth(float givVal)
+    public virtual void ModHealth(float givVal, Transform attackDir)
     {
         if (Time.time > nextDamage)
         {
@@ -52,16 +52,29 @@ public class EnemyHealth : MonoBehaviour
 
             if (hp <= 0)
             {
-                Instantiate(deadSprite, transform.position, transform.rotation);
+                if (deadSprite != null)
+                {
+                    Vector3 dir = attackDir.position - transform.position;
+                    Quaternion newRotation = Quaternion.AngleAxis(Mathf.Atan2(-dir.y, dir.x) * Mathf.Rad2Deg, Vector3.forward);
+                    newRotation = Quaternion.Euler(0, 180, newRotation.eulerAngles.z);
+
+                    Instantiate(deadSprite, transform.position, newRotation);
+                }
                 Instantiate(deathChunks, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
                 gameObject.SendMessage(deathMessage, hp);
+                
             }
             else
             {
+                Vector3 dir = attackDir.position - transform.position;
+                Quaternion newRotation = Quaternion.AngleAxis(Mathf.Atan2(-dir.y, dir.x) * Mathf.Rad2Deg, Vector3.forward);
+                Debug.Log(newRotation.eulerAngles.z);
+                newRotation = Quaternion.Euler(0, 180, newRotation.eulerAngles.z);
                 meshRenderer.material = damagedSprites[currState];
-                Instantiate(damageChunks, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
+                Instantiate(damageChunks, new Vector3(transform.position.x, transform.position.y, transform.position.z), newRotation);
             }
 
         }
     }
+   
 }
