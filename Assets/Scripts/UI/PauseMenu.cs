@@ -18,10 +18,12 @@ public class PauseMenu : MonoBehaviour
             if (gamePaused)
             {
                 Resume();
+                Debug.Log("Resumed");
             }
             else
             {
                 Pause();
+                Debug.Log("Paused");
             }
         }
     }
