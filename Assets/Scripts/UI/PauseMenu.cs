@@ -50,6 +50,10 @@ public class PauseMenu : MonoBehaviour
 
     public void toMainMenu() {
 
+        gamePaused = false;
+        pauseMenu.SetActive(false);
+        UICanvas.SetActive(true);
+        Time.timeScale = 1f;
         SceneManager.LoadScene("NewMainMenu");
       
     }
