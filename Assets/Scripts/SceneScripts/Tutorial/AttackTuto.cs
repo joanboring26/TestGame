@@ -8,6 +8,7 @@ public class AttackTuto : MonoBehaviour
     public GameObject attack;
     public GameObject objMarker;
     public GameObject gateBlocker;
+    public GameObject tip;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -23,6 +24,7 @@ public class AttackTuto : MonoBehaviour
     public void EnemyDead()
     {
         objMarker.SetActive(true);
+        tip.SetActive(true);
         Destroy(attack);
         Destroy(gateBlocker);
     }
