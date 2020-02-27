@@ -7,13 +7,17 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayLvl1()
     {
-        SceneManager.LoadScene("level 1");
+        SceneManager.LoadScene("level_1");
     }
-     public void PlayLvl2()
+    public void PlayLvl2()
     {
-        SceneManager.LoadScene("Level2");
+        SceneManager.LoadScene("level_2");
     }
-      public void PlayTuto()
+    public void PlayLvl3()
+    {
+        SceneManager.LoadScene("level_3");
+    }
+    public void PlayTuto()
     {
         SceneManager.LoadScene("2d Tutorial");
     }

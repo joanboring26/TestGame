@@ -79,9 +79,151 @@ Transform:
   - {fileID: 4527732497265874999}
   - {fileID: 3178306919704130667}
   - {fileID: 1743419999411200119}
+  - {fileID: 8734312851502143631}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7760470818311255666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8734312851502143631}
+  - component: {fileID: 7565611168883626381}
+  - component: {fileID: 4344308664917111069}
+  m_Layer: 0
+  m_Name: Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8734312851502143631
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7760470818311255666}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2090854541337009078}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &7565611168883626381
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7760470818311255666}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.3
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 1000
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &4344308664917111069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7760470818311255666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40c1ce492b956154cbc5bc37cfe0f8fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicSrc: {fileID: 7565611168883626381}
 --- !u!1001 &4918128397702621402
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -222,12 +364,12 @@ PrefabInstance:
     - target: {fileID: 1652399886668121700, guid: e397fe38872454a4c98653f3afbaea01,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -71
+      value: -88
       objectReference: {fileID: 0}
     - target: {fileID: 1652399886668121700, guid: e397fe38872454a4c98653f3afbaea01,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 111
+      value: -236
       objectReference: {fileID: 0}
     - target: {fileID: 4946612786502161743, guid: e397fe38872454a4c98653f3afbaea01,
         type: 3}
@@ -322,7 +464,7 @@ PrefabInstance:
     - target: {fileID: 7718834126659509470, guid: e397fe38872454a4c98653f3afbaea01,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3241379690505900009, guid: e397fe38872454a4c98653f3afbaea01,
         type: 3}
@@ -367,12 +509,12 @@ PrefabInstance:
     - target: {fileID: 5553358510910798942, guid: e397fe38872454a4c98653f3afbaea01,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7037716976460193259, guid: e397fe38872454a4c98653f3afbaea01,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8319534197866222590, guid: e397fe38872454a4c98653f3afbaea01,
         type: 3}
@@ -388,17 +530,17 @@ PrefabInstance:
     - target: {fileID: 3258571102830085612, guid: e397fe38872454a4c98653f3afbaea01,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4508138471913895848, guid: e397fe38872454a4c98653f3afbaea01,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4129058547095082814, guid: e397fe38872454a4c98653f3afbaea01,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5278660014820710983, guid: e397fe38872454a4c98653f3afbaea01,
         type: 3}
@@ -473,12 +615,12 @@ PrefabInstance:
     - target: {fileID: 2546147757323973959, guid: e397fe38872454a4c98653f3afbaea01,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3895072699938073788, guid: e397fe38872454a4c98653f3afbaea01,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4978154767960141385, guid: e397fe38872454a4c98653f3afbaea01,
         type: 3}
@@ -560,6 +702,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2508530893571818367 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7390587544571898789, guid: e397fe38872454a4c98653f3afbaea01,
+    type: 3}
+  m_PrefabInstance: {fileID: 4918128397702621402}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 628a6c0c603ca8248a0f3f76cf8d4946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8841176882938035724 stripped
@@ -730,11 +884,21 @@ PrefabInstance:
       propertyPath: deadHudMsg
       value: 
       objectReference: {fileID: 8841176882938035724}
+    - target: {fileID: 6567383088170664004, guid: 454853426102c0947b8b3fe893b98032,
+        type: 3}
+      propertyPath: dashFade
+      value: 
+      objectReference: {fileID: 2508530893571818367}
     - target: {fileID: 6567383088170664059, guid: 454853426102c0947b8b3fe893b98032,
         type: 3}
       propertyPath: HudMan
       value: 
       objectReference: {fileID: 5116732990561906369}
+    - target: {fileID: 2937234307886951817, guid: 454853426102c0947b8b3fe893b98032,
+        type: 3}
+      propertyPath: musicHolder
+      value: 
+      objectReference: {fileID: 4344308664917111069}
     - target: {fileID: 2473800008889118624, guid: 454853426102c0947b8b3fe893b98032,
         type: 3}
       propertyPath: m_Name

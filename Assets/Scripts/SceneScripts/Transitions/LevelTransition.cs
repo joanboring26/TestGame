@@ -22,8 +22,8 @@ public class LevelTransition : MonoBehaviour
         GetComponent<AudioSource>().Play();
         doorToClose.SetActive(true);
         render.color = new Color(render.color.r, render.color.g, render.color.b, 0);
-        float fadeDurationInSeconds = fadeTime;
-        float timeout = 0.05f;
+        float fadeDurationInSeconds = fadeTime - 0.7f;
+        float timeout = 0.01f;
         float fadeAmount = 1 / (fadeDurationInSeconds / timeout);
         
         for (float f = 0; f <= 1; f += fadeAmount)

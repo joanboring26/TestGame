@@ -1,14 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MusicScene : MonoBehaviour
 {
     public AudioSource musicSrc;
 
-    public static string currScene;
-    public static string prevScene;
-    public static float timeStamp;
+    public static string prevScene = "none";
+    public static float timeStamp = 0;
+
+    private void Start()
+    {
+        if(prevScene != SceneManager.GetActiveScene().name)
+        {
+            prevScene = SceneManager.GetActiveScene().name;
+            timeStamp = 0;
+        }
+        loadMusic();
+    }
     public void setTimeStamp()
     {
         timeStamp = musicSrc.time;
@@ -16,14 +26,7 @@ public class MusicScene : MonoBehaviour
 
     public void loadMusic()
     {
-        if (currScene == prevScene)
-        {
-            musicSrc.time = timeStamp;
-        }
-        else
-        {
-            musicSrc.time = 0;
-        }
+        musicSrc.time = timeStamp;
     }
 
     // Update is called once per frame

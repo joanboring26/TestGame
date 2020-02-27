@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PMove : MonoBehaviour
 {
+    public DashFade dashFade;
     public GameObject rayHolder;
     public GameObject MouseDirection;
     public GameObject dashTrail;
@@ -69,6 +70,10 @@ public class PMove : MonoBehaviour
 
     IEnumerator dashMove()
     {
+        //Start the dash fade effect
+        StartCoroutine(dashFade.fadeTimer(dashTime + 0.1f));
+        //
+
         dashTrail.SetActive(true);
         dashSource.PlayOneShot(dashSnds[Random.Range(0, dashSnds.Length)]);
         moveEnabled = false;
