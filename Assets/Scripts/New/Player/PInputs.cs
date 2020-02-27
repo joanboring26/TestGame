@@ -5,6 +5,7 @@ using TMPro;
 
 public class PInputs : MonoBehaviour
 {
+
     public EntityHealth pStats;
     public PMove pFunc;
     public PAttSyst pAttack;
@@ -20,10 +21,10 @@ public class PInputs : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI text;
 
+
     // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        Debug.Log(Input.GetAxis("Horizontal"));
         if ((Input.GetAxis("Horizontal") != 0) || (Input.GetAxis("Vertical") != 0))
         {
             pFunc.PlayerMove();
@@ -33,7 +34,11 @@ public class PInputs : MonoBehaviour
         {
             pFunc.walkSource.Pause();
         }
+    }
 
+
+    void Update()
+    {
         if (Input.GetButtonDown("Dash"))
         {
             if(pStats.stamina > dashStaminaUse)
@@ -47,7 +52,6 @@ public class PInputs : MonoBehaviour
         {
             if(pAttack.canAttack() && (pStats.stamina > attackStaminaUse))
             {
-                Debug.Log("REALLY SWUNG");
                 pAttack.initAttack();
                 pStats.ModStamina(-attackStaminaUse);
                 pVisuals.attackUpdate(pAttack.attackBox, pAttack);
@@ -63,14 +67,6 @@ public class PInputs : MonoBehaviour
                     pPSystem.DoParry();
                     pStats.ModStamina(-parryStaminaUse);
                 }
-                else
-                {
-                    Debug.Log("AAAAAAAAAAA");
-                }
-            }
-            else
-            {
-                Debug.Log("AAAAAAAAAAAAAAAa");
             }
         }
     }
@@ -79,7 +75,6 @@ public class PInputs : MonoBehaviour
     {
         while (true)
         {
-            Debug.Log(text.text);
             yield return new WaitForSeconds(1f);
         }
     }

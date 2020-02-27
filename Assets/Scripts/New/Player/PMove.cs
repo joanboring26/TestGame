@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class PMove : MonoBehaviour
 {
+    public DashFade dashFade;
+    public GameObject rayHolder;
     public GameObject MouseDirection;
+    public GameObject dashTrail;
 
     public static Transform playerTransform;
 
@@ -26,6 +29,8 @@ public class PMove : MonoBehaviour
     public AudioSource walkSource;
     public AudioSource dashSource;
 
+    public AudioClip[] dashSnds;
+
     private void Start()
     {
         playerTransform = transform;
@@ -35,13 +40,11 @@ public class PMove : MonoBehaviour
     {
         if (moveEnabled)
         {
-            movHorizontal = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
-            movVertical = Input.GetAxis("Vertical") * speed * Time.deltaTime;
+            movHorizontal = Input.GetAxis("Horizontal") * speed;
+            movHorizontal *= Time.deltaTime;
+            movVertical = Input.GetAxis("Vertical") * speed;
+            movVertical *= Time.deltaTime;
             pRig.velocity = new Vector2(movHorizontal, movVertical);
-
-            //transform.Translate(movHorizontal, movVertical, 0);
-            walkSource.UnPause();
-
         }
         else
         {
@@ -61,45 +64,18 @@ public class PMove : MonoBehaviour
         Destroy(GetComponent<Rigidbody2D>());
         Destroy(GetComponent<PMove>());
         Destroy(GetComponent<PInputs>());
-        walkSource.Stop();
         Destroy(MouseDirection);
+        Destroy(rayHolder);
     }
-
-    /*
-    IEnumerator rollMove()
-    {
-        moveEnabled = true;
-        Vector2 tempVec;
-        tempVec.x = 0;
-        tempVec.y = 0;
-        float nextRoll = Time.time + rollTime;
-        while (nextRoll > Time.time)
-        {
-            tempVec.x = movHorizontal * Time.deltaTime;
-            tempVec.y = movVertical * Time.deltaTime;
-            tempVec.Normalize();
-            tempVec *= rollSpeed;
-            pRig.velocity = new Vector2(tempVec.x * -rollSpeed, tempVec.y * -rollSpeed);
-            yield return new WaitForEndOfFrame();
-        }
-        moveEnabled = false;
-        pRig.velocity = new Vector2(tempVec.x, tempVec.y);
-    }
-    */
 
     IEnumerator dashMove()
     {
-        /*
-        dashSource.Play();
-        Vector2 tempVec;
-        tempVec.x = movHorizontal * Time.deltaTime;
-        tempVec.y = movVertical * Time.deltaTime;
-        tempVec.Normalize();
-        pRig.velocity = new Vector2(tempVec.x * dashSpd, tempVec.y * dashSpd);
-        moveEnabled = false;
-        yield return new WaitForSeconds(dashTime);
-        moveEnabled = true;
-        */
+        //Start the dash fade effect
+        StartCoroutine(dashFade.fadeTimer(dashTime + 0.1f));
+        //
+
+        dashTrail.SetActive(true);
+        dashSource.PlayOneShot(dashSnds[Random.Range(0, dashSnds.Length)]);
         moveEnabled = false;
         Vector2 tempVec;
         tempVec.x = 0;
@@ -114,6 +90,7 @@ public class PMove : MonoBehaviour
             pRig.velocity = new Vector2(tempVec.x * dashSpd, tempVec.y * dashSpd);
             yield return new WaitForEndOfFrame();
         }
+        dashTrail.SetActive(false);
         moveEnabled = true;
 
     }

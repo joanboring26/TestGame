@@ -7,6 +7,7 @@ public class EnemyHealth2D : MonoBehaviour
     public float hp;
     public GameObject deadSprite;
 
+    public int doorCounter = 0;
 
     public float nextDamageDelay;
 
@@ -15,9 +16,12 @@ public class EnemyHealth2D : MonoBehaviour
     public GameObject hitMessageTarget;
     public string hitMessage;
     public GameObject explosionRef;
+
+    public GameObject door1, door2;
     // Start is called before the first frame update
 
     float nextDamage = 0;
+   
 
     void ModHealth(float givVal)
     {
@@ -36,7 +40,16 @@ public class EnemyHealth2D : MonoBehaviour
             {
                 Instantiate(deadSprite, transform.position, transform.rotation);
                 gameObject.SendMessage(deathMessage, hp);
+                doorCounter++;
             }
+        }
+    }
+    void openDoor()
+    {
+        if(doorCounter == 3)
+        {
+            Destroy(door1);
+            Destroy(door2);
         }
     }
 }
