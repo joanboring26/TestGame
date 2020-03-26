@@ -23,6 +23,8 @@ public class CameraShake : MonoBehaviour
     public Dictionary< ShakeType,type> typeArr;
     public Transform ogPos;
 
+    private Vector3 posOffsets;
+
     private float m_spring = 0.0f;
     private float m_damper = 0.0f;
     private float m_shake = 0.0f;
@@ -42,13 +44,13 @@ public class CameraShake : MonoBehaviour
         typeArr = new Dictionary<ShakeType, type>();
 
         //Used when player is hit
-        typeArr.Add(ShakeType.PLAYERDAM, new type(0.8366044f, 0.6334246f, 0.5730728f));
+        typeArr.Add(ShakeType.PLAYERDAM, new type(0.8366044f, 0.6334246f, 0.65f));
 
         //Used when the player swings his sword
-        typeArr.Add(ShakeType.SWORDSWING, new type(0.4510828f, 0.383356f, 0.1198249f));
+        typeArr.Add(ShakeType.SWORDSWING, new type(0.4510828f, 0.383356f, 0.3f));
 
         //Used when the player damages an enemy
-        typeArr.Add(ShakeType.ENEMYDAM, new type(0.03430229f, 0.08640016f, 0.3594728f));
+        typeArr.Add(ShakeType.ENEMYDAM, new type(0.03430229f, 0.08640016f, 0.45f));
 
         //
 

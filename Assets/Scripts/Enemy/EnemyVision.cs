@@ -56,7 +56,6 @@ public class EnemyVision : MonoBehaviour
                     sndSrc.PlayOneShot(alert[Random.Range(0, alert.Length)]);
                 }
                 movScript.MoveToDestination(detectedTransform.position);
-                Debug.Log("MOVING");
                 detectedTarget = true;
             }
             else

@@ -54,6 +54,7 @@ MonoBehaviour:
   force: 15
   objDestroyTime: 2
   blowUpOnAppear: 1
+  damageEnemies: 1
   explosionSnds:
   - {fileID: 8300000, guid: 902006ec168b84541bc1ee0787bc6304, type: 3}
   - {fileID: 8300000, guid: f50ac5caa1a3658429045506f0314c1a, type: 3}

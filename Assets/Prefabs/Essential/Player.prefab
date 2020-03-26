@@ -86,7 +86,6 @@ GameObject:
   - component: {fileID: 2473800009257813136}
   - component: {fileID: 2473800009257813137}
   - component: {fileID: 6619626924967141093}
-  - component: {fileID: 2473800009257813141}
   - component: {fileID: 2473800009257813139}
   - component: {fileID: 2937234307886951817}
   - component: {fileID: 6636810241988630389}
@@ -173,25 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a1ffdc2d4cb2d94b9628f1848e41222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ogPos: {fileID: 6567383088420047291}
---- !u!114 &2473800009257813141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2473800009257813138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e430b999560b99b4e8e8ee6bb9cbd42d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraShakeHolder: {fileID: 6567383089758987854}
-  player: {fileID: 6567383088170664007}
-  recoveryRate: 5
-  maxRecoil: 4
-  recoilDuration: 0.06
-  mouseRange: 0
+  ogPos: {fileID: 6567383089758987854}
 --- !u!82 &2473800009257813139
 AudioSource:
   m_ObjectHideFlags: 0
@@ -300,6 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffbf661faa9a93347a4a4888e064e852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicHolder: {fileID: 0}
 --- !u!114 &6636810241988630389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -865,8 +847,9 @@ MonoBehaviour:
   totalTime: 0
   playerRot: {fileID: 6567383088323307049}
   camShaker: {fileID: 6619626924967141093}
-  camMover: {fileID: 2473800009257813141}
+  camMover: {fileID: 0}
   camHolder: {fileID: 2473800009548774903}
+  musicHolder: {fileID: 0}
   crossFiller: {fileID: 3827391248426273266}
 --- !u!114 &6567383088170664004
 MonoBehaviour:
@@ -880,6 +863,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6325b5af259df224fa098985afe90d44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dashFade: {fileID: 0}
   rayHolder: {fileID: 6567383088420047288}
   MouseDirection: {fileID: 6567383088323307030}
   dashTrail: {fileID: 5514683840287835537}
@@ -1453,6 +1437,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6567383089758987854}
+  - component: {fileID: 5330292562918881375}
   m_Layer: 14
   m_Name: CameraHolder
   m_TagString: Untagged
@@ -1475,6 +1460,21 @@ Transform:
   m_Father: {fileID: 6567383088607660803}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5330292562918881375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6567383089758987855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45be485aecc7bd246a90815547945aef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followVal: 17.25
+  followPos: {fileID: 6567383088420047291}
+  currPos: {fileID: 6567383089758987854}
 --- !u!1 &6567383089852525513
 GameObject:
   m_ObjectHideFlags: 0

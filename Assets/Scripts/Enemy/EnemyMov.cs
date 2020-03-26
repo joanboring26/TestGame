@@ -15,29 +15,32 @@ public class EnemyMov : MonoBehaviour
 
     public void MoveToDestination( Vector3 givDest)
     {
-        if(nav.stoppingDistance < (transform.position - givDest).magnitude)
+        if (nav != null)
         {
-            retreating = false;
-        }
-        else
-        {
-            Debug.Log("STOPPING");
-            retreating = true;
-        }
+            if (nav.stoppingDistance < (transform.position - givDest).magnitude)
+            {
+                retreating = false;
+            }
+            else
+            {
+                Debug.Log("STOPPING");
+                retreating = true;
+            }
 
-        if (!retreating)
-        {
-            //Debug.Log("Not near player");
-            currentDest = givDest;
-            nav.SetDestination(givDest);
-        }
-        else
-        {
-            //Debug.Log("NEAR PLAYER");
-            currentDest = (transform.position - givDest).normalized * (nav.stoppingDistance * 2) + transform.position;
-            //Debug.DrawLine(transform.position, currentDest, Color.red, 20);
-            
-            nav.SetDestination(currentDest);
+            if (!retreating)
+            {
+                //Debug.Log("Not near player");
+                currentDest = givDest;
+                nav.SetDestination(givDest);
+            }
+            else
+            {
+                //Debug.Log("NEAR PLAYER");
+                currentDest = (transform.position - givDest).normalized * (nav.stoppingDistance * 2) + transform.position;
+                //Debug.DrawLine(transform.position, currentDest, Color.red, 20);
+
+                nav.SetDestination(currentDest);
+            }
         }
     }
 

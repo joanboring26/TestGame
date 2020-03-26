@@ -68,7 +68,6 @@ public class EnemyHealth : MonoBehaviour
             {
                 Vector3 dir = attackDir.position - transform.position;
                 Quaternion newRotation = Quaternion.AngleAxis(Mathf.Atan2(-dir.y, dir.x) * Mathf.Rad2Deg, Vector3.forward);
-                Debug.Log(newRotation.eulerAngles.z);
                 newRotation = Quaternion.Euler(0, 180, newRotation.eulerAngles.z);
                 meshRenderer.material = damagedSprites[currState];
                 Instantiate(damageChunks, new Vector3(transform.position.x, transform.position.y, transform.position.z), newRotation);
@@ -76,5 +75,10 @@ public class EnemyHealth : MonoBehaviour
 
         }
     }
-   
+
+
+    public void EnemyDead(float hp)
+    {
+        Destroy(gameObject);
+    }
 }

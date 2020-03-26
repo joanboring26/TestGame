@@ -16,6 +16,7 @@ public class Explosion : MonoBehaviour
     public float objDestroyTime;
 
     public bool blowUpOnAppear;
+    public bool damageEnemies;
 
     public AudioClip[] explosionSnds;
     public AudioSource explosionSrc;
@@ -51,15 +52,18 @@ public class Explosion : MonoBehaviour
                     break;
 
                 case "NPC":
-                    Rigidbody2D tmp = targets[i].GetComponent<EnemyHealth>().rig;
-                    Vector2 othPos = targets[i].transform.position;
-                    otherPos.x = (othPos.x - transform.position.x);
-                    otherPos.y = (othPos.y - transform.position.y);
-                    tmp.AddForce(otherPos * force, ForceMode2D.Impulse);
+                    if (damageEnemies)
+                    {
+                        Rigidbody2D tmp = targets[i].GetComponent<EnemyHealth>().rig;
+                        Vector2 othPos = targets[i].transform.position;
+                        otherPos.x = (othPos.x - transform.position.x);
+                        otherPos.y = (othPos.y - transform.position.y);
+                        tmp.AddForce(otherPos * force, ForceMode2D.Impulse);
 
-                    //Le aplica caida de daño dependiendo de la distancia de la explosion
-                    damage = Mathf.Clamp(-damage - (otherPos.magnitude / damageFalloff), 0, -damage);
-                    targets[i].GetComponent<EnemyHealth>().ModHealth(-damage, transform);
+                        //Le aplica caida de daño dependiendo de la distancia de la explosion
+                        damage = Mathf.Clamp(-damage - (otherPos.magnitude / damageFalloff), 0, -damage);
+                        targets[i].GetComponent<EnemyHealth>().ModHealth(-damage, transform);
+                    }
                     break;
 
                 default:

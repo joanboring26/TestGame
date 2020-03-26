@@ -11,6 +11,9 @@ public class GunnerAttacks : MonoBehaviour
 
     public Transform muzzleFire;
     public AudioSource fireSnd;
+    public AudioSource chargeSrc;
+    public AudioClip chargeSnd;
+    public AudioClip rdySnd;
 
     public float fireRate;
     public int bulletsPerBurst;
@@ -18,6 +21,21 @@ public class GunnerAttacks : MonoBehaviour
     public bool dontAttack;
 
     private float nextAttack = 0;
+    private Color initCol;
+
+    public GameObject chargeSprite;
+    private ParticleSystem partSys;
+    private SpriteRenderer sprRender;
+    public Color targetCol;
+    //
+
+    private void Start()
+    {
+        sprRender = chargeSprite.GetComponent<SpriteRenderer>();
+        partSys = chargeSprite.GetComponent<ParticleSystem>();
+        initCol = sprRender.color;
+        chargeSprite.SetActive(false);
+    }
 
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -28,6 +46,8 @@ public class GunnerAttacks : MonoBehaviour
                 if (!dontAttack)
                 {
                     nextAttack = Time.time + attackCooldown;
+                    chargeSprite.SetActive(true);
+                    StartCoroutine(ChargeAn(attackCooldown));
                     StartCoroutine(Burst());
                 }
             }
@@ -36,6 +56,10 @@ public class GunnerAttacks : MonoBehaviour
 
     IEnumerator Burst()
     {
+        partSys.Play();
+        chargeSrc.PlayOneShot(rdySnd);
+        yield return new WaitForSeconds(0.1f);
+        sprRender.color = initCol;
         attackAnims.SetActive(true);
         for(int i = 0; i < bulletsPerBurst ; i++)
         {
@@ -45,6 +69,43 @@ public class GunnerAttacks : MonoBehaviour
         }
         attackAnims.SetActive(false);
     }
+
+
+    public IEnumerator ChargeAn(float fadeTime)
+    {
+        chargeSrc.PlayOneShot(chargeSnd);
+        sprRender.color = new Color(initCol.r, initCol.g, initCol.b, 0);
+        float fadeDurationInSeconds = fadeTime - 0.8f;
+        float timeout = 0.01f;
+        float fadeAmount = 1 / (fadeDurationInSeconds / timeout);
+
+        for (float f = 0; f <= 1; f += fadeAmount)
+        {
+            Color c = sprRender.color;
+            c.a = f;
+            sprRender.color = c;
+            yield return new WaitForSeconds(timeout);
+        }
+        sprRender.color = new Color(initCol.r, initCol.g, initCol.b, 255);
+    }
+
+    /*
+    IEnumerator ChargeAnimation()
+    {
+        while(
+            sprRender.color.r > targetCol.r + 2f || sprRender.color.r < targetCol.r - 2f &&
+            sprRender.color.g > targetCol.g + 2f || sprRender.color.g < targetCol.g - 2f &&
+            sprRender.color.b > targetCol.b + 2f || sprRender.color.b < targetCol.b - 2f)
+        {
+            sprRender.color = 
+                new Color(
+                Mathf.SmoothStep(sprRender.color.r, targetCol.r, 1f), 
+                Mathf.SmoothStep(sprRender.color.g, targetCol.g, 1f),
+                Mathf.SmoothStep(sprRender.color.b, targetCol.b, 1f));
+            yield return new WaitForEndOfFrame();
+        }
+    }
+    */
 
     public bool CheckRay(Transform detectedTransform)
     {
