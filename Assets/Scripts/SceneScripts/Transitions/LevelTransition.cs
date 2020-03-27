@@ -10,6 +10,7 @@ public class LevelTransition : MonoBehaviour
     public float fadeTime;
     public GameObject doorToClose;
     public Image render;
+    public int LevelIndex;
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -35,6 +36,16 @@ public class LevelTransition : MonoBehaviour
         }
 
         render.color = new Color(render.color.r, render.color.g, render.color.b, 255);
+
+        int CurrentLevel = PlayerPrefs.GetInt("Levels", 1);
+        if ((CurrentLevel >> (LevelIndex + 1)) % 2 == 0)
+        {
+
+            CurrentLevel += (int)Mathf.Pow(2f, LevelIndex + 1);
+            PlayerPrefs.SetInt("Levels", CurrentLevel);
+
+        }
+
         SceneManager.LoadScene(nextLevel);
     }
 

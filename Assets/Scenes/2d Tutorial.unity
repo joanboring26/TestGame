@@ -6607,7 +6607,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1062174799
 PrefabInstance:
@@ -7454,6 +7454,11 @@ PrefabInstance:
       propertyPath: fadeTime
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7303857727903977203, guid: f4409a210fe00dd4ab8c889524de1708,
+        type: 3}
+      propertyPath: LevelIndex
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4409a210fe00dd4ab8c889524de1708, type: 3}
 --- !u!1001 &1564521579
@@ -8251,7 +8256,7 @@ Transform:
   - {fileID: 1312117832}
   - {fileID: 1489017440}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1819848395 stripped
 GameObject:
@@ -8927,7 +8932,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!199 &177074743468833674
 ParticleSystemRenderer:

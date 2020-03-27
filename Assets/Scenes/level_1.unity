@@ -2927,6 +2927,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1334985597298996443, guid: 840574b1279c30c4591a7f273b22d46f,
+        type: 3}
+      propertyPath: playerPoint
+      value: 
+      objectReference: {fileID: 432615763}
+    - target: {fileID: 1334985597298996443, guid: 840574b1279c30c4591a7f273b22d46f,
+        type: 3}
+      propertyPath: objPoint
+      value: 
+      objectReference: {fileID: 1737521585}
     - target: {fileID: 8740989546033822397, guid: 840574b1279c30c4591a7f273b22d46f,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -2977,16 +2987,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1334985597298996443, guid: 840574b1279c30c4591a7f273b22d46f,
-        type: 3}
-      propertyPath: playerPoint
-      value: 
-      objectReference: {fileID: 432615763}
-    - target: {fileID: 1334985597298996443, guid: 840574b1279c30c4591a7f273b22d46f,
-        type: 3}
-      propertyPath: objPoint
-      value: 
-      objectReference: {fileID: 1737521585}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 840574b1279c30c4591a7f273b22d46f, type: 3}
 --- !u!1 &1297364749 stripped
@@ -4251,6 +4251,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1334985597298996443, guid: 840574b1279c30c4591a7f273b22d46f,
+        type: 3}
+      propertyPath: playerPoint
+      value: 
+      objectReference: {fileID: 432615763}
+    - target: {fileID: 1334985597298996443, guid: 840574b1279c30c4591a7f273b22d46f,
+        type: 3}
+      propertyPath: objPoint
+      value: 
+      objectReference: {fileID: 844270504}
     - target: {fileID: 8740989546033822397, guid: 840574b1279c30c4591a7f273b22d46f,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -4301,16 +4311,6 @@ PrefabInstance:
       propertyPath: messageBefore
       value: 'Enemies remaining      until gate unlock: '
       objectReference: {fileID: 0}
-    - target: {fileID: 1334985597298996443, guid: 840574b1279c30c4591a7f273b22d46f,
-        type: 3}
-      propertyPath: playerPoint
-      value: 
-      objectReference: {fileID: 432615763}
-    - target: {fileID: 1334985597298996443, guid: 840574b1279c30c4591a7f273b22d46f,
-        type: 3}
-      propertyPath: objPoint
-      value: 
-      objectReference: {fileID: 844270504}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 840574b1279c30c4591a7f273b22d46f, type: 3}
 --- !u!1 &1780056621 stripped
@@ -9523,6 +9523,11 @@ PrefabInstance:
         type: 3}
       propertyPath: nextLevel
       value: level_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7303857727903977203, guid: f4409a210fe00dd4ab8c889524de1708,
+        type: 3}
+      propertyPath: LevelIndex
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7303857727515321573, guid: f4409a210fe00dd4ab8c889524de1708,
         type: 3}
