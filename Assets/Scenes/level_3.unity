@@ -14626,10 +14626,25 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4527732496820471867, guid: e566fa3429d52a645a7aaf3406daf76b,
+    - target: {fileID: 4527732498244182156, guid: e566fa3429d52a645a7aaf3406daf76b,
         type: 3}
-      propertyPath: hp
-      value: 100
+      propertyPath: m_LocalPosition.y
+      value: -11.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 4527732498244182156, guid: e566fa3429d52a645a7aaf3406daf76b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957755746881679038, guid: e566fa3429d52a645a7aaf3406daf76b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -77
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957755746881679038, guid: e566fa3429d52a645a7aaf3406daf76b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -228
       objectReference: {fileID: 0}
     - target: {fileID: 4617383753628336413, guid: e566fa3429d52a645a7aaf3406daf76b,
         type: 3}
@@ -14653,13 +14668,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7565611168883626381, guid: e566fa3429d52a645a7aaf3406daf76b,
         type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 18fe48ec51593354da02efff60121a28, type: 3}
-    - target: {fileID: 4527732498244182158, guid: e566fa3429d52a645a7aaf3406daf76b,
-        type: 3}
-      propertyPath: dashStaminaUse
-      value: 10
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4527732498244182157, guid: e566fa3429d52a645a7aaf3406daf76b,
         type: 3}
@@ -14680,6 +14690,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565611168883626381, guid: e566fa3429d52a645a7aaf3406daf76b,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 18fe48ec51593354da02efff60121a28, type: 3}
+    - target: {fileID: 4527732496820471867, guid: e566fa3429d52a645a7aaf3406daf76b,
+        type: 3}
+      propertyPath: hp
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4527732498244182158, guid: e566fa3429d52a645a7aaf3406daf76b,
+        type: 3}
+      propertyPath: dashStaminaUse
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4527732498244182157, guid: e566fa3429d52a645a7aaf3406daf76b,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e566fa3429d52a645a7aaf3406daf76b, type: 3}
