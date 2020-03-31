@@ -884,6 +884,16 @@ PrefabInstance:
       propertyPath: deadHudMsg
       value: 
       objectReference: {fileID: 8841176882938035724}
+    - target: {fileID: 6567383089465403632, guid: 454853426102c0947b8b3fe893b98032,
+        type: 3}
+      propertyPath: musicSrc
+      value: 
+      objectReference: {fileID: 7565611168883626381}
+    - target: {fileID: 6567383089465403632, guid: 454853426102c0947b8b3fe893b98032,
+        type: 3}
+      propertyPath: deathClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 384aa48795e24dd40ac9f4758eed18ad, type: 3}
     - target: {fileID: 6567383088170664004, guid: 454853426102c0947b8b3fe893b98032,
         type: 3}
       propertyPath: dashFade
