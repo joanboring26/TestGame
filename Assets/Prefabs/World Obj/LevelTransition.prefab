@@ -442,6 +442,7 @@ MonoBehaviour:
   fadeTime: 3
   doorToClose: {fileID: 0}
   render: {fileID: 0}
+  LevelIndex: 0
 --- !u!82 &2432457895406928432
 AudioSource:
   m_ObjectHideFlags: 0
@@ -451,7 +452,8 @@ AudioSource:
   m_GameObject: {fileID: 7303857727903977199}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243756884487998118, guid: 423773783154716418c6a7335aa9c77a,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 86f09be999ecc9c40be50fe724081ca5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
