@@ -20,7 +20,11 @@ public class MainMenu : MonoBehaviour
 
     public void PlayLvl4()
     {
-        SceneManager.LoadScene("level_4");
+        SceneManager.LoadScene("level_4_1");
+    }
+    public void PlayLvl5()
+    {
+        SceneManager.LoadScene("level_5");
     }
     public void PlayTuto()
     {

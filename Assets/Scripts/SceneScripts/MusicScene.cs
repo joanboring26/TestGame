@@ -9,13 +9,14 @@ public class MusicScene : MonoBehaviour
 
     public static string prevScene = "none";
     public static float timeStamp = 0;
+    public float startTime = 0;
 
     private void Start()
     {
         if(prevScene != SceneManager.GetActiveScene().name)
         {
             prevScene = SceneManager.GetActiveScene().name;
-            timeStamp = 0;
+            timeStamp = startTime;
         }
         loadMusic();
     }
@@ -27,11 +28,5 @@ public class MusicScene : MonoBehaviour
     public void loadMusic()
     {
         musicSrc.time = timeStamp;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

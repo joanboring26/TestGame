@@ -801,7 +801,7 @@ MonoBehaviour:
   visScript: {fileID: 8622007338116389256}
   meshRend: {fileID: 8622007339524722465}
   initCol: {r: 1, g: 1, b: 0.5882353, a: 1}
-  preReadyTime: 0.8
+  preReadyTime: 0.65
   detonationTime: 0.4
   soundSource: {fileID: 8622007338375054863}
   preReadySound: {fileID: 8300000, guid: cb4fba4da33083342a42ffe577807707, type: 3}

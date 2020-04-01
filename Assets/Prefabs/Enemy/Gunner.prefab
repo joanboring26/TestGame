@@ -1185,7 +1185,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 45
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 40
@@ -6014,7 +6014,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 211
+  Priority: 60
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 30

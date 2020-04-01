@@ -6,7 +6,7 @@ public class UIPointerObj : MonoBehaviour
 {
     public Transform objPoint;
     public Transform playerPoint;
-    private Vector3 point;
+    public Vector3 point;
 
     RectTransform currTransform;
 
