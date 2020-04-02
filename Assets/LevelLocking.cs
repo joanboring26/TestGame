@@ -24,7 +24,7 @@ public class LevelLocking : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Backspace))
         {

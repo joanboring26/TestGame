@@ -10,10 +10,14 @@ public class Options : MonoBehaviour
     public AudioMixer auMixer;
     Resolution[] resolutions;
     public TMPro.TMP_Dropdown resolutionDrop;
+    public Slider mVol;
+    private float startingVol;
+    public Slider eVol;
+
 
     private void Start()
     {
-        auMixer.SetFloat("FxVol", -6);
+
         resolutions = Screen.resolutions;
 
         resolutionDrop.ClearOptions();
@@ -37,11 +41,15 @@ public class Options : MonoBehaviour
         resolutionDrop.AddOptions(options);
         resolutionDrop.value = currentResIndex;
         resolutionDrop.RefreshShownValue();
+
+
     }
 
     public void SetMVolume(float musicVolume) {
 
         Debug.Log(musicVolume);
+
+       
 
         auMixer.SetFloat("MusicVol", musicVolume);
         if (musicVolume == -30)
