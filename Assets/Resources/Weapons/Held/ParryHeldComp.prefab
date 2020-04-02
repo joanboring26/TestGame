@@ -185,4 +185,5 @@ MonoBehaviour:
   activeParryColliderTime: 0.25
   parryRate: 0.5
   staminaUse: 15
+  staminaRestore: 15
   visualParry: {fileID: 6404660139193940946}

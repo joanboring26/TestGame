@@ -28,6 +28,10 @@ public class ParryTutoCollision : MonoBehaviour
         {
             time.Resume();
             tutorial.SetActive(false);
+            LensDistortion lens;
+            profile = postProcProf.sharedProfile;
+            profile.TryGetSettings<LensDistortion>(out lens);
+            lens.intensity.Override(22f);
             Destroy(gameObject);
         }
 

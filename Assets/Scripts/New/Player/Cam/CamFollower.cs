@@ -17,9 +17,12 @@ public class CamFollower : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        currPos.position = new Vector3(
-            Mathf.SmoothStep(currPos.position.x, followPos.position.x, followVal * Time.deltaTime),
-            Mathf.SmoothStep(currPos.position.y, followPos.position.y, followVal * Time.deltaTime),
-            Mathf.SmoothStep(currPos.position.z, followPos.position.z, followVal * Time.deltaTime));
+        if (currPos != null)
+        {
+            currPos.position = new Vector3(
+                Mathf.SmoothStep(currPos.position.x, followPos.position.x, followVal * Time.deltaTime),
+                Mathf.SmoothStep(currPos.position.y, followPos.position.y, followVal * Time.deltaTime),
+                Mathf.SmoothStep(currPos.position.z, followPos.position.z, followVal * Time.deltaTime));
+        }
     }
 }

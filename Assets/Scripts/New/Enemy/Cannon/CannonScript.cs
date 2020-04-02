@@ -16,12 +16,17 @@ public class CannonScript : MonoBehaviour
     public Collider2D thisColl;
     public ParticleSystem partSys;
 
+    public float initDelay;
     float prevTime;
+
+    private void Start()
+    {
+        prevTime = initDelay + Time.time;
+    }
 
     // Update is called once per frame
     void Update()
     {
-
         if( Time.time > prevTime + fireDelay )
         {
             prevTime = Time.time + fireDelay;

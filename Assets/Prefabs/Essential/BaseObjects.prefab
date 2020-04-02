@@ -124,7 +124,8 @@ AudioSource:
   m_GameObject: {fileID: 7760470818311255666}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243330519289828560, guid: 423773783154716418c6a7335aa9c77a,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.3
@@ -224,6 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicSrc: {fileID: 7565611168883626381}
+  startTime: 0
 --- !u!1001 &4918128397702621402
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -894,6 +896,12 @@ PrefabInstance:
       propertyPath: deathClip
       value: 
       objectReference: {fileID: 8300000, guid: 384aa48795e24dd40ac9f4758eed18ad, type: 3}
+    - target: {fileID: 6567383088170664006, guid: 454853426102c0947b8b3fe893b98032,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 243756884487998118, guid: 423773783154716418c6a7335aa9c77a,
+        type: 2}
     - target: {fileID: 6567383088170664004, guid: 454853426102c0947b8b3fe893b98032,
         type: 3}
       propertyPath: dashFade
@@ -904,6 +912,24 @@ PrefabInstance:
       propertyPath: HudMan
       value: 
       objectReference: {fileID: 5116732990561906369}
+    - target: {fileID: 4703626742391212908, guid: 454853426102c0947b8b3fe893b98032,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 243756884487998118, guid: 423773783154716418c6a7335aa9c77a,
+        type: 2}
+    - target: {fileID: 6567383088171951311, guid: 454853426102c0947b8b3fe893b98032,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 243756884487998118, guid: 423773783154716418c6a7335aa9c77a,
+        type: 2}
+    - target: {fileID: 2473800009257813139, guid: 454853426102c0947b8b3fe893b98032,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 243756884487998118, guid: 423773783154716418c6a7335aa9c77a,
+        type: 2}
     - target: {fileID: 2937234307886951817, guid: 454853426102c0947b8b3fe893b98032,
         type: 3}
       propertyPath: musicHolder

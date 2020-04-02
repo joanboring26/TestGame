@@ -56,6 +56,7 @@ MonoBehaviour:
   parryVelocity: -30
   parryTargetSearchRadius: 8
   parried: 0
+  destroy: 1
 --- !u!50 &8250618294300218094
 Rigidbody2D:
   serializedVersion: 4
@@ -205,7 +206,8 @@ AudioSource:
   m_GameObject: {fileID: 8011284488468659109}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243756884487998118, guid: 423773783154716418c6a7335aa9c77a,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 2f8183779dbe550488de5f410b354dfa, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1

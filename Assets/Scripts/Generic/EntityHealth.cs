@@ -136,6 +136,10 @@ public class EntityHealth : MonoBehaviour
                 gameObject.SendMessage(deathMessage, hp);
                 Destroy(gameObject);
             }
+            else if(hp > 100)
+            {
+                hp = 100;
+            }
         }
 
         healthbar.fillAmount = scaleToHP(hp);

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class UIEliminateEn : MonoBehaviour
 {
     public bool destroyOnObjectiveDone;
+    public bool hideRemainingTargets;
     public string messageBefore;
     public string finalMessage;
     public int maxTargets;
@@ -37,7 +38,14 @@ public class UIEliminateEn : MonoBehaviour
         }
         else
         {
-            text.text = messageBefore + currTargets.ToString();
+            if (hideRemainingTargets)
+            {
+                text.text = messageBefore;
+            }
+            else
+            {
+                text.text = messageBefore + currTargets.ToString();
+            }
             sndSrc.PlayOneShot(enemyDownSnd);
         }
     }
