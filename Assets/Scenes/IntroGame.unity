@@ -800,7 +800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lineSource: {fileID: 1228630993}
   initialDelay: 3
-  finalDelay: 3
+  finalDelay: 6.3
   textLine1: {fileID: 1763780149}
   displayLine1: 2.9
   line1: {fileID: 8300000, guid: cc58830dc18315c40b1102247bb90942, type: 3}
