@@ -504,7 +504,7 @@ MonoBehaviour:
   fadeTime: 1.5
   doorToClose: {fileID: 1950059093}
   render: {fileID: 1711863761}
-  LevelIndex: 7
+  LevelIndex: 6
 --- !u!61 &35868003
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21934,22 +21934,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1202735867153189452, guid: af358e3a0abdbe44786857cc8af425da,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1202735867325002374, guid: af358e3a0abdbe44786857cc8af425da,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1202735866998425001, guid: af358e3a0abdbe44786857cc8af425da,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1202735867932844472, guid: af358e3a0abdbe44786857cc8af425da,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1202735867153189452, guid: af358e3a0abdbe44786857cc8af425da,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1202735867325002374, guid: af358e3a0abdbe44786857cc8af425da,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -22417,6 +22417,11 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 2.1468835
       objectReference: {fileID: 0}
+    - target: {fileID: 3225565259485662119, guid: 9215e89fabc7c0c49a7306a1cd0b39e2,
+        type: 3}
+      propertyPath: numOfEnemies
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9221366127919069308, guid: 9215e89fabc7c0c49a7306a1cd0b39e2,
         type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
@@ -22431,11 +22436,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 7.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3225565259485662119, guid: 9215e89fabc7c0c49a7306a1cd0b39e2,
-        type: 3}
-      propertyPath: numOfEnemies
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3225565259485662119, guid: 9215e89fabc7c0c49a7306a1cd0b39e2, type: 3}
@@ -63610,15 +63610,15 @@ PrefabInstance:
       propertyPath: m_firstOverflowCharacterIndex
       value: 23
       objectReference: {fileID: 0}
-    - target: {fileID: 1334985597298996440, guid: 840574b1279c30c4591a7f273b22d46f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1334985596275869579, guid: 840574b1279c30c4591a7f273b22d46f,
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1334985597298996440, guid: 840574b1279c30c4591a7f273b22d46f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 840574b1279c30c4591a7f273b22d46f, type: 3}
@@ -79402,11 +79402,6 @@ PrefabInstance:
       propertyPath: m_firstOverflowCharacterIndex
       value: -1
       objectReference: {fileID: 0}
-    - target: {fileID: 1334985597298996440, guid: 840574b1279c30c4591a7f273b22d46f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1334985596275869579, guid: 840574b1279c30c4591a7f273b22d46f,
         type: 3}
       propertyPath: m_Enabled
@@ -79422,6 +79417,11 @@ PrefabInstance:
       propertyPath: playerPoint
       value: 
       objectReference: {fileID: 363039696}
+    - target: {fileID: 1334985597298996440, guid: 840574b1279c30c4591a7f273b22d46f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8740989546033822395, guid: 840574b1279c30c4591a7f273b22d46f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 840574b1279c30c4591a7f273b22d46f, type: 3}

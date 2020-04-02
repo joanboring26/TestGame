@@ -558,6 +558,16 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3225565259485662119, guid: 9215e89fabc7c0c49a7306a1cd0b39e2,
+        type: 3}
+      propertyPath: numOfEnemies
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3225565259485662119, guid: 9215e89fabc7c0c49a7306a1cd0b39e2,
+        type: 3}
+      propertyPath: destroyDoor
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9221366127919069308, guid: 9215e89fabc7c0c49a7306a1cd0b39e2,
         type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
@@ -622,16 +632,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 11.1105385
-      objectReference: {fileID: 0}
-    - target: {fileID: 3225565259485662119, guid: 9215e89fabc7c0c49a7306a1cd0b39e2,
-        type: 3}
-      propertyPath: numOfEnemies
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3225565259485662119, guid: 9215e89fabc7c0c49a7306a1cd0b39e2,
-        type: 3}
-      propertyPath: destroyDoor
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9215e89fabc7c0c49a7306a1cd0b39e2, type: 3}
@@ -1314,6 +1314,16 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3225565259485662119, guid: 9215e89fabc7c0c49a7306a1cd0b39e2,
+        type: 3}
+      propertyPath: numOfEnemies
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3225565259485662119, guid: 9215e89fabc7c0c49a7306a1cd0b39e2,
+        type: 3}
+      propertyPath: destroyDoor
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9221366127919069308, guid: 9215e89fabc7c0c49a7306a1cd0b39e2,
         type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
@@ -1332,16 +1342,6 @@ PrefabInstance:
     - target: {fileID: 3225565260276679125, guid: 9215e89fabc7c0c49a7306a1cd0b39e2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3225565259485662119, guid: 9215e89fabc7c0c49a7306a1cd0b39e2,
-        type: 3}
-      propertyPath: numOfEnemies
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3225565259485662119, guid: 9215e89fabc7c0c49a7306a1cd0b39e2,
-        type: 3}
-      propertyPath: destroyDoor
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -7668,11 +7668,6 @@ PrefabInstance:
 
 '
       objectReference: {fileID: 0}
-    - target: {fileID: 1334985597298996440, guid: 840574b1279c30c4591a7f273b22d46f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1334985596275869579, guid: 840574b1279c30c4591a7f273b22d46f,
         type: 3}
       propertyPath: m_Enabled
@@ -7688,6 +7683,11 @@ PrefabInstance:
       propertyPath: playerPoint
       value: 
       objectReference: {fileID: 10042561}
+    - target: {fileID: 1334985597298996440, guid: 840574b1279c30c4591a7f273b22d46f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 840574b1279c30c4591a7f273b22d46f, type: 3}
 --- !u!1 &749836688 stripped
@@ -8581,11 +8581,6 @@ PrefabInstance:
 
 '
       objectReference: {fileID: 0}
-    - target: {fileID: 1334985597298996440, guid: 840574b1279c30c4591a7f273b22d46f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1334985596275869579, guid: 840574b1279c30c4591a7f273b22d46f,
         type: 3}
       propertyPath: m_Enabled
@@ -8601,6 +8596,11 @@ PrefabInstance:
       propertyPath: playerPoint
       value: 
       objectReference: {fileID: 10042561}
+    - target: {fileID: 1334985597298996440, guid: 840574b1279c30c4591a7f273b22d46f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 840574b1279c30c4591a7f273b22d46f, type: 3}
 --- !u!1 &902247617 stripped
@@ -11746,11 +11746,6 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1334985597298996440, guid: 840574b1279c30c4591a7f273b22d46f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1334985596275869579, guid: 840574b1279c30c4591a7f273b22d46f,
         type: 3}
       propertyPath: m_Enabled
@@ -11771,6 +11766,11 @@ PrefabInstance:
       propertyPath: playerPoint
       value: 
       objectReference: {fileID: 10042561}
+    - target: {fileID: 1334985597298996440, guid: 840574b1279c30c4591a7f273b22d46f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 840574b1279c30c4591a7f273b22d46f, type: 3}
 --- !u!1 &1201845541 stripped
@@ -11794,7 +11794,7 @@ PrefabInstance:
     - target: {fileID: 4763539546445066786, guid: 512c35889e3c4e04ca78603a5beb5134,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4763539546445066789, guid: 512c35889e3c4e04ca78603a5beb5134,
         type: 3}
@@ -11911,26 +11911,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7696704419501043494, guid: 512c35889e3c4e04ca78603a5beb5134,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7696704419501043494, guid: 512c35889e3c4e04ca78603a5beb5134,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7696704420539133784, guid: 512c35889e3c4e04ca78603a5beb5134,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7696704420539133784, guid: 512c35889e3c4e04ca78603a5beb5134,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7696704419896791380, guid: 512c35889e3c4e04ca78603a5beb5134,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -12060,6 +12040,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7696704419501043494, guid: 512c35889e3c4e04ca78603a5beb5134,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7696704419501043494, guid: 512c35889e3c4e04ca78603a5beb5134,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7696704420539133784, guid: 512c35889e3c4e04ca78603a5beb5134,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7696704420539133784, guid: 512c35889e3c4e04ca78603a5beb5134,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 512c35889e3c4e04ca78603a5beb5134, type: 3}
@@ -14422,6 +14422,16 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3225565259485662119, guid: 9215e89fabc7c0c49a7306a1cd0b39e2,
+        type: 3}
+      propertyPath: numOfEnemies
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3225565259485662119, guid: 9215e89fabc7c0c49a7306a1cd0b39e2,
+        type: 3}
+      propertyPath: destroyDoor
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9221366127919069308, guid: 9215e89fabc7c0c49a7306a1cd0b39e2,
         type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
@@ -14440,16 +14450,6 @@ PrefabInstance:
     - target: {fileID: 3225565260276679125, guid: 9215e89fabc7c0c49a7306a1cd0b39e2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3225565259485662119, guid: 9215e89fabc7c0c49a7306a1cd0b39e2,
-        type: 3}
-      propertyPath: numOfEnemies
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3225565259485662119, guid: 9215e89fabc7c0c49a7306a1cd0b39e2,
-        type: 3}
-      propertyPath: destroyDoor
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -15336,6 +15336,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1202735867932844474, guid: af358e3a0abdbe44786857cc8af425da,
+        type: 3}
+      propertyPath: m_Radius
+      value: 12.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1202735867932844472, guid: af358e3a0abdbe44786857cc8af425da,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -15345,11 +15350,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 1202735867932844474, guid: af358e3a0abdbe44786857cc8af425da,
-        type: 3}
-      propertyPath: m_Radius
-      value: 12.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af358e3a0abdbe44786857cc8af425da, type: 3}
@@ -17973,11 +17973,6 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1334985597298996440, guid: 840574b1279c30c4591a7f273b22d46f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1334985596275869579, guid: 840574b1279c30c4591a7f273b22d46f,
         type: 3}
       propertyPath: m_Enabled
@@ -17993,6 +17988,11 @@ PrefabInstance:
       propertyPath: playerPoint
       value: 
       objectReference: {fileID: 10042561}
+    - target: {fileID: 1334985597298996440, guid: 840574b1279c30c4591a7f273b22d46f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 840574b1279c30c4591a7f273b22d46f, type: 3}
 --- !u!1 &1915468872 stripped
@@ -18385,11 +18385,6 @@ PrefabInstance:
       propertyPath: m_firstOverflowCharacterIndex
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 1334985597298996440, guid: 840574b1279c30c4591a7f273b22d46f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1334985596275869579, guid: 840574b1279c30c4591a7f273b22d46f,
         type: 3}
       propertyPath: m_Enabled
@@ -18405,6 +18400,11 @@ PrefabInstance:
       propertyPath: playerPoint
       value: 
       objectReference: {fileID: 10042561}
+    - target: {fileID: 1334985597298996440, guid: 840574b1279c30c4591a7f273b22d46f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8740989546033822395, guid: 840574b1279c30c4591a7f273b22d46f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 840574b1279c30c4591a7f273b22d46f, type: 3}
@@ -18994,16 +18994,6 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 3225565260276679125, guid: 9215e89fabc7c0c49a7306a1cd0b39e2,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3.55727
-      objectReference: {fileID: 0}
-    - target: {fileID: 3225565260276679125, guid: 9215e89fabc7c0c49a7306a1cd0b39e2,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3225565259485662119, guid: 9215e89fabc7c0c49a7306a1cd0b39e2,
         type: 3}
       propertyPath: numOfEnemies
@@ -19012,6 +19002,16 @@ PrefabInstance:
     - target: {fileID: 3225565259485662119, guid: 9215e89fabc7c0c49a7306a1cd0b39e2,
         type: 3}
       propertyPath: destroyDoor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3225565260276679125, guid: 9215e89fabc7c0c49a7306a1cd0b39e2,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.55727
+      objectReference: {fileID: 0}
+    - target: {fileID: 3225565260276679125, guid: 9215e89fabc7c0c49a7306a1cd0b39e2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -19392,7 +19392,7 @@ PrefabInstance:
     - target: {fileID: 7303857727903977203, guid: f4409a210fe00dd4ab8c889524de1708,
         type: 3}
       propertyPath: LevelIndex
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7303857727903977203, guid: f4409a210fe00dd4ab8c889524de1708,
         type: 3}
