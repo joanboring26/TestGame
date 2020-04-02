@@ -30,6 +30,10 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("2d Tutorial");
     }
+    public void PlayMainMenu()
+    {
+        SceneManager.LoadScene("NewMainMenu");
+    }
 
     public void QuitGame()
     {
