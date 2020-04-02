@@ -43,4 +43,13 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("IntroGame");
+        }
+    }
+
 }
