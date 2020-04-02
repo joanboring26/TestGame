@@ -531,10 +531,10 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -587,6 +587,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   auMixer: {fileID: 24100000, guid: 423773783154716418c6a7335aa9c77a, type: 2}
   resolutionDrop: {fileID: 7696704420722945114}
+  mVol: {fileID: 0}
+  eVol: {fileID: 0}
 --- !u!1 &4763539546537426810
 GameObject:
   m_ObjectHideFlags: 0
