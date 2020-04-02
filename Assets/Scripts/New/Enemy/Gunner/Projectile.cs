@@ -54,7 +54,15 @@ public class Projectile : MonoBehaviour
                 gameObject.layer = 12;
                 velocity *= 1.6f;
                 damage *= 1.5f;
-                findParryTarget();
+                if (!findParryTarget())
+                {
+                    Vector2 dir = other.transform.position - transform.position;
+                    Quaternion newRotation = Quaternion.AngleAxis(Mathf.Atan2(-dir.y, dir.x) * Mathf.Rad2Deg - 90, Vector3.forward);
+                    newRotation = Quaternion.Euler(0, 180, newRotation.eulerAngles.z);
+
+                    transform.rotation = Quaternion.Euler(0, 180, newRotation.eulerAngles.z);
+                    rig.velocity = transform.up * -velocity;
+                }
                 break;
             case "NPC":
                 other.GetComponent<EnemyHealth>().ModHealth(damage, transform);
