@@ -70,7 +70,7 @@ MonoBehaviour:
   m_material: {fileID: 0}
   m_sharedMaterial: {fileID: 0}
   m_isDefaultMaterial: 0
-  m_padding: 1.25
+  m_padding: 0
   m_canvasRenderer: {fileID: 1334985596275869578}
   m_TextComponent: {fileID: 8740989546033822397}
   m_materialReferenceIndex: 1
@@ -109,8 +109,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -34, y: -27}
-  m_SizeDelta: {x: 37.3, y: 49.8}
+  m_AnchoredPosition: {x: -48.1, y: -53}
+  m_SizeDelta: {x: 65.7, y: 87.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1334985597298996437
 CanvasRenderer:
@@ -163,6 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objPoint: {fileID: 0}
   playerPoint: {fileID: 0}
+  point: {x: 0, y: 0, z: 0}
 --- !u!1 &8740989546033822399
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,7 +201,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 174, y: -66}
+  m_AnchoredPosition: {x: 222, y: -66}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8740989546033822394
@@ -260,8 +261,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -277,7 +278,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 19
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -298,7 +299,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -203.98235, w: 0}
+  m_margin: {x: 0, y: 0, z: -434.5069, w: -46.10486}
   m_textInfo:
     textComponent: {fileID: 8740989546033822397}
     characterCount: 39
@@ -337,6 +338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyOnObjectiveDone: 0
+  hideRemainingTargets: 0
   messageBefore: 'Enemies remaining      until gate unlock:'
   finalMessage: Area cleared head to next zone
   maxTargets: 6
