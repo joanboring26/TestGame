@@ -7,7 +7,7 @@ public class AttackTuto : MonoBehaviour
 {
     public bool dontCheck;
     public GameObject attack;
-    public GameObject objMarker;
+    public GameObject marker;
     public GameObject gateBlocker;
     public GameObject tip;
     public Timescale time;
@@ -17,6 +17,12 @@ public class AttackTuto : MonoBehaviour
 
     private bool secondStage = false;
 
+    GameObject test;
+    private void Start()
+    {
+        test = marker;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!dontCheck)
@@ -24,6 +30,7 @@ public class AttackTuto : MonoBehaviour
             if (collision.tag == "Parry")
             {
                 LensDistortion lens;
+                test.SetActive(true);
                 profile = postProcProf.sharedProfile;
                 profile.TryGetSettings<LensDistortion>(out lens);
                 lens.intensity.Override(22f);
@@ -49,7 +56,7 @@ public class AttackTuto : MonoBehaviour
 
     public void EnemyDead()
     {
-        objMarker.SetActive(true);
+        test.SetActive(true);
         tip.SetActive(true);
         Destroy(attack);
         Destroy(gateBlocker);
