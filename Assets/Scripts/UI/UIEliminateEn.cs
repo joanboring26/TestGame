@@ -23,7 +23,10 @@ public class UIEliminateEn : MonoBehaviour
     private void Start()
     {
         currTargets = maxTargets;
-        text.text = messageBefore + currTargets.ToString();
+        if (!hideRemainingTargets)
+        {
+            text.text = messageBefore + currTargets.ToString();
+        }
     }
 
     public void eventTrig(int valMod)
