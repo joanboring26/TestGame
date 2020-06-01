@@ -5,6 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public Rigidbody2D rig;
+    public GameObject expl;
     public LayerMask parryTargets;
 
     public float lifeTime;
@@ -53,7 +54,6 @@ public class Projectile : MonoBehaviour
             case "Parry":
                 gameObject.layer = 12;
                 velocity *= 1.6f;
-                damage *= 1.5f;
                 if (!findParryTarget())
                 {
                     Vector2 dir = other.transform.position - transform.position;
@@ -65,8 +65,11 @@ public class Projectile : MonoBehaviour
                 }
                 break;
             case "NPC":
-                other.GetComponent<EnemyHealth>().ModHealth(damage, transform);
+                other.GetComponent<EnemyHealth>().ModHealth(damage * 3f, transform);
                 Destroy(gameObject);
+                break;
+            case "":
+
                 break;
             default:
                 Destroy(gameObject);

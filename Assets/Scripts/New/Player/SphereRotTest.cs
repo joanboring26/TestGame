@@ -13,10 +13,15 @@ public class SphereRotTest : MonoBehaviour
 
     //The variable CurrTransparency can only go from 0 to 1
 
+    private void Start()
+    {
+        mat.color = new Color(1, 1, 1, 0);
+    }
+
     void Update()
     {
         yRot = (yRot + rig.velocity.sqrMagnitude * 500 * Time.deltaTime) % 360;
-        mat.color = new Color( 1, 1, 1, rig.velocity.sqrMagnitude / 10);
+        mat.color = new Color(mat.color.r, mat.color.g, mat.color.b, rig.velocity.sqrMagnitude / 10);
         if ((Input.GetAxis("Horizontal") != 0) || (Input.GetAxis("Vertical") != 0))
         {
             angle = Mathf.Atan2(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal")) * Mathf.Rad2Deg;

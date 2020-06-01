@@ -86,6 +86,9 @@ MonoBehaviour:
   attackVisual: {fileID: 6706731050529423716}
   attackBox: {fileID: 379847015357405916}
   swingSrc: {fileID: 9035641956654952758}
+  swingSnds:
+  - {fileID: 8300000, guid: 2c2d5f974d033664885965c688d5313f, type: 3}
+  - {fileID: 8300000, guid: d66276d644f11fb4b83294d08855b9c3, type: 3}
   fireRate: 0.45
   activeAttackColliderTime: 0.1
   attackDmg: -25
@@ -102,16 +105,16 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243756884487998118, guid: 423773783154716418c6a7335aa9c77a,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: fb462b9b0b32d594eaee6dd9333eb27c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: bea5810a9fe405646a2369bdc1efae2b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0

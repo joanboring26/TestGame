@@ -40,7 +40,9 @@ public class EntityHealth : MonoBehaviour
     public GameObject explosionRef;
 
     [Header("Damaged visuals")]
-    public Material[] damagedSprites;
+    public Material damagedMat;
+    public SpriteRenderer body;
+    public Sprite[] damagedSprites;
     int totalStates;
     int currState;
 
@@ -73,6 +75,7 @@ public class EntityHealth : MonoBehaviour
 
     private void Start()
     {
+        damagedMat.color = new Color(1, 1, 1,0);
         newRange = (maxHPBarVal - minHPBarVal);
 
         prevHealth = hp;
@@ -115,7 +118,11 @@ public class EntityHealth : MonoBehaviour
             }
             nextDamage = Time.time + nextDamageDelay;
             hp += givVal;
-            currState = Mathf.RoundToInt((hp / maxHp) * 3);
+
+            //Visuals
+            damagedMat.color = new Color(damagedMat.color.r, (hp / maxHp), damagedMat.color.b, damagedMat.color.a);
+            currState = Mathf.RoundToInt((hp / maxHp) * totalStates);
+            body.sprite = damagedSprites[currState];
 
             if (mainCam != null)
             {
@@ -155,7 +162,11 @@ public class EntityHealth : MonoBehaviour
 
             nextDamage = Time.time + nextDamageDelay;
             hp += givVal;
-            currState = Mathf.RoundToInt((hp / maxHp) * 3);
+
+            //Visuals
+            damagedMat.color = new Color((hp / maxHp), (hp / maxHp), damagedMat.color.b, damagedMat.color.a);
+            currState = Mathf.RoundToInt((hp / maxHp) * totalStates);
+            body.sprite = damagedSprites[currState];
 
             painSrc.PlayOneShot(hitSnds[Random.Range(0, hitSnds.Length)]);
 
@@ -181,7 +192,8 @@ public class EntityHealth : MonoBehaviour
     {
         if(prevHealth > hp)
         {
-            hp = Mathf.Clamp((dealtDamage / prevHealthRecovery) * dealtDamage + hp, hp, prevHealth);
+            //hp = Mathf.Clamp((dealtDamage / prevHealthRecovery) * dealtDamage + hp, hp, prevHealth);
+            hp = Mathf.Clamp(prevHealthRecovery + hp, hp, prevHealth);
             healthbar.fillAmount = scaleToHP(hp);
         }
     }

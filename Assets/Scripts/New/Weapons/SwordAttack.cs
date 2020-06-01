@@ -9,6 +9,7 @@ public class SwordAttack : AttackBase
     public GameObject attackVisual;
     public BoxCollider2D attackBox;
     public AudioSource swingSrc;
+    public AudioClip[] swingSnds;
 
     [Header("Attack values")]
     public float fireRate;
@@ -79,7 +80,7 @@ public class SwordAttack : AttackBase
 
     public IEnumerator initAttack()
     {
-        swingSrc.Play();
+        swingSrc.PlayOneShot(swingSnds[Random.Range(0, swingSnds.Length)]);
         attackVisual.SetActive(true);
         attackBox.enabled = true;
         yield return new WaitForSeconds(activeAttackColliderTime);

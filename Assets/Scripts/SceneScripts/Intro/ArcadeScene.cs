@@ -28,6 +28,7 @@ public class ArcadeScene : MonoBehaviour
 
     public AudioSource audioSrc;
     public AudioSource boxSrc;
+    public AudioSource bootSrc;
 
     public Image fadeImage;
     public GameObject dialogue1;
@@ -258,7 +259,7 @@ public class ArcadeScene : MonoBehaviour
         }
         P4 = false;
 
-        audioSrc.PlayOneShot(bootUp);
+        bootSrc.PlayOneShot(bootUp);
 
         while (!P4)
         {

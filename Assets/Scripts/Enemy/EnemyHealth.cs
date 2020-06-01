@@ -44,7 +44,7 @@ public class EnemyHealth : MonoBehaviour
             hp += givVal;
             currState = Mathf.RoundToInt((hp / maxHp) * totalStates);
 
-            Instantiate(explosionRef, transform.position, transform.rotation);
+            Instantiate(explosionRef, transform.position, attackDir.rotation * Quaternion.Euler(0,0,-120 + Random.Range(-20,20)) );
             if (hitMessageTarget != null)
             {
                 hitMessageTarget.SendMessage(hitMessage, 0.3f);

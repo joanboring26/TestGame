@@ -50,7 +50,7 @@ MonoBehaviour:
     m_Bits: 17408
   radius: 4
   damage: -25
-  damageFalloff: 0.32
+  damageFalloff: 0.97
   force: 15
   objDestroyTime: 2
   blowUpOnAppear: 1

@@ -6,6 +6,7 @@ public class BomberHealth : EnemyHealth
 {
     [Header("Bomber variables")]
 
+    bool hitByPlayer = false;
     bool launching = false;
     public float pushForce;
 

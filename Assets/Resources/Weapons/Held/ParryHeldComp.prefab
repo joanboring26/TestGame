@@ -182,7 +182,7 @@ MonoBehaviour:
   mUp: 0
   playerStats: {fileID: 0}
   parrying: 0
-  activeParryColliderTime: 0.25
+  activeParryColliderTime: 0.35
   parryRate: 0.5
   staminaUse: 15
   staminaRestore: 15

@@ -877,9 +877,7 @@ MonoBehaviour:
   playerImpactSnd:
   - {fileID: 8300000, guid: 62548a644d5c3024591828ee8cba71b3, type: 3}
   parryImpactSnd:
-  - {fileID: 8300000, guid: 2baab2c3211df12438fea16b9d03bc4f, type: 3}
-  - {fileID: 8300000, guid: 5be435ba14077864cb3d857e6b3ccef3, type: 3}
-  - {fileID: 8300000, guid: 1ea2cd4c057282a4188aead7f1999826, type: 3}
+  - {fileID: 8300000, guid: 107c6e5e147b6e3439e93bba0e9717b4, type: 3}
   sndSrc: {fileID: 189903896091943545}
   parried: 0
 --- !u!82 &189903896091943545
